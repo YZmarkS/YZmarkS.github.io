@@ -1,0 +1,11 @@
+#+TITLE: Week 33, 2026 (Aug 9 - 16)
+
+* Initial Frontend
+
+I finally made the decision to use /Svelte/ for the frontend development.
+
+I debated between React and Svelte for a bit. On one hand, I had more experience in React; On the other hand, I have heard great things about Svelte. After learning there is a /drag-and-drop library/ for Svelte, I made the choice to choose Svelte.
+
+Another decision to make was whether or not I should use SvelteKit. At this moment, I am not concerned about any advanced features besides /routing/. In such case, SvelteKit may be overkill in comparison to a lightweight library. In the end, I still chose SvelteKit, because I figure I can simply opt-out of any advanced features (such as loading data server-side).
+
+* Cross-Origin Resource Sharing
