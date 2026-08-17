@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       363878b8-814e-4b24-89f6-ff05eb371eaa
+:END:
+#+TITLE: Org Publishing
+
+* Download Packages
+
+* Getting CSS
+
+~org-html-htmlize-generate-css~
+
+~org-html-head-include-default-style~
+
+~org-html-publish-to-html~
+
+
+  

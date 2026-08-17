@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       09218d0d-25c9-4b3d-8e58-2ecf46edabb4
+:END:
+#+TITLE: Org Roam
+
+* Syncing
+
+~org-roam-db-sync~
+
+~org-roam-update-org-id-locations~
