@@ -38,8 +38,8 @@
       org-html-head-include-scripts nil
       ;; org-html-head-include-default-style nil
       org-html-head
-      (concat "<link rel=\"stylesheet\" href=\"/style.css\">"
-	      "<link rel=\"stylesheet\" href=\"/org_theme.css\">")
+      (concat "<link rel=\"stylesheet\" href=\"/style.css\">")
+	      ;; "<link rel=\"stylesheet\" href=\"/org_theme.css\">")
       org-html-preamble
       (concat "<div id=\"main-header\">"
 	      "<a href=\"/index.html\">Home</a>"
