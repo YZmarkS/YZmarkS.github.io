@@ -24,7 +24,8 @@
 	     :with-author nil
 	     :with-toc nil
 	     :section-numbers nil
-	     :time-stamp-file nil)
+	     :time-stamp-file nil
+	     :htmlized-source t)
        (list "static"
 	     :recursive t
 	     :base-directory "./Content"
@@ -33,9 +34,12 @@
 	     :publishing-function 'org-publish-attachment)))
 
 (setq org-html-validation-link nil
+      org-html-htmlize-output-type 'css
       org-html-head-include-scripts nil
-      org-html-head-include-default-style nil
-      org-html-head "<link rel=\"stylesheet\" href=\"/style.css\">"
+      ;; org-html-head-include-default-style nil
+      org-html-head
+      (concat "<link rel=\"stylesheet\" href=\"/style.css\">"
+	      "<link rel=\"stylesheet\" href=\"/org_theme.css\">")
       org-html-preamble
       (concat "<div id=\"main-header\">"
 	      "<a href=\"/index.html\">Home</a>"
