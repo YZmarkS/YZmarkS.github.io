@@ -1,0 +1,25 @@
+#main-header {
+    display: flex;
+    justify-content: flex-start;
+
+    background-color: #F0F0F0;
+    border: solid;
+    border-width: medium;
+    border-color: #E8E8E8;
+
+    margin: 0, -0.5rem;
+}
+
+#main-header a {
+    float: left;
+    text-align: center;
+    padding: 0.5rem;
+
+    text-decoration: none;
+    color: black;
+    background-color: #F0F0F0;
+}
+
+#main-header a:hover {
+    background-color: #E8E8E8;
+}

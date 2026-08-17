@@ -1,0 +1,5 @@
+#+TITLE: Development Blog
+
+#+INCLUDE: "../header.org"
+
+- [[file:Week_33_2026.org][Week 33, 2026]]
