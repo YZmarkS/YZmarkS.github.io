@@ -12,7 +12,7 @@ Another decision to make was whether or not I should use SvelteKit. At this mome
 
 I made one endpoint and one frontend page to test the concept. In the process, I ran into a cross-origin resource sharing (CORS) error in the frontend.
 
-While I have encountered similar errors before, this time I went to the source to understand the underpinning logic behind the mechanism. The source I used was MDN [fn:1].
+While I have encountered similar errors before, this time I went to the source to understand the underpinning logic behind the mechanism. The source I used was MDN [fn:1], and a detailed note can be found [[id:95445645-e51d-4eac-9e83-ebc3b62511cf][elsewhere]]. 
 
 After understanding the motivation of the mechanism, I decided to solve the error by setting ~Access-Control-Allow-Origin: *~. I am aware this is a temporary solution and it is only valid because I am in control of the development environment. When the time to deploy comes, I will set it up properly to only allow calls from trusted sources. 
 
