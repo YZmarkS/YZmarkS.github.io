@@ -1,7 +1,5 @@
 #+TITLE: Youzhang (Mark) Sun
 
-#+INCLUDE: "header.org"
-
 * About
 
 I am a computer science graduate with a background in programming language theory and mathematics.

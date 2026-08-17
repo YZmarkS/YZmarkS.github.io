@@ -1,0 +1,3 @@
+#+TITLE: Notes
+
+- [[file:CORS_Cross-Origin_Resource_Sharing.org][Basic Understanding of Cross-Origin Resource Sharing (CORS)]]
