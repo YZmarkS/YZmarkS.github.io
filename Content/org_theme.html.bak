@@ -1,0 +1,3386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-08-17 Mon 02:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Edelweiss" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<p>
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-abbrev-table-name {
+    <i>* abbrev-table-name *</i>
+    color: #0000ff;
+}
+.org-ansi-color-black {
+    <i>* ansi-color-black *</i>
+    color: #000000;
+    background-color: #000000;
+}
+.org-ansi-color-blue {
+    <i>* ansi-color-blue *</i>
+    color: #0000ee;
+    background-color: #0000ee;
+}
+.org-ansi-color-bold {
+    <i>* ansi-color-bold *</i>
+    font-weight: bold;
+}
+.org-ansi-color-bright-black {
+    <i>* ansi-color-bright-black *</i>
+    color: #4d4d4d;
+    background-color: #4d4d4d;
+}
+.org-ansi-color-bright-blue {
+    <i>* ansi-color-bright-blue *</i>
+    color: #0000ff;
+    background-color: #0000ff;
+}
+.org-ansi-color-bright-cyan {
+    <i>* ansi-color-bright-cyan *</i>
+    color: #00eeee;
+    background-color: #00eeee;
+}
+.org-ansi-color-bright-green {
+    <i>* ansi-color-bright-green *</i>
+    color: #00ee00;
+    background-color: #00ee00;
+}
+.org-ansi-color-bright-magenta {
+    <i>* ansi-color-bright-magenta *</i>
+    color: #ee00ee;
+    background-color: #ee00ee;
+}
+.org-ansi-color-bright-red {
+    <i>* ansi-color-bright-red *</i>
+    color: #ee0000;
+    background-color: #ee0000;
+}
+.org-ansi-color-bright-white {
+    <i>* ansi-color-bright-white *</i>
+    color: #ffffff;
+    background-color: #ffffff;
+}
+.org-ansi-color-bright-yellow {
+    <i>* ansi-color-bright-yellow *</i>
+    color: #eeee00;
+    background-color: #eeee00;
+}
+.org-ansi-color-cyan {
+    <i>* ansi-color-cyan *</i>
+    color: #00cdcd;
+    background-color: #00cdcd;
+}
+.org-ansi-color-faint {
+}
+.org-ansi-color-fast-blink {
+}
+.org-ansi-color-green {
+    <i>* ansi-color-green *</i>
+    color: #00cd00;
+    background-color: #00cd00;
+}
+.org-ansi-color-inverse {
+}
+.org-ansi-color-italic {
+    <i>* ansi-color-italic *</i>
+    font-style: italic;
+}
+.org-ansi-color-magenta {
+    <i>* ansi-color-magenta *</i>
+    color: #cd00cd;
+    background-color: #cd00cd;
+}
+.org-ansi-color-red {
+    <i>* ansi-color-red *</i>
+    color: #cd0000;
+    background-color: #cd0000;
+}
+.org-ansi-color-slow-blink {
+}
+.org-ansi-color-underline {
+    <i>* ansi-color-underline *</i>
+    text-decoration: underline;
+}
+.org-ansi-color-white {
+    <i>* ansi-color-white *</i>
+    color: #e5e5e5;
+    background-color: #e5e5e5;
+}
+.org-ansi-color-yellow {
+    <i>* ansi-color-yellow *</i>
+    color: #cdcd00;
+    background-color: #cdcd00;
+}
+.org-blink-matching-paren-offscreen {
+    <i>* blink-matching-paren-offscreen *</i>
+    color: #00ff00;
+}
+.org-bold {
+    <i>* bold *</i>
+    font-weight: bold;
+}
+.org-bold-italic {
+    <i>* bold-italic *</i>
+    font-weight: bold;
+    font-style: italic;
+}
+.org-border {
+}
+.org-bracket {
+}
+.org-browse-url-button {
+    <i>* browse-url-button *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-buffer-menu-buffer {
+    <i>* buffer-menu-buffer *</i>
+    font-weight: bold;
+}
+.org-builtin {
+    <i>* font-lock-builtin-face *</i>
+    color: #483d8b;
+}
+.org-button {
+    <i>* button *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-c-annotation {
+    <i>* c-annotation-face *</i>
+    color: #008b8b;
+}
+.org-calendar-month-header {
+    <i>* calendar-month-header *</i>
+    color: #0000ff;
+}
+.org-calendar-today {
+    <i>* calendar-today *</i>
+    text-decoration: underline;
+}
+.org-calendar-weekday-header {
+    <i>* calendar-weekday-header *</i>
+    color: #008b8b;
+}
+.org-calendar-weekend-header {
+    <i>* calendar-weekend-header *</i>
+    color: #b22222;
+}
+.org-change-log-acknowledgment {
+    <i>* change-log-acknowledgment *</i>
+    color: #b22222;
+}
+.org-change-log-conditionals {
+    <i>* change-log-conditionals *</i>
+    color: #a0522d;
+}
+.org-change-log-date {
+    <i>* change-log-date *</i>
+    color: #8b2252;
+}
+.org-change-log-email {
+    <i>* change-log-email *</i>
+    color: #a0522d;
+}
+.org-change-log-file {
+    <i>* change-log-file *</i>
+    color: #0000ff;
+}
+.org-change-log-function {
+    <i>* change-log-function *</i>
+    color: #a0522d;
+}
+.org-change-log-list {
+    <i>* change-log-list *</i>
+    color: #a020f0;
+}
+.org-change-log-name {
+    <i>* change-log-name *</i>
+    color: #008b8b;
+}
+.org-child-frame-border {
+}
+.org-comint-highlight-input {
+    <i>* comint-highlight-input *</i>
+    font-weight: bold;
+}
+.org-comint-highlight-prompt {
+    <i>* comint-highlight-prompt *</i>
+    color: #0000cd;
+}
+.org-comment {
+    <i>* font-lock-comment-face *</i>
+    color: #b22222;
+}
+.org-comment-delimiter {
+    <i>* font-lock-comment-delimiter-face *</i>
+    color: #b22222;
+}
+.org-company-echo {
+}
+.org-company-echo-common {
+    <i>* company-echo-common *</i>
+    color: #8b1a1a;
+}
+.org-company-preview-common {
+    <i>* company-preview-common *</i>
+    color: #8b0000;
+}
+.org-company-preview-search {
+    <i>* company-preview-search *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-company-template-field {
+    <i>* company-template-field *</i>
+    color: #000000;
+    background-color: #ffa500;
+}
+.org-company-tooltip {
+    <i>* company-tooltip *</i>
+    color: #000000;
+    background-color: #f8f8ff;
+}
+.org-company-tooltip-annotation {
+    <i>* company-tooltip-annotation *</i>
+    color: #8b1a1a;
+}
+.org-company-tooltip-annotation-selection {
+    <i>* company-tooltip-annotation-selection *</i>
+    color: #8b1a1a;
+}
+.org-company-tooltip-common {
+    <i>* company-tooltip-common *</i>
+    color: #8b0000;
+}
+.org-company-tooltip-common-selection {
+    <i>* company-tooltip-common-selection *</i>
+    color: #8b0000;
+}
+.org-company-tooltip-deprecated {
+    <i>* company-tooltip-deprecated *</i>
+    text-decoration: line-through;
+}
+.org-company-tooltip-mouse {
+    <i>* company-tooltip-mouse *</i>
+    background-color: #b4eeb4;
+}
+.org-company-tooltip-quick-access {
+    <i>* company-tooltip-quick-access *</i>
+    color: #8b1a1a;
+}
+.org-company-tooltip-quick-access-selection {
+    <i>* company-tooltip-quick-access-selection *</i>
+    color: #8b1a1a;
+}
+.org-company-tooltip-scrollbar-thumb {
+    <i>* company-tooltip-scrollbar-thumb *</i>
+    background-color: #cd8c95;
+}
+.org-company-tooltip-scrollbar-track {
+    <i>* company-tooltip-scrollbar-track *</i>
+    background-color: #d8bfd8;
+}
+.org-company-tooltip-search {
+    <i>* company-tooltip-search *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-company-tooltip-search-selection {
+    <i>* company-tooltip-search-selection *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-company-tooltip-selection {
+    <i>* company-tooltip-selection *</i>
+    background-color: #e6e6fa;
+}
+.org-compilation-column-number {
+    <i>* compilation-column-number *</i>
+    color: #8b2252;
+}
+.org-compilation-error {
+    <i>* compilation-error *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-compilation-info {
+    <i>* compilation-info *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-compilation-line-number {
+    <i>* compilation-line-number *</i>
+    color: #a020f0;
+}
+.org-compilation-mode-line-exit {
+    <i>* compilation-mode-line-exit *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-compilation-mode-line-fail {
+    <i>* compilation-mode-line-fail *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-compilation-mode-line-run {
+    <i>* compilation-mode-line-run *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-compilation-warning {
+    <i>* compilation-warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-completions-common-part {
+    <i>* completions-common-part *</i>
+    color: #0000cd;
+}
+.org-completions-first-difference {
+    <i>* completions-first-difference *</i>
+    font-weight: bold;
+}
+.org-completions-group-separator {
+    <i>* completions-group-separator *</i>
+    color: #7f7f7f;
+    text-decoration: line-through;
+}
+.org-completions-group-title {
+    <i>* completions-group-title *</i>
+    color: #7f7f7f;
+    font-style: italic;
+}
+.org-completions-highlight {
+    <i>* completions-highlight *</i>
+    background-color: #b4eeb4;
+}
+.org-confusingly-reordered {
+    <i>* confusingly-reordered *</i>
+    text-decoration: underline;
+}
+.org-constant {
+    <i>* font-lock-constant-face *</i>
+    color: #008b8b;
+}
+.org-counsel&#x2013;mark-ring-highlight {
+    <i>* counsel-mark-ring-highlight *</i>
+    background-color: #b4eeb4;
+}
+.org-counsel-active-mode {
+    <i>* counsel-active-mode *</i>
+    color: #483d8b;
+}
+.org-counsel-application-name {
+    <i>* counsel-application-name *</i>
+    color: #483d8b;
+}
+.org-counsel-evil-register {
+    <i>* counsel-evil-register-face *</i>
+    color: #0000ff;
+}
+.org-counsel-key-binding {
+    <i>* counsel-key-binding *</i>
+    color: #a020f0;
+}
+.org-counsel-outline-1 {
+    <i>* counsel-outline-1 *</i>
+    color: #0000ff;
+}
+.org-counsel-outline-2 {
+    <i>* counsel-outline-2 *</i>
+    color: #a0522d;
+}
+.org-counsel-outline-3 {
+    <i>* counsel-outline-3 *</i>
+    color: #a020f0;
+}
+.org-counsel-outline-4 {
+    <i>* counsel-outline-4 *</i>
+    color: #b22222;
+}
+.org-counsel-outline-5 {
+    <i>* counsel-outline-5 *</i>
+    color: #228b22;
+}
+.org-counsel-outline-6 {
+    <i>* counsel-outline-6 *</i>
+    color: #008b8b;
+}
+.org-counsel-outline-7 {
+    <i>* counsel-outline-7 *</i>
+    color: #483d8b;
+}
+.org-counsel-outline-8 {
+    <i>* counsel-outline-8 *</i>
+    color: #8b2252;
+}
+.org-counsel-outline-default {
+    <i>* counsel-outline-default *</i>
+    color: #0000cd;
+}
+.org-counsel-variable-documentation {
+    <i>* counsel-variable-documentation *</i>
+    color: #b22222;
+}
+.org-css-property {
+    <i>* css-property *</i>
+    color: #a020f0;
+}
+.org-css-selector {
+    <i>* css-selector *</i>
+    color: #0000ff;
+}
+.org-cursor {
+    <i>* cursor *</i>
+    background-color: #000000;
+}
+.org-custom-button {
+    <i>* custom-button *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-custom-button-mouse {
+    <i>* custom-button-mouse *</i>
+    color: #000000;
+    background-color: #e5e5e5;
+}
+.org-custom-button-pressed {
+    <i>* custom-button-pressed *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-custom-button-pressed-unraised {
+    <i>* custom-button-pressed-unraised *</i>
+    color: #8b008b;
+    text-decoration: underline;
+}
+.org-custom-button-unraised {
+    <i>* custom-button-unraised *</i>
+    text-decoration: underline;
+}
+.org-custom-changed {
+    <i>* custom-changed *</i>
+    color: #ffffff;
+    background-color: #0000ff;
+}
+.org-custom-comment {
+    <i>* custom-comment *</i>
+    background-color: #d9d9d9;
+}
+.org-custom-comment-tag {
+    <i>* custom-comment-tag *</i>
+    color: #00008b;
+}
+.org-custom-documentation {
+}
+.org-custom-face-tag {
+    <i>* custom-face-tag *</i>
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-custom-group-subtitle {
+    <i>* custom-group-subtitle *</i>
+    font-weight: bold;
+}
+.org-custom-group-tag {
+    <i>* custom-group-tag *</i>
+    color: #0000ff;
+    font-size: 120%;
+    font-weight: bold;
+}
+.org-custom-group-tag-1 {
+    <i>* custom-group-tag-1 *</i>
+    color: #ff0000;
+    font-size: 120%;
+    font-weight: bold;
+}
+.org-custom-invalid {
+    <i>* custom-invalid *</i>
+    color: #ffff00;
+    background-color: #ff0000;
+}
+.org-custom-link {
+    <i>* custom-link *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-custom-modified {
+    <i>* custom-modified *</i>
+    color: #ffffff;
+    background-color: #0000ff;
+}
+.org-custom-rogue {
+    <i>* custom-rogue *</i>
+    color: #ffc0cb;
+    background-color: #000000;
+}
+.org-custom-saved {
+    <i>* custom-saved *</i>
+    text-decoration: underline;
+}
+.org-custom-set {
+    <i>* custom-set *</i>
+    color: #0000ff;
+    background-color: #ffffff;
+}
+.org-custom-state {
+    <i>* custom-state *</i>
+    color: #006400;
+}
+.org-custom-themed {
+    <i>* custom-themed *</i>
+    color: #ffffff;
+    background-color: #0000ff;
+}
+.org-custom-variable-button {
+    <i>* custom-variable-button *</i>
+    font-weight: bold;
+    text-decoration: underline;
+}
+.org-custom-variable-obsolete {
+    <i>* custom-variable-obsolete *</i>
+    color: #0000ff;
+}
+.org-custom-variable-tag {
+    <i>* custom-variable-tag *</i>
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-custom-visibility {
+    <i>* custom-visibility *</i>
+    color: #3a5fcd;
+    font-size: 80%;
+    text-decoration: underline;
+}
+.org-default {
+    <i>* default *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-delimiter {
+}
+.org-diary {
+    <i>* diary *</i>
+    color: #ff0000;
+}
+.org-diff-added {
+    <i>* diff-added *</i>
+    background-color: #eeffee;
+}
+.org-diff-changed {
+}
+.org-diff-changed-unspecified {
+    <i>* diff-changed-unspecified *</i>
+    background-color: #e5e5e5;
+}
+.org-diff-context {
+}
+.org-diff-error {
+    <i>* diff-error *</i>
+    color: #ff0000;
+    background-color: #000000;
+    font-weight: bold;
+}
+.org-diff-file-header {
+    <i>* diff-file-header *</i>
+    background-color: #bfbfbf;
+    font-weight: bold;
+}
+.org-diff-function {
+    <i>* diff-function *</i>
+    background-color: #d9d9d9;
+}
+.org-diff-header {
+    <i>* diff-header *</i>
+    background-color: #d9d9d9;
+}
+.org-diff-hunk-header {
+    <i>* diff-hunk-header *</i>
+    background-color: #d9d9d9;
+}
+.org-diff-index {
+    <i>* diff-index *</i>
+    background-color: #bfbfbf;
+    font-weight: bold;
+}
+.org-diff-indicator-added {
+    <i>* diff-indicator-added *</i>
+    color: #22aa22;
+    background-color: #eeffee;
+}
+.org-diff-indicator-changed {
+    <i>* diff-indicator-changed *</i>
+    color: #aaaa22;
+}
+.org-diff-indicator-removed {
+    <i>* diff-indicator-removed *</i>
+    color: #aa2222;
+    background-color: #ffeeee;
+}
+.org-diff-nonexistent {
+    <i>* diff-nonexistent *</i>
+    background-color: #bfbfbf;
+    font-weight: bold;
+}
+.org-diff-refine-added {
+    <i>* diff-refine-added *</i>
+    background-color: #bbffbb;
+}
+.org-diff-refine-changed {
+    <i>* diff-refine-changed *</i>
+    background-color: #ffff55;
+}
+.org-diff-refine-removed {
+    <i>* diff-refine-removed *</i>
+    background-color: #ffcccc;
+}
+.org-diff-removed {
+    <i>* diff-removed *</i>
+    background-color: #ffeeee;
+}
+.org-dired-broken-symlink {
+    <i>* dired-broken-symlink *</i>
+    color: #ffff00;
+    background-color: #ff0000;
+    font-weight: bold;
+}
+.org-dired-directory {
+    <i>* dired-directory *</i>
+    color: #0000ff;
+}
+.org-dired-flagged {
+    <i>* dired-flagged *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-dired-header {
+    <i>* dired-header *</i>
+    color: #228b22;
+}
+.org-dired-ignored {
+    <i>* dired-ignored *</i>
+    color: #7f7f7f;
+}
+.org-dired-mark {
+    <i>* dired-mark *</i>
+    color: #008b8b;
+}
+.org-dired-marked {
+    <i>* dired-marked *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-dired-perm-write {
+    <i>* dired-perm-write *</i>
+    color: #b22222;
+}
+.org-dired-set-id {
+    <i>* dired-set-id *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-dired-special {
+    <i>* dired-special *</i>
+    color: #a0522d;
+}
+.org-dired-symlink {
+    <i>* dired-symlink *</i>
+    color: #a020f0;
+}
+.org-dired-warning {
+    <i>* dired-warning *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-doc {
+    <i>* font-lock-doc-face *</i>
+    color: #8b2252;
+}
+.org-doc-markup {
+    <i>* font-lock-doc-markup-face *</i>
+    color: #008b8b;
+}
+.org-doc-view-svg {
+    <i>* doc-view-svg-face *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-edmacro-label {
+    <i>* edmacro-label *</i>
+    color: #00008b;
+    font-weight: bold;
+}
+.org-eldoc-highlight-function-argument {
+    <i>* eldoc-highlight-function-argument *</i>
+    font-weight: bold;
+}
+.org-elisp-shorthand-font-lock {
+    <i>* elisp-shorthand-font-lock-face *</i>
+    color: #00ffff;
+}
+.org-epa-field-body {
+    <i>* epa-field-body *</i>
+    font-style: italic;
+}
+.org-epa-field-name {
+    <i>* epa-field-name *</i>
+    font-weight: bold;
+}
+.org-epa-mark {
+    <i>* epa-mark *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-epa-string {
+    <i>* epa-string *</i>
+    color: #00008b;
+}
+.org-epa-validity-disabled {
+    <i>* epa-validity-disabled *</i>
+    font-style: italic;
+}
+.org-epa-validity-high {
+    <i>* epa-validity-high *</i>
+    font-weight: bold;
+}
+.org-epa-validity-low {
+    <i>* epa-validity-low *</i>
+    font-style: italic;
+}
+.org-epa-validity-medium {
+    <i>* epa-validity-medium *</i>
+    font-style: italic;
+}
+.org-error {
+    <i>* error *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-escape {
+    <i>* font-lock-escape-face *</i>
+    font-weight: bold;
+}
+.org-escape-glyph {
+    <i>* escape-glyph *</i>
+    color: #a52a2a;
+}
+.org-eww-form-checkbox {
+    <i>* eww-form-checkbox *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-eww-form-file {
+    <i>* eww-form-file *</i>
+    color: #000000;
+    background-color: #808080;
+}
+.org-eww-form-select {
+    <i>* eww-form-select *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-eww-form-submit {
+    <i>* eww-form-submit *</i>
+    color: #000000;
+    background-color: #808080;
+}
+.org-eww-form-text {
+    <i>* eww-form-text *</i>
+    color: #ffffff;
+    background-color: #505050;
+}
+.org-eww-form-textarea {
+    <i>* eww-form-textarea *</i>
+    color: #000000;
+    background-color: #C0C0C0;
+}
+.org-eww-invalid-certificate {
+    <i>* eww-invalid-certificate *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-eww-valid-certificate {
+    <i>* eww-valid-certificate *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-ffap {
+    <i>* ffap *</i>
+    background-color: #b4eeb4;
+}
+.org-file-name-shadow {
+    <i>* file-name-shadow *</i>
+    color: #7f7f7f;
+}
+.org-fill-column-indicator {
+    <i>* fill-column-indicator *</i>
+    color: #7f7f7f;
+}
+.org-fixed-pitch {
+}
+.org-fixed-pitch-serif {
+}
+.org-flycheck-delimited-error {
+}
+.org-flycheck-error {
+    <i>* flycheck-error *</i>
+    text-decoration: underline;
+}
+.org-flycheck-error-delimiter {
+}
+.org-flycheck-error-list-checker-name {
+    <i>* flycheck-error-list-checker-name *</i>
+    color: #0000ff;
+}
+.org-flycheck-error-list-column-number {
+}
+.org-flycheck-error-list-error {
+    <i>* flycheck-error-list-error *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-flycheck-error-list-error-message {
+}
+.org-flycheck-error-list-filename {
+}
+.org-flycheck-error-list-highlight {
+    <i>* flycheck-error-list-highlight *</i>
+    font-weight: bold;
+}
+.org-flycheck-error-list-id {
+    <i>* flycheck-error-list-id *</i>
+    color: #228b22;
+}
+.org-flycheck-error-list-id-with-explainer {
+    <i>* flycheck-error-list-id-with-explainer *</i>
+    color: #228b22;
+}
+.org-flycheck-error-list-info {
+    <i>* flycheck-error-list-info *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-flycheck-error-list-line-number {
+}
+.org-flycheck-error-list-warning {
+    <i>* flycheck-error-list-warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-flycheck-fringe-error {
+    <i>* flycheck-fringe-error *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-flycheck-fringe-info {
+    <i>* flycheck-fringe-info *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-flycheck-fringe-warning {
+    <i>* flycheck-fringe-warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-flycheck-info {
+    <i>* flycheck-info *</i>
+    text-decoration: underline;
+}
+.org-flycheck-verify-select-checker {
+}
+.org-flycheck-warning {
+    <i>* flycheck-warning *</i>
+    text-decoration: underline;
+}
+.org-flyspell-duplicate {
+    <i>* flyspell-duplicate *</i>
+    text-decoration: underline;
+}
+.org-flyspell-incorrect {
+    <i>* flyspell-incorrect *</i>
+    text-decoration: underline;
+}
+.org-fringe {
+    <i>* fringe *</i>
+    background-color: #f2f2f2;
+}
+.org-function-call {
+    <i>* font-lock-function-call-face *</i>
+    color: #0000ff;
+}
+.org-function-name {
+    <i>* font-lock-function-name-face *</i>
+    color: #0000ff;
+}
+.org-git-commit-comment-action {
+    <i>* git-commit-comment-action *</i>
+    font-weight: bold;
+}
+.org-git-commit-comment-branch-local {
+    <i>* git-commit-comment-branch-local *</i>
+    color: #4a708b;
+}
+.org-git-commit-comment-branch-remote {
+    <i>* git-commit-comment-branch-remote *</i>
+    color: #6e8b3d;
+}
+.org-git-commit-comment-button {
+    <i>* git-commit-comment-button *</i>
+    color: #a020f0;
+    text-decoration: underline;
+}
+.org-git-commit-comment-detached {
+    <i>* git-commit-comment-detached *</i>
+    color: #4a708b;
+}
+.org-git-commit-comment-file {
+    <i>* git-commit-comment-file *</i>
+    color: #8b2252;
+}
+.org-git-commit-comment-heading {
+    <i>* git-commit-comment-heading *</i>
+    color: #a020f0;
+}
+.org-git-commit-keyword {
+    <i>* git-commit-keyword *</i>
+    color: #8b2252;
+}
+.org-git-commit-nonempty-second-line {
+    <i>* git-commit-nonempty-second-line *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-git-commit-overlong-summary {
+    <i>* git-commit-overlong-summary *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-git-commit-summary {
+    <i>* git-commit-summary *</i>
+    color: #228b22;
+}
+.org-git-commit-trailer-token {
+    <i>* git-commit-trailer-token *</i>
+    color: #a020f0;
+}
+.org-git-commit-trailer-value {
+    <i>* git-commit-trailer-value *</i>
+    color: #8b2252;
+}
+.org-glyphless-char {
+    <i>* glyphless-char *</i>
+    font-size: 60%;
+}
+.org-gnus-button {
+    <i>* gnus-button *</i>
+    font-weight: bold;
+}
+.org-gnus-emphasis-bold {
+    <i>* gnus-emphasis-bold *</i>
+    font-weight: bold;
+}
+.org-gnus-emphasis-bold-italic {
+    <i>* gnus-emphasis-bold-italic *</i>
+    font-weight: bold;
+    font-style: italic;
+}
+.org-gnus-emphasis-highlight-words {
+    <i>* gnus-emphasis-highlight-words *</i>
+    color: #ffff00;
+    background-color: #000000;
+}
+.org-gnus-emphasis-italic {
+    <i>* gnus-emphasis-italic *</i>
+    font-style: italic;
+}
+.org-gnus-emphasis-strikethru {
+    <i>* gnus-emphasis-strikethru *</i>
+    text-decoration: line-through;
+}
+.org-gnus-emphasis-underline {
+    <i>* gnus-emphasis-underline *</i>
+    text-decoration: underline;
+}
+.org-gnus-emphasis-underline-bold {
+    <i>* gnus-emphasis-underline-bold *</i>
+    font-weight: bold;
+    text-decoration: underline;
+}
+.org-gnus-emphasis-underline-bold-italic {
+    <i>* gnus-emphasis-underline-bold-italic *</i>
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+.org-gnus-emphasis-underline-italic {
+    <i>* gnus-emphasis-underline-italic *</i>
+    font-style: italic;
+    text-decoration: underline;
+}
+.org-gnus-group-mail-1 {
+    <i>* gnus-group-mail-1 *</i>
+    color: #cd1076;
+    font-weight: bold;
+}
+.org-gnus-group-mail-1-empty {
+    <i>* gnus-group-mail-1-empty *</i>
+    color: #cd1076;
+}
+.org-gnus-group-mail-2 {
+    <i>* gnus-group-mail-2 *</i>
+    color: #cd6090;
+    font-weight: bold;
+}
+.org-gnus-group-mail-2-empty {
+    <i>* gnus-group-mail-2-empty *</i>
+    color: #cd6090;
+}
+.org-gnus-group-mail-3 {
+    <i>* gnus-group-mail-3 *</i>
+    color: #8b008b;
+    font-weight: bold;
+}
+.org-gnus-group-mail-3-empty {
+    <i>* gnus-group-mail-3-empty *</i>
+    color: #8b008b;
+}
+.org-gnus-group-mail-low {
+    <i>* gnus-group-mail-low *</i>
+    color: #8b0a50;
+    font-weight: bold;
+}
+.org-gnus-group-mail-low-empty {
+    <i>* gnus-group-mail-low-empty *</i>
+    color: #8b0a50;
+}
+.org-gnus-group-news-1 {
+    <i>* gnus-group-news-1 *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-gnus-group-news-1-empty {
+    <i>* gnus-group-news-1-empty *</i>
+    color: #228b22;
+}
+.org-gnus-group-news-2 {
+    <i>* gnus-group-news-2 *</i>
+    color: #53868b;
+    font-weight: bold;
+}
+.org-gnus-group-news-2-empty {
+    <i>* gnus-group-news-2-empty *</i>
+    color: #53868b;
+}
+.org-gnus-group-news-3 {
+    <i>* gnus-group-news-3 *</i>
+    font-weight: bold;
+}
+.org-gnus-group-news-3-empty {
+}
+.org-gnus-group-news-4 {
+    <i>* gnus-group-news-4 *</i>
+    font-weight: bold;
+}
+.org-gnus-group-news-4-empty {
+}
+.org-gnus-group-news-5 {
+    <i>* gnus-group-news-5 *</i>
+    font-weight: bold;
+}
+.org-gnus-group-news-5-empty {
+}
+.org-gnus-group-news-6 {
+    <i>* gnus-group-news-6 *</i>
+    font-weight: bold;
+}
+.org-gnus-group-news-6-empty {
+}
+.org-gnus-group-news-low {
+    <i>* gnus-group-news-low *</i>
+    color: #006400;
+    font-weight: bold;
+}
+.org-gnus-group-news-low-empty {
+    <i>* gnus-group-news-low-empty *</i>
+    color: #006400;
+}
+.org-gnus-header {
+    <i>* gnus-header *</i>
+    font-size: 110%;
+}
+.org-gnus-header-content {
+    <i>* gnus-header-content *</i>
+    color: #8b3a3a;
+    font-size: 110%;
+    font-style: italic;
+}
+.org-gnus-header-from {
+    <i>* gnus-header-from *</i>
+    color: #cd0000;
+    font-size: 110%;
+}
+.org-gnus-header-name {
+    <i>* gnus-header-name *</i>
+    color: #b03060;
+    font-size: 110%;
+}
+.org-gnus-header-newsgroups {
+    <i>* gnus-header-newsgroups *</i>
+    color: #191970;
+    font-style: italic;
+}
+.org-gnus-header-subject {
+    <i>* gnus-header-subject *</i>
+    color: #8b0000;
+    font-size: 110%;
+}
+.org-gnus-signature {
+    <i>* gnus-signature *</i>
+    font-style: italic;
+}
+.org-gnus-splash {
+    <i>* gnus-splash *</i>
+    color: #888888;
+}
+.org-gnus-summary-cancelled {
+    <i>* gnus-summary-cancelled *</i>
+    color: #ffff00;
+    background-color: #000000;
+}
+.org-gnus-summary-high-ancient {
+    <i>* gnus-summary-high-ancient *</i>
+    color: #4169e1;
+    font-weight: bold;
+}
+.org-gnus-summary-high-read {
+    <i>* gnus-summary-high-read *</i>
+    color: #006400;
+    font-weight: bold;
+}
+.org-gnus-summary-high-ticked {
+    <i>* gnus-summary-high-ticked *</i>
+    color: #b22222;
+    font-weight: bold;
+}
+.org-gnus-summary-high-undownloaded {
+    <i>* gnus-summary-high-undownloaded *</i>
+    color: #008b8b;
+    font-weight: bold;
+}
+.org-gnus-summary-high-unread {
+    <i>* gnus-summary-high-unread *</i>
+    font-weight: bold;
+}
+.org-gnus-summary-low-ancient {
+    <i>* gnus-summary-low-ancient *</i>
+    color: #4169e1;
+    font-style: italic;
+}
+.org-gnus-summary-low-read {
+    <i>* gnus-summary-low-read *</i>
+    color: #006400;
+    font-style: italic;
+}
+.org-gnus-summary-low-ticked {
+    <i>* gnus-summary-low-ticked *</i>
+    color: #b22222;
+    font-style: italic;
+}
+.org-gnus-summary-low-undownloaded {
+    <i>* gnus-summary-low-undownloaded *</i>
+    color: #008b8b;
+    font-style: italic;
+}
+.org-gnus-summary-low-unread {
+    <i>* gnus-summary-low-unread *</i>
+    font-style: italic;
+}
+.org-gnus-summary-normal-ancient {
+    <i>* gnus-summary-normal-ancient *</i>
+    color: #4169e1;
+}
+.org-gnus-summary-normal-read {
+    <i>* gnus-summary-normal-read *</i>
+    color: #006400;
+}
+.org-gnus-summary-normal-ticked {
+    <i>* gnus-summary-normal-ticked *</i>
+    color: #b22222;
+}
+.org-gnus-summary-normal-undownloaded {
+    <i>* gnus-summary-normal-undownloaded *</i>
+    color: #008b8b;
+}
+.org-gnus-summary-normal-unread {
+}
+.org-gnus-summary-selected {
+    <i>* gnus-summary-selected *</i>
+    text-decoration: underline;
+}
+.org-header-line {
+    <i>* header-line *</i>
+    color: #333333;
+    background-color: #e5e5e5;
+}
+.org-header-line-highlight {
+}
+.org-help-argument-name {
+    <i>* help-argument-name *</i>
+    font-style: italic;
+}
+.org-help-for-help-header {
+    <i>* help-for-help-header *</i>
+    font-size: 126%;
+}
+.org-help-key-binding {
+    <i>* help-key-binding *</i>
+    color: #00008b;
+    background-color: #f5f5f5;
+}
+.org-highlight {
+    <i>* highlight *</i>
+    background-color: #b4eeb4;
+}
+.org-hl-line {
+    <i>* hl-line *</i>
+    background-color: #e0eeee;
+}
+.org-holiday {
+    <i>* holiday *</i>
+    background-color: #ffc0cb;
+}
+.org-homoglyph {
+    <i>* homoglyph *</i>
+    color: #a52a2a;
+}
+.org-icon {
+}
+.org-icon-button {
+    <i>* icon-button *</i>
+    color: #000000;
+    background-color: #808080;
+}
+.org-info-header-node {
+    <i>* info-header-node *</i>
+    color: #a52a2a;
+    font-weight: bold;
+    font-style: italic;
+}
+.org-info-header-xref {
+    <i>* info-header-xref *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-info-index-match {
+    <i>* info-index-match *</i>
+    background-color: #fff68f;
+}
+.org-info-menu-header {
+    <i>* info-menu-header *</i>
+    font-weight: bold;
+}
+.org-info-menu-star {
+    <i>* info-menu-star *</i>
+    color: #ff0000;
+}
+.org-info-node {
+    <i>* info-node *</i>
+    color: #a52a2a;
+    font-weight: bold;
+    font-style: italic;
+}
+.org-info-quoted {
+}
+.org-info-title-1 {
+    <i>* info-title-1 *</i>
+    font-size: 172%;
+    font-weight: bold;
+}
+.org-info-title-2 {
+    <i>* info-title-2 *</i>
+    font-size: 144%;
+    font-weight: bold;
+}
+.org-info-title-3 {
+    <i>* info-title-3 *</i>
+    font-size: 120%;
+    font-weight: bold;
+}
+.org-info-title-4 {
+    <i>* info-title-4 *</i>
+    font-weight: bold;
+}
+.org-info-xref {
+    <i>* info-xref *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-internal-border {
+}
+.org-isearch {
+    <i>* isearch *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-isearch-fail {
+    <i>* isearch-fail *</i>
+    background-color: #ffc1c1;
+}
+.org-isearch-group-1 {
+    <i>* isearch-group-1 *</i>
+    color: #b0e2ff;
+    background-color: #f000f0;
+}
+.org-isearch-group-2 {
+    <i>* isearch-group-2 *</i>
+    color: #b0e2ff;
+    background-color: #a000a0;
+}
+.org-italic {
+    <i>* italic *</i>
+    font-style: italic;
+}
+.org-ivy-action {
+    <i>* ivy-action *</i>
+    color: #483d8b;
+}
+.org-ivy-completions-annotations {
+    <i>* ivy-completions-annotations *</i>
+    color: #7f7f7f;
+    font-style: italic;
+}
+.org-ivy-confirm {
+    <i>* ivy-confirm-face *</i>
+    color: #228b22;
+}
+.org-ivy-current-match {
+    <i>* ivy-current-match *</i>
+    color: #ffffff;
+    background-color: #1a4b77;
+}
+.org-ivy-cursor {
+    <i>* ivy-cursor *</i>
+    color: #ffffff;
+    background-color: #000000;
+}
+.org-ivy-grep-info {
+    <i>* ivy-grep-info *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-ivy-grep-line-number {
+    <i>* ivy-grep-line-number *</i>
+    color: #a020f0;
+}
+.org-ivy-highlight {
+    <i>* ivy-highlight-face *</i>
+    background-color: #b4eeb4;
+}
+.org-ivy-match-required {
+    <i>* ivy-match-required-face *</i>
+    color: #ff0000;
+}
+.org-ivy-minibuffer-match-face-1 {
+    <i>* ivy-minibuffer-match-face-1 *</i>
+    background-color: #d3d3d3;
+}
+.org-ivy-minibuffer-match-face-2 {
+    <i>* ivy-minibuffer-match-face-2 *</i>
+    background-color: #e99ce8;
+    font-weight: bold;
+}
+.org-ivy-minibuffer-match-face-3 {
+    <i>* ivy-minibuffer-match-face-3 *</i>
+    background-color: #bbbbff;
+    font-weight: bold;
+}
+.org-ivy-minibuffer-match-face-4 {
+    <i>* ivy-minibuffer-match-face-4 *</i>
+    background-color: #ffbbff;
+    font-weight: bold;
+}
+.org-ivy-minibuffer-match-highlight {
+    <i>* ivy-minibuffer-match-highlight *</i>
+    background-color: #b4eeb4;
+}
+.org-ivy-modified-buffer {
+    <i>* ivy-modified-buffer *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-ivy-modified-outside-buffer {
+    <i>* ivy-modified-outside-buffer *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-ivy-org {
+    <i>* ivy-org *</i>
+    color: #b22222;
+}
+.org-ivy-prompt-match {
+    <i>* ivy-prompt-match *</i>
+    color: #ffffff;
+    background-color: #1a4b77;
+}
+.org-ivy-remote {
+    <i>* ivy-remote *</i>
+    color: #110099;
+}
+.org-ivy-separator {
+    <i>* ivy-separator *</i>
+    color: #8b2252;
+}
+.org-ivy-subdir {
+    <i>* ivy-subdir *</i>
+    color: #0000ff;
+}
+.org-ivy-virtual {
+    <i>* ivy-virtual *</i>
+    color: #483d8b;
+}
+.org-ivy-yanked-word {
+    <i>* ivy-yanked-word *</i>
+    background-color: #b4eeb4;
+}
+.org-keyword {
+    <i>* font-lock-keyword-face *</i>
+    color: #a020f0;
+}
+.org-kmacro-menu-flagged {
+    <i>* kmacro-menu-flagged *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-kmacro-menu-mark {
+    <i>* kmacro-menu-mark *</i>
+    color: #008b8b;
+}
+.org-kmacro-menu-marked {
+    <i>* kmacro-menu-marked *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-lazy-highlight {
+    <i>* lazy-highlight *</i>
+    background-color: #afeeee;
+}
+.org-line-number {
+}
+.org-line-number-current-line {
+}
+.org-line-number-major-tick {
+    <i>* line-number-major-tick *</i>
+    background-color: #d9d9d9;
+    font-weight: bold;
+}
+.org-line-number-minor-tick {
+    <i>* line-number-minor-tick *</i>
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.org-link {
+    <i>* link *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-link-visited {
+    <i>* link-visited *</i>
+    color: #8b008b;
+    text-decoration: underline;
+}
+.org-llama-XX-macro {
+    <i>* llama-\#\#-macro *</i>
+    color: #0000ff;
+}
+.org-llama-deleted-argument {
+}
+.org-llama-llama-macro {
+    <i>* llama-llama-macro *</i>
+    color: #a020f0;
+}
+.org-llama-mandatory-argument {
+    <i>* llama-mandatory-argument *</i>
+    color: #a0522d;
+}
+.org-llama-optional-argument {
+    <i>* llama-optional-argument *</i>
+    color: #228b22;
+}
+.org-log-edit-header {
+    <i>* log-edit-header *</i>
+    color: #a020f0;
+}
+.org-log-edit-headers-separator {
+    <i>* log-edit-headers-separator *</i>
+    font-size: 10%;
+}
+.org-log-edit-summary {
+    <i>* log-edit-summary *</i>
+    color: #0000ff;
+}
+.org-log-edit-unknown-header {
+    <i>* log-edit-unknown-header *</i>
+    color: #b22222;
+}
+.org-log-view-commit-body {
+    <i>* log-view-commit-body *</i>
+    color: #b22222;
+}
+.org-log-view-file {
+    <i>* log-view-file *</i>
+    background-color: #b3b3b3;
+    font-weight: bold;
+}
+.org-log-view-message {
+    <i>* log-view-message *</i>
+    background-color: #d9d9d9;
+}
+.org-magit-bisect-bad {
+    <i>* magit-bisect-bad *</i>
+    color: #8b3a3a;
+}
+.org-magit-bisect-good {
+    <i>* magit-bisect-good *</i>
+    color: #556b2f;
+}
+.org-magit-bisect-skip {
+    <i>* magit-bisect-skip *</i>
+    color: #b8860b;
+}
+.org-magit-blame-date {
+}
+.org-magit-blame-dimmed {
+    <i>* magit-blame-dimmed *</i>
+    color: #7f7f7f;
+}
+.org-magit-blame-hash {
+}
+.org-magit-blame-heading {
+    <i>* magit-blame-heading *</i>
+    color: #000000;
+    background-color: #cccccc;
+}
+.org-magit-blame-highlight {
+    <i>* magit-blame-highlight *</i>
+    color: #000000;
+    background-color: #cccccc;
+}
+.org-magit-blame-margin {
+    <i>* magit-blame-margin *</i>
+    color: #000000;
+    background-color: #cccccc;
+}
+.org-magit-blame-name {
+}
+.org-magit-blame-summary {
+}
+.org-magit-branch-current {
+    <i>* magit-branch-current *</i>
+    color: #4a708b;
+}
+.org-magit-branch-local {
+    <i>* magit-branch-local *</i>
+    color: #4a708b;
+}
+.org-magit-branch-remote {
+    <i>* magit-branch-remote *</i>
+    color: #6e8b3d;
+}
+.org-magit-branch-remote-head {
+    <i>* magit-branch-remote-head *</i>
+    color: #6e8b3d;
+}
+.org-magit-branch-upstream {
+    <i>* magit-branch-upstream *</i>
+    font-style: italic;
+}
+.org-magit-branch-warning {
+    <i>* magit-branch-warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-magit-cherry-equivalent {
+    <i>* magit-cherry-equivalent *</i>
+    color: #ff00ff;
+}
+.org-magit-cherry-unmatched {
+    <i>* magit-cherry-unmatched *</i>
+    color: #00ffff;
+}
+.org-magit-diff-added {
+    <i>* magit-diff-added *</i>
+    color: #22aa22;
+    background-color: #ddffdd;
+}
+.org-magit-diff-added-highlight {
+    <i>* magit-diff-added-highlight *</i>
+    color: #22aa22;
+    background-color: #cceecc;
+}
+.org-magit-diff-added-indicator {
+    <i>* magit-diff-added-indicator *</i>
+    color: #22aa22;
+}
+.org-magit-diff-base {
+    <i>* magit-diff-base *</i>
+    color: #aaaa11;
+    background-color: #ffffcc;
+}
+.org-magit-diff-base-heading {
+    <i>* magit-diff-base-heading *</i>
+    color: #ffffcc;
+    background-color: #aaaa11;
+}
+.org-magit-diff-base-highlight {
+    <i>* magit-diff-base-highlight *</i>
+    color: #aaaa11;
+    background-color: #eeeebb;
+}
+.org-magit-diff-base-indicator {
+    <i>* magit-diff-base-indicator *</i>
+    color: #aaaa11;
+}
+.org-magit-diff-conflict-heading {
+    <i>* magit-diff-conflict-heading *</i>
+    color: #333333;
+    background-color: #e5e5e5;
+}
+.org-magit-diff-conflict-heading-highlight {
+    <i>* magit-diff-conflict-heading-highlight *</i>
+    color: #333333;
+    background-color: #cccccc;
+}
+.org-magit-diff-context {
+    <i>* magit-diff-context *</i>
+    color: #7f7f7f;
+}
+.org-magit-diff-context-highlight {
+    <i>* magit-diff-context-highlight *</i>
+    color: #7f7f7f;
+    background-color: #f2f2f2;
+}
+.org-magit-diff-file-heading {
+    <i>* magit-diff-file-heading *</i>
+    font-weight: bold;
+}
+.org-magit-diff-file-heading-highlight {
+    <i>* magit-diff-file-heading-highlight *</i>
+    background-color: #f2f2f2;
+}
+.org-magit-diff-file-heading-selection {
+    <i>* magit-diff-file-heading-selection *</i>
+    color: #8b4c39;
+    background-color: #f2f2f2;
+}
+.org-magit-diff-hunk-heading {
+    <i>* magit-diff-hunk-heading *</i>
+    color: #333333;
+    background-color: #e5e5e5;
+}
+.org-magit-diff-hunk-heading-highlight {
+    <i>* magit-diff-hunk-heading-highlight *</i>
+    color: #333333;
+    background-color: #cccccc;
+}
+.org-magit-diff-hunk-heading-selection {
+    <i>* magit-diff-hunk-heading-selection *</i>
+    color: #8b4c39;
+    background-color: #cccccc;
+}
+.org-magit-diff-hunk-region {
+    <i>* magit-diff-hunk-region *</i>
+    font-weight: bold;
+}
+.org-magit-diff-lines-boundary {
+    <i>* magit-diff-lines-boundary *</i>
+    color: #333333;
+    background-color: #cd8162;
+}
+.org-magit-diff-lines-heading {
+    <i>* magit-diff-lines-heading *</i>
+    color: #333333;
+    background-color: #cd8162;
+}
+.org-magit-diff-our {
+    <i>* magit-diff-our *</i>
+    color: #aa2222;
+    background-color: #ffdddd;
+}
+.org-magit-diff-our-heading {
+    <i>* magit-diff-our-heading *</i>
+    color: #ffdddd;
+    background-color: #aa2222;
+}
+.org-magit-diff-our-highlight {
+    <i>* magit-diff-our-highlight *</i>
+    color: #aa2222;
+    background-color: #eecccc;
+}
+.org-magit-diff-our-indicator {
+    <i>* magit-diff-our-indicator *</i>
+    color: #aa2222;
+}
+.org-magit-diff-removed {
+    <i>* magit-diff-removed *</i>
+    color: #aa2222;
+    background-color: #ffdddd;
+}
+.org-magit-diff-removed-highlight {
+    <i>* magit-diff-removed-highlight *</i>
+    color: #aa2222;
+    background-color: #eecccc;
+}
+.org-magit-diff-removed-indicator {
+    <i>* magit-diff-removed-indicator *</i>
+    color: #aa2222;
+}
+.org-magit-diff-revision-summary {
+    <i>* magit-diff-revision-summary *</i>
+    color: #333333;
+    background-color: #e5e5e5;
+}
+.org-magit-diff-revision-summary-highlight {
+    <i>* magit-diff-revision-summary-highlight *</i>
+    color: #333333;
+    background-color: #cccccc;
+}
+.org-magit-diff-their {
+    <i>* magit-diff-their *</i>
+    color: #22aa22;
+    background-color: #ddffdd;
+}
+.org-magit-diff-their-heading {
+    <i>* magit-diff-their-heading *</i>
+    color: #ddffdd;
+    background-color: #22aa22;
+}
+.org-magit-diff-their-highlight {
+    <i>* magit-diff-their-highlight *</i>
+    color: #22aa22;
+    background-color: #cceecc;
+}
+.org-magit-diff-their-indicator {
+    <i>* magit-diff-their-indicator *</i>
+    color: #22aa22;
+}
+.org-magit-diff-whitespace-warning {
+    <i>* magit-diff-whitespace-warning *</i>
+    background-color: #ff0000;
+}
+.org-magit-diffstat-added {
+    <i>* magit-diffstat-added *</i>
+    color: #22aa22;
+}
+.org-magit-diffstat-removed {
+    <i>* magit-diffstat-removed *</i>
+    color: #aa2222;
+}
+.org-magit-dimmed {
+    <i>* magit-dimmed *</i>
+    color: #7f7f7f;
+}
+.org-magit-filename {
+}
+.org-magit-hash {
+    <i>* magit-hash *</i>
+    color: #999999;
+}
+.org-magit-head {
+    <i>* magit-head *</i>
+    color: #4a708b;
+}
+.org-magit-header-line {
+    <i>* magit-header-line *</i>
+    color: #8b6508;
+    font-weight: bold;
+}
+.org-magit-header-line-key {
+    <i>* magit-header-line-key *</i>
+    color: #483d8b;
+}
+.org-magit-header-line-log-select {
+    <i>* magit-header-line-log-select *</i>
+    font-weight: bold;
+}
+.org-magit-keyword {
+    <i>* magit-keyword *</i>
+    color: #8b2252;
+}
+.org-magit-keyword-squash {
+    <i>* magit-keyword-squash *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-magit-left-margin {
+    <i>* magit-left-margin *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-magit-log-author {
+    <i>* magit-log-author *</i>
+    color: #b22222;
+}
+.org-magit-log-date {
+    <i>* magit-log-date *</i>
+    color: #4d4d4d;
+}
+.org-magit-log-graph {
+    <i>* magit-log-graph *</i>
+    color: #4d4d4d;
+}
+.org-magit-mode-line-process {
+    <i>* magit-mode-line-process *</i>
+    font-weight: bold;
+}
+.org-magit-mode-line-process-error {
+    <i>* magit-mode-line-process-error *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-magit-process-ng {
+    <i>* magit-process-ng *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-magit-process-ok {
+    <i>* magit-process-ok *</i>
+    color: #00ff00;
+    font-weight: bold;
+}
+.org-magit-reflog-amend {
+    <i>* magit-reflog-amend *</i>
+    color: #ff00ff;
+}
+.org-magit-reflog-checkout {
+    <i>* magit-reflog-checkout *</i>
+    color: #0000ff;
+}
+.org-magit-reflog-cherry-pick {
+    <i>* magit-reflog-cherry-pick *</i>
+    color: #00ff00;
+}
+.org-magit-reflog-commit {
+    <i>* magit-reflog-commit *</i>
+    color: #00ff00;
+}
+.org-magit-reflog-merge {
+    <i>* magit-reflog-merge *</i>
+    color: #00ff00;
+}
+.org-magit-reflog-other {
+    <i>* magit-reflog-other *</i>
+    color: #00ffff;
+}
+.org-magit-reflog-rebase {
+    <i>* magit-reflog-rebase *</i>
+    color: #ff00ff;
+}
+.org-magit-reflog-remote {
+    <i>* magit-reflog-remote *</i>
+    color: #00ffff;
+}
+.org-magit-reflog-reset {
+    <i>* magit-reflog-reset *</i>
+    color: #ff0000;
+}
+.org-magit-refname {
+    <i>* magit-refname *</i>
+    color: #4d4d4d;
+}
+.org-magit-refname-pullreq {
+    <i>* magit-refname-pullreq *</i>
+    color: #4d4d4d;
+}
+.org-magit-refname-stash {
+    <i>* magit-refname-stash *</i>
+    color: #4d4d4d;
+}
+.org-magit-refname-wip {
+    <i>* magit-refname-wip *</i>
+    color: #4d4d4d;
+}
+.org-magit-section-child-count {
+}
+.org-magit-section-heading {
+    <i>* magit-section-heading *</i>
+    color: #8b6508;
+    font-weight: bold;
+}
+.org-magit-section-heading-selection {
+    <i>* magit-section-heading-selection *</i>
+    color: #8b4c39;
+}
+.org-magit-section-highlight {
+    <i>* magit-section-highlight *</i>
+    background-color: #f2f2f2;
+}
+.org-magit-section-secondary-heading {
+    <i>* magit-section-secondary-heading *</i>
+    font-weight: bold;
+}
+.org-magit-sequence-done {
+    <i>* magit-sequence-done *</i>
+    color: #999999;
+}
+.org-magit-sequence-drop {
+    <i>* magit-sequence-drop *</i>
+    color: #cd5c5c;
+}
+.org-magit-sequence-exec {
+    <i>* magit-sequence-exec *</i>
+    color: #999999;
+}
+.org-magit-sequence-head {
+    <i>* magit-sequence-head *</i>
+    color: #4a708b;
+}
+.org-magit-sequence-onto {
+    <i>* magit-sequence-onto *</i>
+    color: #999999;
+}
+.org-magit-sequence-part {
+    <i>* magit-sequence-part *</i>
+    color: #8b6914;
+}
+.org-magit-sequence-pick {
+    <i>* magit-sequence-pick *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-magit-sequence-stop {
+    <i>* magit-sequence-stop *</i>
+    color: #6e8b3d;
+}
+.org-magit-signature-bad {
+    <i>* magit-signature-bad *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-magit-signature-error {
+    <i>* magit-signature-error *</i>
+    color: #add8e6;
+}
+.org-magit-signature-expired {
+    <i>* magit-signature-expired *</i>
+    color: #ffa500;
+}
+.org-magit-signature-expired-key {
+    <i>* magit-signature-expired-key *</i>
+    color: #ffa500;
+}
+.org-magit-signature-good {
+    <i>* magit-signature-good *</i>
+    color: #00ff00;
+}
+.org-magit-signature-revoked {
+    <i>* magit-signature-revoked *</i>
+    color: #d02090;
+}
+.org-magit-signature-untrusted {
+    <i>* magit-signature-untrusted *</i>
+    color: #66cdaa;
+}
+.org-magit-tag {
+    <i>* magit-tag *</i>
+    color: #8b6914;
+}
+.org-match {
+    <i>* match *</i>
+    background-color: #fff68f;
+}
+.org-menu {
+}
+.org-message-cited-text-1 {
+    <i>* message-cited-text-1 *</i>
+    color: #ff0000;
+}
+.org-message-cited-text-2 {
+    <i>* message-cited-text-2 *</i>
+    color: #8b0000;
+}
+.org-message-cited-text-3 {
+    <i>* message-cited-text-3 *</i>
+    color: #698b22;
+}
+.org-message-cited-text-4 {
+    <i>* message-cited-text-4 *</i>
+    color: #36648b;
+}
+.org-message-header-cc {
+    <i>* message-header-cc *</i>
+    color: #191970;
+}
+.org-message-header-name {
+    <i>* message-header-name *</i>
+    color: #6495ed;
+}
+.org-message-header-newsgroups {
+    <i>* message-header-newsgroups *</i>
+    color: #00008b;
+    font-weight: bold;
+    font-style: italic;
+}
+.org-message-header-other {
+    <i>* message-header-other *</i>
+    color: #4682b4;
+}
+.org-message-header-subject {
+    <i>* message-header-subject *</i>
+    color: #000080;
+    font-weight: bold;
+}
+.org-message-header-to {
+    <i>* message-header-to *</i>
+    color: #191970;
+    font-weight: bold;
+}
+.org-message-header-xheader {
+    <i>* message-header-xheader *</i>
+    color: #0000ff;
+}
+.org-message-mml {
+    <i>* message-mml *</i>
+    color: #228b22;
+}
+.org-message-separator {
+    <i>* message-separator *</i>
+    color: #a52a2a;
+}
+.org-message-signature-separator {
+    <i>* message-signature-separator *</i>
+    font-weight: bold;
+}
+.org-minibuffer-prompt {
+    <i>* minibuffer-prompt *</i>
+    color: #0000cd;
+}
+.org-misc-punctuation {
+}
+.org-mm-command-output {
+    <i>* mm-command-output *</i>
+    color: #cd0000;
+}
+.org-mm-uu-extract {
+    <i>* mm-uu-extract *</i>
+    color: #006400;
+    background-color: #ffffe0;
+}
+.org-mode-line {
+    <i>* mode-line *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-mode-line-active {
+    <i>* mode-line-active *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-mode-line-buffer-id {
+    <i>* mode-line-buffer-id *</i>
+    font-weight: bold;
+}
+.org-mode-line-emphasis {
+    <i>* mode-line-emphasis *</i>
+    font-weight: bold;
+}
+.org-mode-line-highlight {
+}
+.org-mode-line-inactive {
+    <i>* mode-line-inactive *</i>
+    color: #333333;
+    background-color: #e5e5e5;
+}
+.org-mouse {
+}
+.org-mouse-drag-and-drop-region {
+    <i>* mouse-drag-and-drop-region *</i>
+    background-color: #eedc82;
+}
+.org-negation-char {
+}
+.org-next-error {
+    <i>* next-error *</i>
+    background-color: #eedc82;
+}
+.org-next-error-message {
+    <i>* next-error-message *</i>
+    background-color: #b4eeb4;
+}
+.org-nobreak-hyphen {
+    <i>* nobreak-hyphen *</i>
+    color: #a52a2a;
+}
+.org-nobreak-space {
+    <i>* nobreak-space *</i>
+    color: #a52a2a;
+    text-decoration: underline;
+}
+.org-number {
+}
+.org-operator {
+}
+.org-org-agenda-calendar-daterange {
+    <i>* org-agenda-calendar-daterange *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-agenda-calendar-event {
+    <i>* org-agenda-calendar-event *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-agenda-calendar-sexp {
+    <i>* org-agenda-calendar-sexp *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-agenda-clocking {
+    <i>* org-agenda-clocking *</i>
+    background-color: #ffff00;
+}
+.org-org-agenda-column-dateline {
+    <i>* org-agenda-column-dateline *</i>
+    background-color: #e5e5e5;
+}
+.org-org-agenda-current-time {
+    <i>* org-agenda-current-time *</i>
+    color: #b8860b;
+}
+.org-org-agenda-date {
+    <i>* org-agenda-date *</i>
+    color: #0000ff;
+}
+.org-org-agenda-date-today {
+    <i>* org-agenda-date-today *</i>
+    color: #0000ff;
+    font-weight: bold;
+    font-style: italic;
+}
+.org-org-agenda-date-weekend {
+    <i>* org-agenda-date-weekend *</i>
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-org-agenda-date-weekend-today {
+    <i>* org-agenda-date-weekend-today *</i>
+    color: #0000ff;
+    font-weight: bold;
+    font-style: italic;
+}
+.org-org-agenda-diary {
+    <i>* org-agenda-diary *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-agenda-dimmed-todo {
+    <i>* org-agenda-dimmed-todo-face *</i>
+    color: #7f7f7f;
+}
+.org-org-agenda-done {
+    <i>* org-agenda-done *</i>
+    color: #228b22;
+}
+.org-org-agenda-filter-category {
+    <i>* org-agenda-filter-category *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-org-agenda-filter-effort {
+    <i>* org-agenda-filter-effort *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-org-agenda-filter-regexp {
+    <i>* org-agenda-filter-regexp *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-org-agenda-filter-tags {
+    <i>* org-agenda-filter-tags *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-org-agenda-restriction-lock {
+    <i>* org-agenda-restriction-lock *</i>
+    background-color: #eeeeee;
+}
+.org-org-agenda-structure {
+    <i>* org-agenda-structure *</i>
+    color: #0000ff;
+}
+.org-org-agenda-structure-secondary {
+    <i>* org-agenda-structure-secondary *</i>
+    color: #0000ff;
+}
+.org-org-archived {
+    <i>* org-archived *</i>
+    color: #7f7f7f;
+}
+.org-org-block {
+    <i>* org-block *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-block-begin-line {
+    <i>* org-block-begin-line *</i>
+    color: #bebebe;
+    background-color: #ffffff;
+}
+.org-org-block-end-line {
+    <i>* org-block-end-line *</i>
+    color: #bebebe;
+    background-color: #ffffff;
+}
+.org-org-checkbox {
+}
+.org-org-checkbox-statistics-done {
+    <i>* org-checkbox-statistics-done *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-org-checkbox-statistics-todo {
+    <i>* org-checkbox-statistics-todo *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-org-cite {
+    <i>* org-cite *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-org-cite-key {
+    <i>* org-cite-key *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-org-clock-overlay {
+    <i>* org-clock-overlay *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-code {
+    <i>* org-code *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-column {
+    <i>* org-column *</i>
+    background-color: #e5e5e5;
+}
+.org-org-column-title {
+    <i>* org-column-title *</i>
+    background-color: #e5e5e5;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.org-org-date {
+    <i>* org-date *</i>
+    color: #a020f0;
+    text-decoration: underline;
+}
+.org-org-date-selected {
+    <i>* org-date-selected *</i>
+    color: #ff0000;
+}
+.org-org-default {
+    <i>* org-default *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-dispatcher-highlight {
+    <i>* org-dispatcher-highlight *</i>
+    color: #00008b;
+    background-color: #c6e2ff;
+    font-weight: bold;
+}
+.org-org-document-info {
+    <i>* org-document-info *</i>
+    color: #191970;
+}
+.org-org-document-info-keyword {
+    <i>* org-document-info-keyword *</i>
+    color: #7f7f7f;
+}
+.org-org-document-title {
+    <i>* org-document-title *</i>
+    color: #191970;
+    font-weight: bold;
+}
+.org-org-done {
+    <i>* org-done *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-org-drawer {
+    <i>* org-drawer *</i>
+    color: #bebebe;
+}
+.org-org-ellipsis {
+    <i>* org-ellipsis *</i>
+    color: #b8860b;
+    text-decoration: underline;
+}
+.org-org-footnote {
+    <i>* org-footnote *</i>
+    color: #a020f0;
+    text-decoration: underline;
+}
+.org-org-formula {
+    <i>* org-formula *</i>
+    color: #b22222;
+}
+.org-org-headline-done {
+    <i>* org-headline-done *</i>
+    color: #bc8f8f;
+}
+.org-org-headline-todo {
+    <i>* org-headline-todo *</i>
+    color: #8b0000;
+}
+.org-org-hide {
+    <i>* org-hide *</i>
+    color: #ffffff;
+}
+.org-org-imminent-deadline {
+    <i>* org-imminent-deadline *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-org-inline-src-block {
+    <i>* org-inline-src-block *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-latex-and-related {
+    <i>* org-latex-and-related *</i>
+    color: #8b4513;
+}
+.org-org-level-1 {
+    <i>* org-level-1 *</i>
+    color: #0000ff;
+}
+.org-org-level-2 {
+    <i>* org-level-2 *</i>
+    color: #a0522d;
+}
+.org-org-level-3 {
+    <i>* org-level-3 *</i>
+    color: #a020f0;
+}
+.org-org-level-4 {
+    <i>* org-level-4 *</i>
+    color: #b22222;
+}
+.org-org-level-5 {
+    <i>* org-level-5 *</i>
+    color: #228b22;
+}
+.org-org-level-6 {
+    <i>* org-level-6 *</i>
+    color: #008b8b;
+}
+.org-org-level-7 {
+    <i>* org-level-7 *</i>
+    color: #483d8b;
+}
+.org-org-level-8 {
+    <i>* org-level-8 *</i>
+    color: #8b2252;
+}
+.org-org-link {
+    <i>* org-link *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-org-list-dt {
+    <i>* org-list-dt *</i>
+    font-weight: bold;
+}
+.org-org-macro {
+    <i>* org-macro *</i>
+    color: #8b4513;
+}
+.org-org-meta-line {
+    <i>* org-meta-line *</i>
+    color: #008ED1;
+}
+.org-org-mode-line-clock {
+    <i>* org-mode-line-clock *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-org-mode-line-clock-overrun {
+    <i>* org-mode-line-clock-overrun *</i>
+    color: #000000;
+    background-color: #ff0000;
+}
+.org-org-priority {
+    <i>* org-priority *</i>
+    color: #a020f0;
+}
+.org-org-property-value {
+    <i>* org-property-value *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-quote {
+    <i>* org-quote *</i>
+    color: #000000;
+    background-color: #ffefdb;
+}
+.org-org-roam-dim {
+    <i>* org-roam-dim *</i>
+    color: #999999;
+}
+.org-org-roam-header-line {
+    <i>* org-roam-header-line *</i>
+    color: #8b6508;
+    font-weight: bold;
+}
+.org-org-roam-olp {
+    <i>* org-roam-olp *</i>
+    color: #999999;
+}
+.org-org-roam-preview-heading {
+    <i>* org-roam-preview-heading *</i>
+    color: #4d4d4d;
+    background-color: #cccccc;
+}
+.org-org-roam-preview-heading-highlight {
+    <i>* org-roam-preview-heading-highlight *</i>
+    color: #4d4d4d;
+    background-color: #bfbfbf;
+}
+.org-org-roam-preview-heading-selection {
+    <i>* org-roam-preview-heading-selection *</i>
+    color: #8b4c39;
+    background-color: #bfbfbf;
+}
+.org-org-roam-preview-region {
+    <i>* org-roam-preview-region *</i>
+    font-weight: bold;
+}
+.org-org-roam-title {
+    <i>* org-roam-title *</i>
+    font-weight: bold;
+}
+.org-org-scheduled {
+    <i>* org-scheduled *</i>
+    color: #006400;
+}
+.org-org-scheduled-previously {
+    <i>* org-scheduled-previously *</i>
+    color: #b22222;
+}
+.org-org-scheduled-today {
+    <i>* org-scheduled-today *</i>
+    color: #006400;
+}
+.org-org-sexp-date {
+    <i>* org-sexp-date *</i>
+    color: #a020f0;
+}
+.org-org-table {
+    <i>* org-table *</i>
+    color: #0000ff;
+    background-color: #d6e4fc;
+}
+.org-org-table-header {
+    <i>* org-table-header *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-table-row {
+    <i>* org-table-row *</i>
+    color: #0000ff;
+    background-color: #d6e4fc;
+}
+.org-org-tag {
+    <i>* org-tag *</i>
+    font-weight: bold;
+}
+.org-org-tag-group {
+    <i>* org-tag-group *</i>
+    font-weight: bold;
+}
+.org-org-target {
+    <i>* org-target *</i>
+    text-decoration: underline;
+}
+.org-org-time-grid {
+    <i>* org-time-grid *</i>
+    color: #b8860b;
+}
+.org-org-todo {
+    <i>* org-todo *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-org-upcoming-deadline {
+    <i>* org-upcoming-deadline *</i>
+    color: #b22222;
+}
+.org-org-upcoming-distant-deadline {
+    <i>* org-upcoming-distant-deadline *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-org-verbatim {
+    <i>* org-verbatim *</i>
+    color: #7f7f7f;
+}
+.org-org-verse {
+    <i>* org-verse *</i>
+    color: #000000;
+    background-color: #d3d3d3;
+}
+.org-org-warning {
+    <i>* org-warning *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-outline-1 {
+    <i>* outline-1 *</i>
+    color: #0000ff;
+}
+.org-outline-2 {
+    <i>* outline-2 *</i>
+    color: #a0522d;
+}
+.org-outline-3 {
+    <i>* outline-3 *</i>
+    color: #a020f0;
+}
+.org-outline-4 {
+    <i>* outline-4 *</i>
+    color: #b22222;
+}
+.org-outline-5 {
+    <i>* outline-5 *</i>
+    color: #228b22;
+}
+.org-outline-6 {
+    <i>* outline-6 *</i>
+    color: #008b8b;
+}
+.org-outline-7 {
+    <i>* outline-7 *</i>
+    color: #483d8b;
+}
+.org-outline-8 {
+    <i>* outline-8 *</i>
+    color: #8b2252;
+}
+.org-package-description {
+    <i>* package-description *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-package-name {
+    <i>* package-name *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-package-status-avail-obso {
+    <i>* package-status-avail-obso *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-package-status-available {
+    <i>* package-status-available *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-package-status-built-in {
+    <i>* package-status-built-in *</i>
+    color: #483d8b;
+}
+.org-package-status-dependency {
+    <i>* package-status-dependency *</i>
+    color: #b22222;
+}
+.org-package-status-disabled {
+    <i>* package-status-disabled *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-package-status-external {
+    <i>* package-status-external *</i>
+    color: #483d8b;
+}
+.org-package-status-from-source {
+}
+.org-package-status-held {
+    <i>* package-status-held *</i>
+    color: #008b8b;
+}
+.org-package-status-incompat {
+    <i>* package-status-incompat *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-package-status-installed {
+    <i>* package-status-installed *</i>
+    color: #b22222;
+}
+.org-package-status-unsigned {
+    <i>* package-status-unsigned *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-preprocessor {
+    <i>* font-lock-preprocessor-face *</i>
+    color: #483d8b;
+}
+.org-property-name {
+    <i>* font-lock-property-name-face *</i>
+    color: #a0522d;
+}
+.org-property-use {
+    <i>* font-lock-property-use-face *</i>
+    color: #a0522d;
+}
+.org-punctuation {
+}
+.org-query-replace {
+    <i>* query-replace *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-regexp {
+    <i>* font-lock-regexp-face *</i>
+    color: #8b2252;
+}
+.org-regexp-grouping-backslash {
+    <i>* font-lock-regexp-grouping-backslash *</i>
+    font-weight: bold;
+}
+.org-regexp-grouping-construct {
+    <i>* font-lock-regexp-grouping-construct *</i>
+    font-weight: bold;
+}
+.org-region {
+    <i>* region *</i>
+    background-color: #eedc82;
+}
+.org-scroll-bar {
+}
+.org-secondary-selection {
+    <i>* secondary-selection *</i>
+    background-color: #ffff00;
+}
+.org-separator-line {
+    <i>* separator-line *</i>
+    background-color: #a0a0a0;
+    font-size: 10%;
+}
+.org-sgml-namespace {
+    <i>* sgml-namespace *</i>
+    color: #483d8b;
+}
+.org-sh-escaped-newline {
+    <i>* sh-escaped-newline *</i>
+    color: #8b2252;
+}
+.org-sh-heredoc {
+    <i>* sh-heredoc *</i>
+    color: #ffa54f;
+}
+.org-sh-quoted-exec {
+    <i>* sh-quoted-exec *</i>
+    color: #ff00ff;
+}
+.org-shadow {
+    <i>* shadow *</i>
+    color: #7f7f7f;
+}
+.org-shortdoc-heading {
+    <i>* shortdoc-heading *</i>
+    font-size: 130%;
+    font-weight: bold;
+}
+.org-shortdoc-section {
+}
+.org-show-paren-match {
+    <i>* show-paren-match *</i>
+    background-color: #40e0d0;
+}
+.org-show-paren-match-expression {
+    <i>* show-paren-match-expression *</i>
+    background-color: #40e0d0;
+}
+.org-show-paren-mismatch {
+    <i>* show-paren-mismatch *</i>
+    color: #ffffff;
+    background-color: #a020f0;
+}
+.org-shr-abbreviation {
+    <i>* shr-abbreviation *</i>
+    text-decoration: underline;
+}
+.org-shr-code {
+}
+.org-shr-h1 {
+    <i>* shr-h1 *</i>
+    font-size: 130%;
+    font-weight: bold;
+}
+.org-shr-h2 {
+    <i>* shr-h2 *</i>
+    font-weight: bold;
+}
+.org-shr-h3 {
+    <i>* shr-h3 *</i>
+    font-style: italic;
+}
+.org-shr-h4 {
+    <i>* shr-h4 *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-shr-h5 {
+    <i>* shr-h5 *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-shr-h6 {
+    <i>* shr-h6 *</i>
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-shr-link {
+    <i>* shr-link *</i>
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-shr-mark {
+    <i>* shr-mark *</i>
+    color: #000000;
+    background-color: #ffff00;
+}
+.org-shr-selected-link {
+    <i>* shr-selected-link *</i>
+    color: #3a5fcd;
+    background-color: #ff0000;
+    text-decoration: underline;
+}
+.org-shr-sliced-image {
+}
+.org-shr-strike-through {
+    <i>* shr-strike-through *</i>
+    text-decoration: line-through;
+}
+.org-shr-sup {
+    <i>* shr-sup *</i>
+    font-size: 80%;
+}
+.org-shr-text {
+    <i>* shr-text *</i>
+    font-size: 110%;
+}
+.org-smerge-base {
+    <i>* smerge-base *</i>
+    background-color: #ffffaa;
+}
+.org-smerge-lower {
+    <i>* smerge-lower *</i>
+    background-color: #ddffdd;
+}
+.org-smerge-markers {
+    <i>* smerge-markers *</i>
+    background-color: #d9d9d9;
+}
+.org-smerge-refined-added {
+    <i>* smerge-refined-added *</i>
+    background-color: #aaffaa;
+}
+.org-smerge-refined-changed {
+}
+.org-smerge-refined-removed {
+    <i>* smerge-refined-removed *</i>
+    background-color: #ffbbbb;
+}
+.org-smerge-upper {
+    <i>* smerge-upper *</i>
+    background-color: #ffdddd;
+}
+.org-string {
+    <i>* font-lock-string-face *</i>
+    color: #8b2252;
+}
+.org-success {
+    <i>* success *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-swiper-background-match-face-1 {
+    <i>* swiper-background-match-face-1 *</i>
+    background-color: #afeeee;
+}
+.org-swiper-background-match-face-2 {
+    <i>* swiper-background-match-face-2 *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-swiper-background-match-face-3 {
+    <i>* swiper-background-match-face-3 *</i>
+    background-color: #fff68f;
+}
+.org-swiper-background-match-face-4 {
+    <i>* swiper-background-match-face-4 *</i>
+    background-color: #ffc1c1;
+}
+.org-swiper-line {
+    <i>* swiper-line-face *</i>
+    background-color: #b4eeb4;
+}
+.org-swiper-match-face-1 {
+    <i>* swiper-match-face-1 *</i>
+    background-color: #afeeee;
+}
+.org-swiper-match-face-2 {
+    <i>* swiper-match-face-2 *</i>
+    color: #b0e2ff;
+    background-color: #cd00cd;
+}
+.org-swiper-match-face-3 {
+    <i>* swiper-match-face-3 *</i>
+    background-color: #fff68f;
+}
+.org-swiper-match-face-4 {
+    <i>* swiper-match-face-4 *</i>
+    background-color: #ffc1c1;
+}
+.org-tab-bar {
+    <i>* tab-bar *</i>
+    color: #000000;
+    background-color: #d9d9d9;
+}
+.org-tab-bar-tab {
+    <i>* tab-bar-tab *</i>
+    color: #000000;
+    background-color: #d9d9d9;
+}
+.org-tab-bar-tab-group-current {
+    <i>* tab-bar-tab-group-current *</i>
+    color: #000000;
+    background-color: #d9d9d9;
+    font-weight: bold;
+}
+.org-tab-bar-tab-inactive {
+    <i>* tab-bar-tab-inactive *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-tab-line {
+    <i>* tab-line *</i>
+    color: #000000;
+    background-color: #d9d9d9;
+    font-size: 90%;
+}
+.org-table-cell {
+    <i>* table-cell *</i>
+    color: #e5e5e5;
+    background-color: #0000ff;
+}
+.org-tabulated-list-fake-header {
+    <i>* tabulated-list-fake-header *</i>
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration: overline;
+}
+.org-tool-bar {
+    <i>* tool-bar *</i>
+    color: #000000;
+    background-color: #bfbfbf;
+}
+.org-tooltip {
+    <i>* tooltip *</i>
+    color: #000000;
+    background-color: #ffffe0;
+}
+.org-trailing-whitespace {
+    <i>* trailing-whitespace *</i>
+    background-color: #ff0000;
+}
+.org-transient-active-infix {
+    <i>* transient-active-infix *</i>
+    background-color: #b4eeb4;
+}
+.org-transient-argument {
+    <i>* transient-argument *</i>
+    color: #8b2252;
+    font-weight: bold;
+}
+.org-transient-delimiter {
+    <i>* transient-delimiter *</i>
+    color: #7f7f7f;
+}
+.org-transient-disabled-suffix {
+    <i>* transient-disabled-suffix *</i>
+    color: #000000;
+    background-color: #ff0000;
+    font-weight: bold;
+}
+.org-transient-enabled-suffix {
+    <i>* transient-enabled-suffix *</i>
+    color: #000000;
+    background-color: #00ff00;
+    font-weight: bold;
+}
+.org-transient-heading {
+    <i>* transient-heading *</i>
+    color: #a020f0;
+}
+.org-transient-higher-level {
+}
+.org-transient-inactive-argument {
+    <i>* transient-inactive-argument *</i>
+    color: #7f7f7f;
+}
+.org-transient-inactive-value {
+    <i>* transient-inactive-value *</i>
+    color: #7f7f7f;
+}
+.org-transient-inapt-argument {
+    <i>* transient-inapt-argument *</i>
+    color: #7f7f7f;
+    font-weight: bold;
+}
+.org-transient-inapt-suffix {
+    <i>* transient-inapt-suffix *</i>
+    color: #7f7f7f;
+    font-style: italic;
+}
+.org-transient-key {
+    <i>* transient-key *</i>
+    color: #483d8b;
+}
+.org-transient-key-exit {
+    <i>* transient-key-exit *</i>
+    color: #aa2222;
+}
+.org-transient-key-noop {
+    <i>* transient-key-noop *</i>
+    color: #cccccc;
+}
+.org-transient-key-recurse {
+    <i>* transient-key-recurse *</i>
+    color: #2266ff;
+}
+.org-transient-key-return {
+    <i>* transient-key-return *</i>
+    color: #aaaa11;
+}
+.org-transient-key-stack {
+    <i>* transient-key-stack *</i>
+    color: #dd4488;
+}
+.org-transient-key-stay {
+    <i>* transient-key-stay *</i>
+    color: #22aa22;
+}
+.org-transient-mismatched-key {
+}
+.org-transient-nonstandard-key {
+}
+.org-transient-unreachable {
+    <i>* transient-unreachable *</i>
+    color: #7f7f7f;
+}
+.org-transient-value {
+    <i>* transient-value *</i>
+    color: #8b2252;
+    font-weight: bold;
+}
+.org-treesit-explorer-anonymous-node {
+    <i>* treesit-explorer-anonymous-node *</i>
+    color: #7f7f7f;
+}
+.org-treesit-explorer-field-name {
+}
+.org-tty-menu-disabled {
+    <i>* tty-menu-disabled-face *</i>
+    color: #d3d3d3;
+    background-color: #0000ff;
+}
+.org-tty-menu-enabled {
+    <i>* tty-menu-enabled-face *</i>
+    color: #ffff00;
+    background-color: #0000ff;
+    font-weight: bold;
+}
+.org-tty-menu-selected {
+    <i>* tty-menu-selected-face *</i>
+    background-color: #ff0000;
+}
+.org-type {
+    <i>* font-lock-type-face *</i>
+    color: #228b22;
+}
+.org-underline {
+    <i>* underline *</i>
+    text-decoration: underline;
+}
+.org-variable-name {
+    <i>* font-lock-variable-name-face *</i>
+    color: #a0522d;
+}
+.org-variable-pitch {
+}
+.org-variable-pitch-text {
+    <i>* variable-pitch-text *</i>
+    font-size: 110%;
+}
+.org-variable-use {
+    <i>* font-lock-variable-use-face *</i>
+    color: #a0522d;
+}
+.org-vc-conflict-state {
+}
+.org-vc-edited-state {
+}
+.org-vc-git-log-edit-summary-max-warning {
+    <i>* vc-git-log-edit-summary-max-warning *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-vc-git-log-edit-summary-target-warning {
+    <i>* vc-git-log-edit-summary-target-warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-vc-ignored-state {
+}
+.org-vc-locally-added-state {
+}
+.org-vc-locked-state {
+}
+.org-vc-missing-state {
+}
+.org-vc-needs-update-state {
+}
+.org-vc-removed-state {
+}
+.org-vc-state-base {
+}
+.org-vc-up-to-date-state {
+}
+.org-vertical-border {
+}
+.org-warning {
+    <i>* warning *</i>
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-warning-1 {
+    <i>* font-lock-warning-face *</i>
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-which-func {
+    <i>* which-func *</i>
+    color: #0000ff;
+}
+.org-which-key-command-description {
+    <i>* which-key-command-description-face *</i>
+    color: #0000ff;
+}
+.org-which-key-docstring {
+    <i>* which-key-docstring-face *</i>
+    color: #b22222;
+}
+.org-which-key-group-description {
+    <i>* which-key-group-description-face *</i>
+    color: #a020f0;
+}
+.org-which-key-key {
+    <i>* which-key-key-face *</i>
+    color: #008b8b;
+}
+.org-which-key-local-map-description {
+    <i>* which-key-local-map-description-face *</i>
+    color: #0000ff;
+}
+.org-which-key-note {
+    <i>* which-key-note-face *</i>
+    color: #b22222;
+}
+.org-which-key-separator {
+    <i>* which-key-separator-face *</i>
+    color: #b22222;
+}
+.org-which-key-special-key {
+    <i>* which-key-special-key-face *</i>
+    color: #008b8b;
+    font-weight: bold;
+}
+.org-widget-button {
+    <i>* widget-button *</i>
+    font-weight: bold;
+}
+.org-widget-button-pressed {
+    <i>* widget-button-pressed *</i>
+    color: #ff0000;
+}
+.org-widget-documentation {
+    <i>* widget-documentation *</i>
+    color: #006400;
+}
+.org-widget-field {
+    <i>* widget-field *</i>
+    background-color: #d9d9d9;
+}
+.org-widget-inactive {
+    <i>* widget-inactive *</i>
+    color: #7f7f7f;
+}
+.org-widget-single-line-field {
+    <i>* widget-single-line-field *</i>
+    background-color: #d9d9d9;
+}
+.org-widget-unselected {
+    <i>* widget-unselected *</i>
+    color: #7f7f7f;
+}
+.org-window-divider {
+    <i>* window-divider *</i>
+    color: #999999;
+}
+.org-window-divider-first-pixel {
+    <i>* window-divider-first-pixel *</i>
+    color: #cccccc;
+}
+.org-window-divider-last-pixel {
+    <i>* window-divider-last-pixel *</i>
+    color: #666666;
+}
+.org-xref-file-header {
+    <i>* xref-file-header *</i>
+    color: #228b22;
+    font-weight: bold;
+}
+.org-xref-line-number {
+    <i>* xref-line-number *</i>
+    color: #a020f0;
+}
+.org-xref-match {
+    <i>* xref-match *</i>
+    background-color: #fff68f;
+}
+</p>
+
+<p>
+a {
+    color: inherit;
+    background-color: inherit;
+    font: inherit;
+    text-decoration: inherit;
+}
+a:hover {
+    text-decoration: underline;
+}
+</p>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Edelweiss</p>
+<p class="date">Created: 2026-08-17 Mon 02:53</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
