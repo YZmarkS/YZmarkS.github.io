@@ -16,7 +16,7 @@ The integration is mostly smooth. Haskell's ~do~-notation is indent sensitive. T
 
 Up until this point, the shape of the type of all my handlers are:
 #+begin_src haskell
-  type Handler1 :: ConnectionPool -> ... -> Handler ReturnType
+  handler1 :: ConnectionPool -> ... -> Handler ReturnType
 #+end_src
 
 By the time I need to construct the application to be served the [[id:4cbaa99c-d9f7-4c87-81ec-c143daa5832c][wai application]], I had to pass the connection pool to each handler:

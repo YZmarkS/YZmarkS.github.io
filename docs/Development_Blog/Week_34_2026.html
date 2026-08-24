@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 34, 2026 (Aug 17 - 23)</h1>
-<div id="outline-container-orgc9dcf8b" class="outline-2">
-<h2 id="orgc9dcf8b">Seeding</h2>
-<div class="outline-text-2" id="text-orgc9dcf8b">
+<div id="outline-container-org19a4c4b" class="outline-2">
+<h2 id="org19a4c4b">Seeding</h2>
+<div class="outline-text-2" id="text-org19a4c4b">
 <p>
 To make development and testing easier, I wrote some code that populates the database on server startup. For now, I simply delete any existing SQLite instances, create a new one, and populate the database with data.
 </p>
@@ -211,9 +211,9 @@ Authentication is going to create friction for the development process. I am thi
 </p>
 </div>
 </div>
-<div id="outline-container-orgc541f4b" class="outline-2">
-<h2 id="orgc541f4b">Other Endpoints</h2>
-<div class="outline-text-2" id="text-orgc541f4b">
+<div id="outline-container-org150b48d" class="outline-2">
+<h2 id="org150b48d">Other Endpoints</h2>
+<div class="outline-text-2" id="text-org150b48d">
 <p>
 I developed a few more endpoints. One of the endpoints required me to use the <code>JOIN</code> operation in SQL. <code>persistent</code> does not have native support for SQL <code>JOIN</code> operation, so I had to bring in an extra library, <a href="../Notes/Haskell_Libraries.html#ID-672468e8-8e47-4f88-bb08-ebbe1de26bd0">esqueleto</a>. 
 </p>
@@ -223,14 +223,14 @@ The integration is mostly smooth. Haskell's <code>do</code>-notation is indent s
 </p>
 </div>
 </div>
-<div id="outline-container-orgdd592f0" class="outline-2">
-<h2 id="orgdd592f0">Refactor to <code>ReaderT</code></h2>
-<div class="outline-text-2" id="text-orgdd592f0">
+<div id="outline-container-orge5fa70a" class="outline-2">
+<h2 id="orge5fa70a">Refactor to <code>ReaderT</code></h2>
+<div class="outline-text-2" id="text-orge5fa70a">
 <p>
 Up until this point, the shape of the type of all my handlers are:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">type Handler1 :: ConnectionPool -&gt; ... -&gt; Handler ReturnType
+<pre class="src src-haskell">handler1 :: ConnectionPool -&gt; ... -&gt; Handler ReturnType
 </pre>
 </div>
 
@@ -260,9 +260,9 @@ Writing the blog now, I get a feeling the <code>ServerT</code> implementation in
 </p>
 </div>
 </div>
-<div id="outline-container-orga341da0" class="outline-2">
-<h2 id="orga341da0">WIP Record-based API and Authentication</h2>
-<div class="outline-text-2" id="text-orga341da0">
+<div id="outline-container-org9f9810c" class="outline-2">
+<h2 id="org9f9810c">WIP Record-based API and Authentication</h2>
+<div class="outline-text-2" id="text-org9f9810c">
 <p>
 The people in Discord also suggested to use the new <a href="https://docs.servant.dev/en/latest/cookbook/named-routes/NamedRoutes.html">record-based APIs</a> <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>. However, I am having trouble to get it working with authentication.
 </p>
@@ -276,9 +276,9 @@ No need to expand the detail here, if I solve the issue, I will surely document 
 </p>
 </div>
 </div>
-<div id="outline-container-orgba36277" class="outline-2">
-<h2 id="orgba36277">Takeaway</h2>
-<div class="outline-text-2" id="text-orgba36277">
+<div id="outline-container-orgbfc7ade" class="outline-2">
+<h2 id="orgbfc7ade">Takeaway</h2>
+<div class="outline-text-2" id="text-orgbfc7ade">
 <p>
 The biggest takeaway this week is to <b>act more</b>. There is no point in thinking about all the design challenges and contingencies when there isn't a product to show for. Get stuff working, then make it better. 
 </p>
