@@ -29,7 +29,7 @@ We have the following definition:
 
 We define the relation /"happened before"/, denoted /"\to"/ as follow:
 1. Within a process, events that comes before also happened before
-   \[ j < k \rArr e_{ij} \to e_{ik} \]
+   \[ j < k \Rightarrow e_{ij} \to e_{ik} \]
 2. For a fixed message, if \(s\) sends the message and \(r\) receives the message, then \( s \to t \).
 3. "\to" is transitive
 4. "\to" is irreflexive
@@ -63,7 +63,7 @@ Above is the endgoal, we can obtain the endgoal by satisfying two subconditions:
 :END:
 
 Within a process, events that come before should be assigned a smaller number:
-\[ j < k \rArr C_i(e_{ij}) < C_i(e_{ik}) \]
+\[ j < k \Rightarrow C_i(e_{ij}) < C_i(e_{ik}) \]
 
 *** Clock Condition (C2)
 :PROPERTIES:

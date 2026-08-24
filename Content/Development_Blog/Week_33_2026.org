@@ -1,4 +1,4 @@
-#+TITLE: Week 33, 2026 (Aug 9 - 16)
+#+TITLE: Week 33, 2026 (Aug 10 - 16)
 
 * Initial Frontend
 

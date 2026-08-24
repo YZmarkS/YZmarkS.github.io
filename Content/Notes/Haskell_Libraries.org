@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       c616a47f-2194-4fce-acd2-bb9939ea7c24
+:END:
+#+TITLE: Haskell Libraries
+
+* Web Development
+
+** wai
+:PROPERTIES:
+:ID:       4cbaa99c-d9f7-4c87-81ec-c143daa5832c
+:END:
+
+Documentation: https://hackage.haskell.org/package/wai
+
+* Database
+
+** persistent
+:PROPERTIES:
+:ID:       0eec4ddb-d4f4-469a-929a-df540151e3cf
+:END:
+
+Documentation: https://hackage-content.haskell.org/package/persistent
+
+** esqueleto
+:PROPERTIES:
+:ID:       672468e8-8e47-4f88-bb08-ebbe1de26bd0
+:END:
+
+Documentation: https://hackage.haskell.org/package/esqueleto
+
+This is a library that was built on top of the [[id:0eec4ddb-d4f4-469a-929a-df540151e3cf][persistent]] library, but enhanced with additional SQL operations.
+
+

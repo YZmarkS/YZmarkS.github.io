@@ -1,4 +1,5 @@
 #+TITLE: Notes
 
+- [[file:Haskell_Libraries.org][Haskell Libraries]]
 - [[file:Logical_Clock_in_a_Distributed_System_Leslie_Lamport.org][Notes on Logical Clock by Leslie Lamport]]
 - [[file:CORS_Cross-Origin_Resource_Sharing.org][Basic Understanding of Cross-Origin Resource Sharing (CORS)]]

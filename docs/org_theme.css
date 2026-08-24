@@ -3166,10 +3166,10 @@ body {
 }
 
 a {
-    color: inherit;
-    background-color: inherit;
     font: inherit;
-    text-decoration: inherit;
+    /* color: inherit; */
+    /* background-color: inherit; */
+    /* text-decoration: inherit; */
 }
 a:hover {
     text-decoration: underline;

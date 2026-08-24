@@ -1,0 +1,54 @@
+#+TITLE: Week 34, 2026 (Aug 17 - 23)
+
+* Seeding
+
+To make development and testing easier, I wrote some code that populates the database on server startup. For now, I simply delete any existing SQLite instances, create a new one, and populate the database with data.
+
+Authentication is going to create friction for the development process. I am thinking of using the [[https://datatracker.ietf.org/doc/html/rfc7617][Basic Access Authentication Scheme]] [fn:1] during development. The authentication logic should be modular, I hope ~servant~ can handle it.
+
+* Other Endpoints
+
+I developed a few more endpoints. One of the endpoints required me to use the ~JOIN~ operation in SQL. ~persistent~ does not have native support for SQL ~JOIN~ operation, so I had to bring in an extra library, [[id:672468e8-8e47-4f88-bb08-ebbe1de26bd0][esqueleto]]. 
+
+The integration is mostly smooth. Haskell's ~do~-notation is indent sensitive. This can be mitigated using the braces syntax with explicit semi-colon separating each monadic action. 
+
+* Refactor to ~ReaderT~
+
+Up until this point, the shape of the type of all my handlers are:
+#+begin_src haskell
+  type Handler1 :: ConnectionPool -> ... -> Handler ReturnType
+#+end_src
+
+By the time I need to construct the application to be served the [[id:4cbaa99c-d9f7-4c87-81ec-c143daa5832c][wai application]], I had to pass the connection pool to each handler:
+#+begin_src haskell
+  handler1 pool :<|> handler2 pool :<|> ... :<|> handlerN pool
+#+end_src
+
+I requested helps on Discord, and was told to use the ~ReaderT~ approach. There is a [[https://academy.fpblock.com/blog/2017/06/readert-design-pattern/][related blog]] [fn:2] on the internet, interestingly written by the author + maintainer of ~persistent~. 
+
+After refectoring, this new design resulted in 3 changes:
+1. Each handler uses the ~asks~ action from the ~(ReaderT ConnectionPool)~ environment to obtain the connection pool.
+2. There is no longer a need to pass the connection pool to each handler when constructing the application. However,
+3. I need to use the ~hoistServerWithContext~ function to convert a ~(ReaderT ConnectionPool Handler)~ monad back into a ~Handler~ monad.
+
+Writing the blog now, I get a feeling the ~ServerT~ implementation in ~servant~ may come and bite me in the future, because the type level function is very opinionated on where the monad should be "pushed" into. Hopefully no big issue in the future.
+
+* WIP Record-based API and Authentication
+
+The people in Discord also suggested to use the new [[https://docs.servant.dev/en/latest/cookbook/named-routes/NamedRoutes.html][record-based APIs]] [fn:3]. However, I am having trouble to get it working with authentication.
+
+I want to perform a authentication check when received partial knowledge about the request path, and throw a 403 error early if the request does not have the authority to access any subsequent path. However, because of the pure nature of a record, I seem to have trouble with it.
+
+No need to expand the detail here, if I solve the issue, I will surely document it.
+
+* Takeaway
+
+The biggest takeaway this week is to *act more*. There is no point in thinking about all the design challenges and contingencies when there isn't a product to show for. Get stuff working, then make it better. 
+
+* Footnotes
+
+[fn:1] IETF, [[https://datatracker.ietf.org/doc/html/rfc7617][RFC 7617, The 'Basic' HTTP Authentication Scheme]].
+
+[fn:2] Blog, [[https://academy.fpblock.com/blog/2017/06/readert-design-pattern/][The ReaderT Design Pattern]]
+
+[fn:3] Servant Cookbook, [[https://docs.servant.dev/en/latest/cookbook/named-routes/NamedRoutes.html][Record-based APIs]]
