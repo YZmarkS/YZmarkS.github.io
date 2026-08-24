@@ -19,7 +19,7 @@
        (list "main-pages"
              :recursive t
              :base-directory "./Content"
-             :publishing-directory "./public_html"
+             :publishing-directory "./docs"
              :publishing-function 'org-html-publish-to-html
 	     :with-author nil
 	     :with-toc nil
@@ -30,7 +30,7 @@
 	     :recursive t
 	     :base-directory "./Content"
 	     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mps"
-	     :publishing-directory "./public_html"
+	     :publishing-directory "./docs"
 	     :publishing-function 'org-publish-attachment)))
 
 (setq org-html-validation-link nil

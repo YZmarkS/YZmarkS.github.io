@@ -1,0 +1,93 @@
+:root, ::backdrop {
+    --sans-font: -apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,"Noto Sans","Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
+    --mono-font: Consolas,Menlo,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    --standard-border-radius: 5px;
+    --bg: #fff;
+    --accent-bg: #f5f7ff;
+    --text: #212121;
+    --text-light: #585858;
+    --border: #898ea4;
+    --accent: #0d47a1;
+    --accent-hover: #1266e2;
+    --accent-text: var(--bg);
+    --code: #d81b60;
+    --preformatted: #444;
+    --marked: #fd3;
+    --disabled: #efefef;
+}
+
+html {
+    font-family: var(--sans-font);
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr min(60rem,90%) 1fr;
+
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+body > * {
+    grid-column: 2;
+}
+
+img, video {
+    border-radius: var(--standard-border-radius);
+    max-width: 100%;
+    height: auto;
+}
+
+#main-header {
+    display: flex;
+    justify-content: flex-start;
+
+    background-color: #F0F0F0;
+    border: solid;
+    border-width: medium;
+    border-color: #E8E8E8;
+
+    margin-top: 1rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#main-header a {
+    float: left;
+    text-align: center;
+    padding: 0.5rem;
+
+    text-decoration: none;
+    color: black;
+    background-color: #F0F0F0;
+}
+
+#main-header a:hover {
+    background-color: #E8E8E8;
+}
+
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    margin-top:3rem;
+    font-size: 2.6rem;
+}
+h3 {
+    margin-top:3rem;
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.44rem;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap:break-word
+}
