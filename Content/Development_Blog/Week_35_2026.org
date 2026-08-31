@@ -1,0 +1,50 @@
+#+TITLE: Week 35, 2026 (Aug 24 - 30)
+
+* WIP Continuing with Record-based API and Authentication
+
+I envisioned the logic of authentication to be roughly the following
+
+#+begin_src
+trip_id ──┬─► owner_resources
+          │                                                      
+          └─► member_resources
+#+end_src
+
+When a user sends request:
+1. Get user id
+2. Check if the user has permission for the resource, if not, return 403
+
+I thought if I can implement permission logic in the record value, by the time I reach the endpoint handler, I will already know the user has permission to access the resource. This makes the handler logic cleaning, without repeating permission check across all subpaths.
+
+However, check 2 automatically put computation in a monad, while the corresponding implementation of the API needs to be instance of a record type. The former has side-effects, while the latter is pure. This cannot work.
+
+For now, I am doing the dirty work of performing permission check inside of handlers.
+
+** Authentication in record-based API
+
+All the articles in the cookbook for authentication uses the old API syntax, with ~:<|>~ to join endpoints. Using that framework, applications are served using the ~serve...~ series of functions, in particular, I used ~serveWithContextT~.
+
+When changing to record-based API, I will need to change to ~genericServeTWithContext~. I am figuring out how that is going to work.
+
+** Authentication Tutorial Hell
+
+There are three tutorials on how to do authentication in ~servant~:
+1. Basic tutorial[fn:1]
+2. Basic Authentication cookbook [fn:2]
+3. JWT + Basic Access authentication [fn:3]
+
+I mostly followed the 3rd one, because I will eventually want to incorporate more sophisticated authentication than username and password.
+
+But, for the purpose of development, I don't actually want to implement JWT right now. Because the constant generation of new JWT is going to be a huge pain when manually testing endpoints. For now I only want basic auth, that way I can simply add username and password of a known user (from seeding) to the header.
+
+However, as I tried to serve the application, I am getting errors that ask me to provide cookie functionality and JWT functionality into the context. I found this strange because I never required JWT in my API definition.
+
+This is an ongoing problem that I need to solve. 
+
+* Footnotes
+
+[fn:1] ~servant~ Tutorial, [[https://docs.servant.dev/en/latest/tutorial/Authentication.html ][Authentication in Servant]]
+
+[fn:2] ~servant~ Cookbook, [[https://docs.servant.dev/en/latest/cookbook/basic-auth/BasicAuth.html][Basic Authentication]]
+
+[fn:3] ~servant~ Cookbook, [[https://docs.servant.dev/en/latest/cookbook/jwt-and-basic-auth/JWTAndBasicAuth.html][Combining JWT-based authentication with basic access authentication]]

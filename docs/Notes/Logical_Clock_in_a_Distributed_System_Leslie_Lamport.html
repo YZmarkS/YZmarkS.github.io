@@ -231,13 +231,13 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Logical Clock in a Distributed System</h1>
-<div id="outline-container-org3ab5afb" class="outline-2">
-<h2 id="org3ab5afb">Overview</h2>
-<div class="outline-text-2" id="text-org3ab5afb">
+<div id="outline-container-org4eecef1" class="outline-2">
+<h2 id="org4eecef1">Overview</h2>
+<div class="outline-text-2" id="text-org4eecef1">
 </div>
-<div id="outline-container-org959bef9" class="outline-3">
-<h3 id="org959bef9">What is a distributed system?</h3>
-<div class="outline-text-3" id="text-org959bef9">
+<div id="outline-container-org57efaa4" class="outline-3">
+<h3 id="org57efaa4">What is a distributed system?</h3>
+<div class="outline-text-3" id="text-org57efaa4">
 <p>
 A key challenge of a distributed system is the delay between messages. If message delay is not negligible compare to the time between events in a single thread, the system should be considered distributed.
 </p>
@@ -247,18 +247,18 @@ In this sense, the common example of two threads performing increment on a commo
 </p>
 </div>
 </div>
-<div id="outline-container-org85dabc3" class="outline-3">
-<h3 id="org85dabc3">Main Goal</h3>
-<div class="outline-text-3" id="text-org85dabc3">
+<div id="outline-container-org1366b21" class="outline-3">
+<h3 id="org1366b21">Main Goal</h3>
+<div class="outline-text-3" id="text-org1366b21">
 <p>
 Give a algorithmic way to discover <i>total ordering</i> of events in a distributed system that is consistent with the user's perception. Hopefully with an acceptable bound. 
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org2af22e6" class="outline-2">
-<h2 id="org2af22e6">The Partial Ordering of Events</h2>
-<div class="outline-text-2" id="text-org2af22e6">
+<div id="outline-container-org8adbcb0" class="outline-2">
+<h2 id="org8adbcb0">The Partial Ordering of Events</h2>
+<div class="outline-text-2" id="text-org8adbcb0">
 <p>
 We have the following definition:
 </p>
@@ -268,9 +268,9 @@ We have the following definition:
 <dt>A class of distinguished events for sending and receiving a message</dt><dd>\( s, r \)</dd>
 </dl>
 </div>
-<div id="outline-container-org444cf2b" class="outline-3">
-<h3 id="org444cf2b"><i>"Happened before"</i></h3>
-<div class="outline-text-3" id="text-org444cf2b">
+<div id="outline-container-org3a07c18" class="outline-3">
+<h3 id="org3a07c18"><i>"Happened before"</i></h3>
+<div class="outline-text-3" id="text-org3a07c18">
 <p>
 We define the relation <i>"happened before"</i>, denoted <i>"&rarr;"</i> as follow:
 </p>
@@ -288,9 +288,9 @@ By this definition, we define \(e_1, e_2\) as <i>concurrent</i> if \((\neg a \to
 </div>
 </div>
 </div>
-<div id="outline-container-org3be3c00" class="outline-2">
-<h2 id="org3be3c00">Logical Clock</h2>
-<div class="outline-text-2" id="text-org3be3c00">
+<div id="outline-container-org7f0582d" class="outline-2">
+<h2 id="org7f0582d">Logical Clock</h2>
+<div class="outline-text-2" id="text-org7f0582d">
 <p>
 We have the following definition:
 </p>
@@ -305,9 +305,9 @@ We have the following definition:
 The paper only assigns number to the collection of sequences of events that actually happened.
 </p>
 </div>
-<div id="outline-container-org21a2e0f" class="outline-3">
-<h3 id="org21a2e0f">Clock Condition</h3>
-<div class="outline-text-3" id="text-org21a2e0f">
+<div id="outline-container-org7ff0f2f" class="outline-3">
+<h3 id="org7ff0f2f">Clock Condition</h3>
+<div class="outline-text-3" id="text-org7ff0f2f">
 <p>
 There are many assignments of events to numbers, which one is correct?
 </p>
@@ -325,18 +325,18 @@ For all events \(e, e'\), \( e \to e' \Rightarrow C(e) < C(e') \)
 Above is the endgoal, we can obtain the endgoal by satisfying two subconditions:
 </p>
 </div>
-<div id="outline-container-org5fa218f" class="outline-4">
-<h4 id="org5fa218f">Clock Condition (C1)</h4>
-<div class="outline-text-4" id="text-org5fa218f">
+<div id="outline-container-orgb54df9e" class="outline-4">
+<h4 id="orgb54df9e">Clock Condition (C1)</h4>
+<div class="outline-text-4" id="text-orgb54df9e">
 <p>
 Within a process, events that come before should be assigned a smaller number:
 \[ j < k \Rightarrow C_i(e_{ij}) < C_i(e_{ik}) \]
 </p>
 </div>
 </div>
-<div id="outline-container-org56f70d3" class="outline-4">
-<h4 id="org56f70d3">Clock Condition (C2)</h4>
-<div class="outline-text-4" id="text-org56f70d3">
+<div id="outline-container-org62a4878" class="outline-4">
+<h4 id="org62a4878">Clock Condition (C2)</h4>
+<div class="outline-text-4" id="text-org62a4878">
 <p>
 For a fixed message, if \( s \) sends the message from process \(i\) to process \(j\) and \( r \) receives the same message, then \( s \) is assigned a smaller number:
 \[ C_i(s) < C_j(r) \]
@@ -344,44 +344,44 @@ For a fixed message, if \( s \) sends the message from process \(i\) to process 
 </div>
 </div>
 </div>
-<div id="outline-container-org8b372c3" class="outline-3">
-<h3 id="org8b372c3">A term:</h3>
-<div class="outline-text-3" id="text-org8b372c3">
+<div id="outline-container-org7b711cc" class="outline-3">
+<h3 id="org7b711cc">A term:</h3>
+<div class="outline-text-3" id="text-org7b711cc">
 <p>
 On page 3 (or 560 of the journal), left column, the final paragraph, the author suppose we mark each timeline with natural numbers, with the number getting bigger as it goes up.
 Then the term "like-numbered" means drawing a tick line between the marked positions with the same natural number.
 </p>
 </div>
 </div>
-<div id="outline-container-org1118340" class="outline-3">
-<h3 id="org1118340">A way to satisfy the Clock Condition</h3>
-<div class="outline-text-3" id="text-org1118340">
+<div id="outline-container-org9bec726" class="outline-3">
+<h3 id="org9bec726">A way to satisfy the Clock Condition</h3>
+<div class="outline-text-3" id="text-org9bec726">
 <p>
-We wish to satisfy <a href="#org5fa218f">C1</a>, <a href="#org56f70d3">C2</a>. More importantly, this needs to be done distributively, because there is no master clock we can refer to. So in practice, each process keeps their own clock, and we use an algorithm to sync the clock up.
+We wish to satisfy <a href="#orgb54df9e">C1</a>, <a href="#org62a4878">C2</a>. More importantly, this needs to be done distributively, because there is no master clock we can refer to. So in practice, each process keeps their own clock, and we use an algorithm to sync the clock up.
 </p>
 
 <p>
 The algorithm consist of two parts:
 </p>
 </div>
-<div id="outline-container-orge30b652" class="outline-4">
-<h4 id="orge30b652">Algorithm: IR1</h4>
-<div class="outline-text-4" id="text-orge30b652">
+<div id="outline-container-org58e2e92" class="outline-4">
+<h4 id="org58e2e92">Algorithm: IR1</h4>
+<div class="outline-text-4" id="text-org58e2e92">
 <p>
 Each process \(p_i\) increment \(C_i\) between any two successive events. In practice, can simply increment after an event.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb980a8a" class="outline-4">
-<h4 id="orgb980a8a">Algorithm: IR2</h4>
-<div class="outline-text-4" id="text-orgb980a8a">
+<div id="outline-container-orgddb49c1" class="outline-4">
+<h4 id="orgddb49c1">Algorithm: IR2</h4>
+<div class="outline-text-4" id="text-orgddb49c1">
 <p>
 For a fixed message \(m\), send message event \(s\) done by process \(p_i\) contains a time stamp of the of the time of the send event, \(T_s = C_i(s) \).
 On receiving the message, the receipient process \( p_j \) increment its clock \( C_j \) to a number greater than or equal to its current value or \( T_s \).
 </p>
 
 <p>
-<b>WARNING</b>: There is a question to be asked here, should there still be an increment after choosing the max of current value and \( T_s \)? I think you should still increment as instructed by <a href="#orge30b652">IR1</a>, because receiving constitute an event.
+<b>WARNING</b>: There is a question to be asked here, should there still be an increment after choosing the max of current value and \( T_s \)? I think you should still increment as instructed by <a href="#org58e2e92">IR1</a>, because receiving constitute an event.
 </p>
 </div>
 </div>

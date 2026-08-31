@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Week 33, 2026 (Aug 10 - 16)</title>
+<title>Week 35, 2026 (Aug 24 - 30)</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -198,56 +198,81 @@
 <div id="main-header"><a href="/index.html">Home</a><a href="/Notes/index.html">Notes</a><a href="/Development_Blog/index.html">Development Blog</a></div>
 </div>
 <div id="content" class="content">
-<h1 class="title">Week 33, 2026 (Aug 10 - 16)</h1>
-<div id="outline-container-orgca73607" class="outline-2">
-<h2 id="orgca73607">Initial Frontend</h2>
-<div class="outline-text-2" id="text-orgca73607">
+<h1 class="title">Week 35, 2026 (Aug 24 - 30)</h1>
+<div id="outline-container-org986580f" class="outline-2">
+<h2 id="org986580f">WIP Continuing with Record-based API and Authentication</h2>
+<div class="outline-text-2" id="text-org986580f">
 <p>
-I made the decision to use <i>Svelte</i> for the frontend development.
+I envisioned the logic of authentication to be roughly the following
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">trip_id ──┬─► owner_resources
+          │                                                      
+          └─► member_resources
+</pre>
+</div>
+
+<p>
+When a user sends request:
+</p>
+<ol class="org-ol">
+<li>Get user id</li>
+<li>Check if the user has permission for the resource, if not, return 403</li>
+</ol>
+
+<p>
+I thought if I can implement permission logic in the record value, by the time I reach the endpoint handler, I will already know the user has permission to access the resource. This makes the handler logic cleaning, without repeating permission check across all subpaths.
 </p>
 
 <p>
-I debated between React and Svelte for a bit. On one hand, I had more experience in React; On the other hand, I have heard great things about Svelte. After learning there is a <i>drag-and-drop library</i> for Svelte, I made the choice to choose Svelte.
+However, check 2 automatically put computation in a monad, while the corresponding implementation of the API needs to be instance of a record type. The former has side-effects, while the latter is pure. This cannot work.
 </p>
 
 <p>
-Another decision to make was whether or not I should use SvelteKit. At this moment, I am not concerned about any advanced features besides <i>routing</i>. In such case, SvelteKit may be overkill in comparison to a lightweight library. In the end, I still chose SvelteKit, because I figure I can simply opt-out of any advanced features (such as loading data server-side).
+For now, I am doing the dirty work of performing permission check inside of handlers.
+</p>
+</div>
+<div id="outline-container-org76a8b55" class="outline-3">
+<h3 id="org76a8b55">Authentication in record-based API</h3>
+<div class="outline-text-3" id="text-org76a8b55">
+<p>
+All the articles in the cookbook for authentication uses the old API syntax, with <code>:&lt;|&gt;</code> to join endpoints. Using that framework, applications are served using the <code>serve...</code> series of functions, in particular, I used <code>serveWithContextT</code>.
+</p>
+
+<p>
+When changing to record-based API, I will need to change to <code>genericServeTWithContext</code>. I am figuring out how that is going to work.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd010a75" class="outline-2">
-<h2 id="orgd010a75">Cross-Origin Resource Sharing</h2>
-<div class="outline-text-2" id="text-orgd010a75">
+<div id="outline-container-orgcdf2e91" class="outline-3">
+<h3 id="orgcdf2e91">Authentication Tutorial Hell</h3>
+<div class="outline-text-3" id="text-orgcdf2e91">
 <p>
-I made one endpoint and one frontend page to test the concept. In the process, I ran into a cross-origin resource sharing (CORS) error in the frontend.
+There are three tutorials on how to do authentication in <code>servant</code>:
+</p>
+<ol class="org-ol">
+<li>Basic tutorial<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup></li>
+<li>Basic Authentication cookbook <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup></li>
+<li>JWT + Basic Access authentication <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup></li>
+</ol>
+
+<p>
+I mostly followed the 3rd one, because I will eventually want to incorporate more sophisticated authentication than username and password.
 </p>
 
 <p>
-While I have encountered similar errors before, this time I went to the source to understand the underpinning logic behind the mechanism. The source I used was MDN <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, and a detailed note can be found <a href="../Notes/CORS_Cross-Origin_Resource_Sharing.html#ID-95445645-e51d-4eac-9e83-ebc3b62511cf">elsewhere</a>. 
+But, for the purpose of development, I don't actually want to implement JWT right now. Because the constant generation of new JWT is going to be a huge pain when manually testing endpoints. For now I only want basic auth, that way I can simply add username and password of a known user (from seeding) to the header.
 </p>
 
 <p>
-After understanding the motivation of the mechanism, I decided to solve the error by setting <code>Access-Control-Allow-Origin: *</code>. I am aware this is a temporary solution and it is only valid because I am in control of the development environment. When the time to deploy comes, I will set it up properly to only allow calls from trusted sources. 
+However, as I tried to serve the application, I am getting errors that ask me to provide cookie functionality and JWT functionality into the context. I found this strange because I never required JWT in my API definition.
+</p>
+
+<p>
+This is an ongoing problem that I need to solve. 
 </p>
 </div>
-</div>
-<div id="outline-container-org377a2ee" class="outline-2">
-<h2 id="org377a2ee">GHC <code>-ddump-XXX</code> Options</h2>
-<div class="outline-text-2" id="text-org377a2ee">
-<p>
-I ran into a case where I had to compare two values with seemingly different types (syntactically).
-</p>
-
-<p>
-The types I was dealing with are generated by a template Haskell. I believe there are no way to view the result of the quasiquoter besides using GHC's debug messages <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>.
-I had some difficulty setting up the <code>ghc-options</code> in my cabal file and finding where the <code>-ddump-XXX</code> files are located.
-A few lessons learned are the following:
-</p>
-<ul class="org-ul">
-<li>Use <code>-ddump-to-file</code> to output debug messages to files.</li>
-<li>Use <code>-ddump-splices</code> to see the result of splicing a Template Haskell expression.</li>
-<li>Use <code>find . -name "to_find"</code> to find a file with a specific name under the current directory. Prepend and append <code>*</code> if wants to search by substring.</li>
-</ul>
 </div>
 </div>
 <div id="footnotes">
@@ -255,11 +280,15 @@ A few lessons learned are the following:
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-MDN, <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS">Cross-Origin Resource Sharing (CORS)</a>
+<code>servant</code> Tutorial, <a href="https://docs.servant.dev/en/latest/tutorial/Authentication.html%20">Authentication in Servant</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-GHC User's Guide, <a href="https://ghc.gitlab.haskell.org/ghc/doc/users_guide/debugging.html">Debugging the compiler</a>
+<code>servant</code> Cookbook, <a href="https://docs.servant.dev/en/latest/cookbook/basic-auth/BasicAuth.html">Basic Authentication</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<code>servant</code> Cookbook, <a href="https://docs.servant.dev/en/latest/cookbook/jwt-and-basic-auth/JWTAndBasicAuth.html">Combining JWT-based authentication with basic access authentication</a>
 </p></div></div>
 
 
