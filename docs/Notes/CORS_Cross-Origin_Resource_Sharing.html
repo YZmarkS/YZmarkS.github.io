@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Cross-Origin Resource Sharing (CORS)</h1>
-<div id="outline-container-org1f2f8aa" class="outline-2">
-<h2 id="org1f2f8aa">Intuition</h2>
-<div class="outline-text-2" id="text-org1f2f8aa">
+<div id="outline-container-org39be02a" class="outline-2">
+<h2 id="org39be02a">Intuition</h2>
+<div class="outline-text-2" id="text-org39be02a">
 <p>
 Nowadays, when visiting a website at <code>A.com</code>, it is often the webpage will make further requests to other hosts (<code>B.com, C.com, ...</code>) for data to populate the page.
 </p>
@@ -211,9 +211,9 @@ Cross-Origin Resource Sharing (CORS) defines the way to perform this action safe
 </p>
 </div>
 </div>
-<div id="outline-container-org2bc6f48" class="outline-2">
-<h2 id="org2bc6f48">An Attack Method using CORS</h2>
-<div class="outline-text-2" id="text-org2bc6f48">
+<div id="outline-container-orga867036" class="outline-2">
+<h2 id="orga867036">An Attack Method using CORS</h2>
+<div class="outline-text-2" id="text-orga867036">
 <p>
 Example adapted from Mozilla MDN documentation <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> and a friend.
 </p>
@@ -242,9 +242,9 @@ Upon visiting the malicious site <code>Mallory.com</code>, the malicious server 
 </p>
 </div>
 </div>
-<div id="outline-container-org6118507" class="outline-2">
-<h2 id="org6118507">Solution</h2>
-<div class="outline-text-2" id="text-org6118507">
+<div id="outline-container-org35d4977" class="outline-2">
+<h2 id="org35d4977">Solution</h2>
+<div class="outline-text-2" id="text-org35d4977">
 <p>
 Instead of immediately making the <code>POST</code> request to <code>Bank.com/transfer_to</code>, the browser first performs a <i>preflight</i> <code>OPTIONS</code> requestion to <code>Bank.com/transfer_to</code>.
 </p>
@@ -268,9 +268,9 @@ Access-Control-Allow-Origin: https://BankWebsite.com
 The <code>Access-Control-Allow-Origin</code> header tells us the <code>Bank.com</code> only wants to receive requests made by JavaScript code that originated from the host <code>BankWebsite.com</code> (which is likely the frontend website of the bank).
 </p>
 </div>
-<div id="outline-container-org667c99f" class="outline-3">
-<h3 id="org667c99f">How does this address the attack?</h3>
-<div class="outline-text-3" id="text-org667c99f">
+<div id="outline-container-org23a15ba" class="outline-3">
+<h3 id="org23a15ba">How does this address the attack?</h3>
+<div class="outline-text-3" id="text-org23a15ba">
 <p>
 Again, suppose the browser receives the malicious code from <code>Mallory.com</code>.
 The browser tracks that the malicious code came from <code>Mallory.com</code>.
@@ -280,13 +280,13 @@ Thus the browser refuses to make the actual <code>POST</code> request, preventin
 </div>
 </div>
 </div>
-<div id="outline-container-org31f2c36" class="outline-2">
-<h2 id="org31f2c36">Development Scenarios</h2>
-<div class="outline-text-2" id="text-org31f2c36">
+<div id="outline-container-org8dd8a61" class="outline-2">
+<h2 id="org8dd8a61">Development Scenarios</h2>
+<div class="outline-text-2" id="text-org8dd8a61">
 </div>
-<div id="outline-container-orgbe89b30" class="outline-3">
-<h3 id="orgbe89b30">Simple Requests</h3>
-<div class="outline-text-3" id="text-orgbe89b30">
+<div id="outline-container-org4fd2f45" class="outline-3">
+<h3 id="org4fd2f45">Simple Requests</h3>
+<div class="outline-text-3" id="text-org4fd2f45">
 <p>
 In theory, there are requests that don't trigger a preflight request, which are called <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS#simple_requests">/simple requests</a>/ <sup><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
 </p>
@@ -296,9 +296,9 @@ However, when using tools like Axios, the library often inserts additional heade
 </p>
 </div>
 </div>
-<div id="outline-container-org59312d5" class="outline-3">
-<h3 id="org59312d5"><code>Access-Control-Allow-Origin: *</code></h3>
-<div class="outline-text-3" id="text-org59312d5">
+<div id="outline-container-org1266544" class="outline-3">
+<h3 id="org1266544"><code>Access-Control-Allow-Origin: *</code></h3>
+<div class="outline-text-3" id="text-org1266544">
 <p>
 During development, it is often the frontend and backend app are both running on <code>localhost</code> but on different ports. This will trigger the condition and cause the browser to make a  preflight request.
 </p>
@@ -325,9 +325,9 @@ In practice, this is often done by middleware that handles <code>OPTIONS</code> 
 </div>
 </div>
 </div>
-<div id="outline-container-org3b7db15" class="outline-2">
-<h2 id="org3b7db15">Other CORS Headers <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup></h2>
-<div class="outline-text-2" id="text-org3b7db15">
+<div id="outline-container-org90eaf03" class="outline-2">
+<h2 id="org90eaf03">Other CORS Headers <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup></h2>
+<div class="outline-text-2" id="text-org90eaf03">
 <p>
 A preflight request also have the following header to check whether the header of the request about to be made are accepted by the server:
 </p>

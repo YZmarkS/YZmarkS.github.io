@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 34, 2026 (Aug 17 - 23)</h1>
-<div id="outline-container-org7dc3207" class="outline-2">
-<h2 id="org7dc3207">Seeding</h2>
-<div class="outline-text-2" id="text-org7dc3207">
+<div id="outline-container-org168c9cc" class="outline-2">
+<h2 id="org168c9cc">Seeding</h2>
+<div class="outline-text-2" id="text-org168c9cc">
 <p>
 To make development and testing easier, I wrote some code that populates the database on server startup. For now, I simply delete any existing SQLite instances, create a new one, and populate the database with data.
 </p>
@@ -211,9 +211,9 @@ Authentication is going to create friction for the development process. I am thi
 </p>
 </div>
 </div>
-<div id="outline-container-org8afe2d9" class="outline-2">
-<h2 id="org8afe2d9">Other Endpoints</h2>
-<div class="outline-text-2" id="text-org8afe2d9">
+<div id="outline-container-org324e4f0" class="outline-2">
+<h2 id="org324e4f0">Other Endpoints</h2>
+<div class="outline-text-2" id="text-org324e4f0">
 <p>
 I developed a few more endpoints. One of the endpoints required me to use the <code>JOIN</code> operation in SQL. <code>persistent</code> does not have native support for SQL <code>JOIN</code> operation, so I had to bring in an extra library, <a href="../Notes/Haskell_Libraries.html#ID-672468e8-8e47-4f88-bb08-ebbe1de26bd0">esqueleto</a>. 
 </p>
@@ -223,9 +223,9 @@ The integration is mostly smooth. Haskell's <code>do</code>-notation is indent s
 </p>
 </div>
 </div>
-<div id="outline-container-orgb0ee758" class="outline-2">
-<h2 id="orgb0ee758">Refactor to <code>ReaderT</code></h2>
-<div class="outline-text-2" id="text-orgb0ee758">
+<div id="outline-container-orga579a7f" class="outline-2">
+<h2 id="orga579a7f">Refactor to <code>ReaderT</code></h2>
+<div class="outline-text-2" id="text-orga579a7f">
 <p>
 Up until this point, the shape of the type of all my handlers are:
 </p>
@@ -260,9 +260,9 @@ Writing the blog now, I get a feeling the <code>ServerT</code> implementation in
 </p>
 </div>
 </div>
-<div id="outline-container-org0aeda4f" class="outline-2">
-<h2 id="org0aeda4f">WIP Record-based API and Authentication</h2>
-<div class="outline-text-2" id="text-org0aeda4f">
+<div id="outline-container-org695a14c" class="outline-2">
+<h2 id="org695a14c">WIP Record-based API and Authentication</h2>
+<div class="outline-text-2" id="text-org695a14c">
 <p>
 The people in Discord also suggested to use the new <a href="https://docs.servant.dev/en/latest/cookbook/named-routes/NamedRoutes.html">record-based APIs</a> <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>. However, I am having trouble to get it working with authentication.
 </p>
@@ -276,9 +276,9 @@ No need to expand the detail here, if I solve the issue, I will surely document 
 </p>
 </div>
 </div>
-<div id="outline-container-org9d2cd3a" class="outline-2">
-<h2 id="org9d2cd3a">Takeaway</h2>
-<div class="outline-text-2" id="text-org9d2cd3a">
+<div id="outline-container-org8df4eb3" class="outline-2">
+<h2 id="org8df4eb3">Takeaway</h2>
+<div class="outline-text-2" id="text-org8df4eb3">
 <p>
 The biggest takeaway this week is to <b>act more</b>. There is no point in thinking about all the design challenges and contingencies when there isn't a product to show for. Get stuff working, then make it better. 
 </p>
