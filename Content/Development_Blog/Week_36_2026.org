@@ -1,0 +1,141 @@
+#+TITLE: Week 36, 2026 (Aug 31 - Sept 6)
+
+* Refactoring to Record-based API
+
+The refactor to record-based API is complete. The server is operational.
+
+The record-based API was made possible by:
+- ~GenericMode~ :: A member of this typeclass informs the programmer the type can be used to interpret the record-based API type into a different type [fn:1].
+- ~:-~ :: An associated type of ~GenericMode~, used to explicit define how the API type on the right is interpreted [fn:1].
+- ~AsServerT~ :: A mode that can be used to interpret the type using ~ServerT~ [fn:2]
+
+In particular, ~AsServerT~ and ~ServerT~ refers to each other:
+- ~AsServerT~ uses ~ServerT~ :: ~AsServerT m :- api = ServerT api m~
+- ~ServerT~ uses ~AsServerT~ :: ~ServerT (NamedRoute api) m = api (AsServerT m)~
+
+* Authentication and Permission
+
+First, given my understanding, it seems authentication and permission are different concepts. Authentication first identifies the user. If the user can be identified, we can further check whether the user has permission to access a resource.
+
+Last week, I was confused by the ~servant~ framework requiring ~CookieSettings~ and ~JWTSettings~ into the context even when they are not used. As it turns out, the cookbook mentioned this:
+#+begin_quote
+With ~Servant.Auth~, we’ll have to put both ~CookieSettings~ and ~JWTSettings~ into context even if we’re not using those [...]
+#+end_quote
+I will return to the why later.
+
+The authentication function now has access to the database. The logic is very simple right now to ease development experience. I will come back to it later. 
+
+There were some issues when trying to integrate authentication, record-based API and ~provideOptions~. This is [[https://github.com/sordina/servant-options/issues/2][an open issue]] [fn:3] of ~servant-options~. I marked it in the source code, and hope to return to it.
+
+Taking lesson from previous weeks, I have decided to make permission check functional before making it elegant. For now, each endpoint handler will perform their own permission check.
+
+* Refactoring to Improve Build Experience
+
+I put the source code of each internal library into a separate directory. This fixed the old build issue where I had to repeat many modules in ~other-modules~.
+
+This means I can compile each library individually, and reduce the clutter in the ~.cabal~ file.
+
+I still need to understand how Cabal resolves dependency. It's something to learn. 
+
+* Learning About ~persistent~
+
+** Setting
+
+It is possible that one endpoint call leads to multiple database updates. Consider the following example:
+- Anna creates a Trip entity.
+- Create a membership relation between Anna and the new trip.
+The obvious solution is to use two ~insertUnique~ calls to insert the new trip and the membership.
+
+To preserve a sense of consistency, it seems reasonable that these two operations should either all succeed or all fail and get rolled back. With ~insertUnique~, which returns a ~Maybe~ type, we interpret ~Nothing~ as a failure. 
+
+** ~persistent~'s Built-in Rollback and Logic
+
+The ~persistent~ library guarantees when executing a database action, either the entire action succeed or an SQL error is raised and no modification happens. It would seem ~persistent~'s already guarantees us the consistency we want.
+
+However, by examine the source code of ~persistent~ [fn:4], we see ~insertUnique~ first performs an existential check, only inserting after checking the data about to be inserted does not violate uniquenesss property.
+#+begin_src haskell
+  insertUnique datum = do
+    conflict <- checkUnique datum          -- Check existential
+    case conflict of
+      Nothing -> Just `liftM` insert datum -- If doesn't exist, perform insert
+      Just _ -> return Nothing             -- If already exists, return Nothing
+                                           -- Notice no SQL error
+#+end_src
+This means ~insertUnique~ will never raise an SQL error, and ~persistent~ will never perform rollback.
+
+** Solution: Explicit Raising Errors
+
+After discussion with colleagues, we solved the problem by using the implicite ~fail~ call with ~do~ notation:
+#+begin_src haskell
+  do { Just tripId <- insertUnique newTrip
+     ; Just membershipId <- insertUnique newMembership
+     }
+#+end_src
+
+Each ~(Just _ <- insertUnique _)~ gets translated into two case:
+- If ~insertUnique~ returns ~(Just _)~, proceed as usual, otherwise
+- Call ~fail~
+This explicitly raises an error when ~insertUnique~ returns ~Nothing~, causing ~persistent~ to rollback as we wanted.
+
+However, this also necessitated the use of a ~catch~ block to recover from failure. While I do not like using ~catch~, this is the cleanest solution without writing my own SQL query. 
+
+* ~MaybeT~
+
+Expanding on the previous header, we also attempted to use ~MaybeT~ to write cleaner code.
+
+Previously, we have the following code:
+#+begin_src haskell
+  action :: ReaderT backend m (Maybe a)
+  action = do
+    { maybeId1 <- insertUnique entity1
+    ; case maybeId1 of
+        Nothing -> return Nothing
+        Just id1 -> do
+          { maybeId2 <- insertUnique entity2
+          ; case maybeId2 of
+              Nothing -> return Nothing
+              Just id2 -> return $ Just a
+          }
+    }
+#+end_src
+
+While we might want to exact the data out of ~maybeId1, maybeId2~, we cannot because the type of ~insertUnique~ does not incorporate ~Maybe~ into the monad:
+#+begin_src haskell
+  insertUnique ::
+    (MonadIO m , ...)
+    => record -> ReaderT backend m (Maybe (Key Record))
+#+end_src
+
+Luckily, this can be resolved using ~MaybeT~. Consider the type of the constructor:
+#+begin_src haskell
+  MaybeT :: m (Maybe a) -> MaybeT m a
+#+end_src
+
+So the same code can be written as:
+#+begin_src haskell
+  action :: MaybeT (ReaderT backend m a)
+  action = do
+    { id1 <- MaybeT $ insertUnique entity1
+    ; id2 <- MaybeT $ insertUnique entity2
+    ; return $ Just a
+    }
+#+end_src
+
+Then, simply use ~runMaybeT~ to get the original type back:
+#+begin_src haskell
+  runMaybeT action :: ReaderT backend m (Maybe a)
+#+end_src
+
+This code is much prettier. Too bad the implementation of ~persistent~ means we cannot use this.
+
+* Footnotes
+
+[fn:1] ~servant~ Hackage, [[https://hackage-content.haskell.org/package/servant-0.20.3.0/docs/Servant-API-Generic.html][~Servant.API.Generic~]]
+
+[fn:2] ~servant-server~ Hackage, [[https://hackage-content.haskell.org/package/servant-server-0.20.3.0/docs/Servant-Server-Internal.html#t:AsServerT][~AsServerT~]]
+
+[fn:3] ~servant-options~ issue board, [[https://github.com/sordina/servant-options/issues/2][Using AuthProtect]]
+
+[fn:4] ~persistent~ Hackage, [[https://hackage-content.haskell.org/package/persistent-2.18.1.0/docs/Database-Persist-Class-PersistUnique.html#v:insertUnique][~insertUnique~]]
+
+[fn:5] ~servant-server~ Hackage, [[https://hackage-content.haskell.org/package/servant-server-0.20.3.0/docs/Servant-Server-Internal.html#t:AsServerT][~AsServerT~]]
