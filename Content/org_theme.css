@@ -1,3 +1,4 @@
+/* This file is generated using org-html-htmlize-generate-css */
 body {
     color: #000000;
     background-color: #ffffff;
@@ -119,6 +120,14 @@ body {
     font-weight: bold;
     font-style: italic;
 }
+.org-bookmark {
+    /* bookmark-face */
+    color: #ff7f00;
+}
+.org-bookmark-menu-bookmark {
+    /* bookmark-menu-bookmark */
+    font-weight: bold;
+}
 .org-border {
 }
 .org-bracket {
@@ -160,38 +169,6 @@ body {
 .org-calendar-weekend-header {
     /* calendar-weekend-header */
     color: #b22222;
-}
-.org-change-log-acknowledgment {
-    /* change-log-acknowledgment */
-    color: #b22222;
-}
-.org-change-log-conditionals {
-    /* change-log-conditionals */
-    color: #a0522d;
-}
-.org-change-log-date {
-    /* change-log-date */
-    color: #8b2252;
-}
-.org-change-log-email {
-    /* change-log-email */
-    color: #a0522d;
-}
-.org-change-log-file {
-    /* change-log-file */
-    color: #0000ff;
-}
-.org-change-log-function {
-    /* change-log-function */
-    color: #a0522d;
-}
-.org-change-log-list {
-    /* change-log-list */
-    color: #a020f0;
-}
-.org-change-log-name {
-    /* change-log-name */
-    color: #008b8b;
 }
 .org-child-frame-border {
 }
@@ -548,6 +525,10 @@ body {
     font-size: 80%;
     text-decoration: underline;
 }
+.org-dap-result-overlay {
+    /* dap-result-overlay-face */
+    background-color: #e5e5e5;
+}
 .org-default {
     /* default */
     color: #000000;
@@ -800,10 +781,6 @@ body {
     color: #228b22;
     font-weight: bold;
 }
-.org-ffap {
-    /* ffap */
-    background-color: #b4eeb4;
-}
 .org-file-name-shadow {
     /* file-name-shadow */
     color: #7f7f7f;
@@ -888,13 +865,36 @@ body {
     /* flycheck-warning */
     text-decoration: underline;
 }
-.org-flyspell-duplicate {
-    /* flyspell-duplicate */
+.org-flymake-end-of-line-diagnostics {
+    /* flymake-end-of-line-diagnostics-face */
+    font-size: 85%;
+}
+.org-flymake-error {
+    /* flymake-error */
     text-decoration: underline;
 }
-.org-flyspell-incorrect {
-    /* flyspell-incorrect */
+.org-flymake-error-echo {
+    /* flymake-error-echo */
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-flymake-note {
+    /* flymake-note */
     text-decoration: underline;
+}
+.org-flymake-note-echo {
+    /* flymake-note-echo */
+    color: #228b22;
+    font-weight: bold;
+}
+.org-flymake-warning {
+    /* flymake-warning */
+    text-decoration: underline;
+}
+.org-flymake-warning-echo {
+    /* flymake-warning-echo */
+    color: #ff8c00;
+    font-weight: bold;
 }
 .org-fringe {
     /* fringe */
@@ -907,61 +907,6 @@ body {
 .org-function-name {
     /* font-lock-function-name-face */
     color: #0000ff;
-}
-.org-git-commit-comment-action {
-    /* git-commit-comment-action */
-    font-weight: bold;
-}
-.org-git-commit-comment-branch-local {
-    /* git-commit-comment-branch-local */
-    color: #4a708b;
-}
-.org-git-commit-comment-branch-remote {
-    /* git-commit-comment-branch-remote */
-    color: #6e8b3d;
-}
-.org-git-commit-comment-button {
-    /* git-commit-comment-button */
-    color: #a020f0;
-    text-decoration: underline;
-}
-.org-git-commit-comment-detached {
-    /* git-commit-comment-detached */
-    color: #4a708b;
-}
-.org-git-commit-comment-file {
-    /* git-commit-comment-file */
-    color: #8b2252;
-}
-.org-git-commit-comment-heading {
-    /* git-commit-comment-heading */
-    color: #a020f0;
-}
-.org-git-commit-keyword {
-    /* git-commit-keyword */
-    color: #8b2252;
-}
-.org-git-commit-nonempty-second-line {
-    /* git-commit-nonempty-second-line */
-    color: #ff0000;
-    font-weight: bold;
-}
-.org-git-commit-overlong-summary {
-    /* git-commit-overlong-summary */
-    color: #ff0000;
-    font-weight: bold;
-}
-.org-git-commit-summary {
-    /* git-commit-summary */
-    color: #228b22;
-}
-.org-git-commit-trailer-token {
-    /* git-commit-trailer-token */
-    color: #a020f0;
-}
-.org-git-commit-trailer-value {
-    /* git-commit-trailer-value */
-    color: #8b2252;
 }
 .org-glyphless-char {
     /* glyphless-char */
@@ -1213,6 +1158,98 @@ body {
     /* gnus-summary-selected */
     text-decoration: underline;
 }
+
+/*********** Haskell Begin ***********/
+.org-haskell-constructor {
+    /* haskell-constructor-face */
+    color: #228b22;
+}
+.org-haskell-debug-muted {
+    /* haskell-debug-muted-face */
+    color: #999;
+}
+.org-haskell-debug-newline {
+    /* haskell-debug-newline-face */
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+.org-haskell-debug-trace-number {
+    /* haskell-debug-trace-number-face */
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+.org-haskell-definition {
+    /* haskell-definition-face */
+    color: #0000ff;
+}
+.org-haskell-error {
+    /* haskell-error-face */
+    text-decoration: underline;
+}
+.org-haskell-hole {
+    /* haskell-hole-face */
+    text-decoration: underline;
+}
+.org-haskell-interactive-face-compile-error {
+    /* haskell-interactive-face-compile-error */
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-haskell-interactive-face-compile-warning {
+    /* haskell-interactive-face-compile-warning */
+    color: #ff8c00;
+    font-weight: bold;
+}
+.org-haskell-interactive-face-garbage {
+    /* haskell-interactive-face-garbage */
+    color: #8b2252;
+}
+.org-haskell-interactive-face-prompt {
+    /* haskell-interactive-face-prompt */
+    color: #0000ff;
+}
+.org-haskell-interactive-face-prompt-cont {
+    /* haskell-interactive-face-prompt-cont */
+    color: #a020f0;
+}
+.org-haskell-interactive-face-result {
+    /* haskell-interactive-face-result */
+    color: #8b2252;
+}
+.org-haskell-keyword {
+    /* haskell-keyword-face */
+    color: #a020f0;
+}
+.org-haskell-liquid-haskell-annotation {
+    /* haskell-liquid-haskell-annotation-face */
+    color: #483d8b;
+}
+.org-haskell-literate-comment {
+    /* haskell-literate-comment-face */
+    color: #8b2252;
+}
+.org-haskell-operator {
+    /* haskell-operator-face */
+    color: #a0522d;
+}
+.org-haskell-pragma {
+    /* haskell-pragma-face */
+    color: #483d8b;
+}
+.org-haskell-quasi-quote {
+    /* haskell-quasi-quote-face */
+    color: #8b2252;
+}
+.org-haskell-type {
+    /* haskell-type-face */
+    color: #228b22;
+}
+.org-haskell-warning {
+    /* haskell-warning-face */
+    text-decoration: underline;
+}
+/*********** Haskell END ***********/
+
 .org-header-line {
     /* header-line */
     color: #333333;
@@ -1502,327 +1539,314 @@ body {
     /* llama-optional-argument */
     color: #228b22;
 }
-.org-log-edit-header {
-    /* log-edit-header */
-    color: #a020f0;
+.org-lsp-details {
+    /* lsp-details-face */
+    color: #7f7f7f;
+    font-size: 80%;
 }
-.org-log-edit-headers-separator {
-    /* log-edit-headers-separator */
-    font-size: 10%;
+.org-lsp-erlang-elp-bound-modifier {
+    /* lsp-erlang-elp-bound-modifier-face */
+    text-decoration: underline;
 }
-.org-log-edit-summary {
-    /* log-edit-summary */
-    color: #0000ff;
+.org-lsp-erlang-elp-deprecated-function-modifier {
+    /* lsp-erlang-elp-deprecated-function-modifier-face */
+    text-decoration: line-through;
 }
-.org-log-edit-unknown-header {
-    /* log-edit-unknown-header */
-    color: #b22222;
+.org-lsp-erlang-elp-exported-function-modifier {
+    /* lsp-erlang-elp-exported-function-modifier-face */
+    text-decoration: underline;
 }
-.org-log-view-commit-body {
-    /* log-view-commit-body */
-    color: #b22222;
+.org-lsp-erlang-elp-exported-type-modifier {
+    /* lsp-erlang-elp-exported-type-modifier-face */
+    text-decoration: underline;
 }
-.org-log-view-file {
-    /* log-view-file */
-    background-color: #b3b3b3;
+.org-lsp-erlang-elp-type-dynamic-modifier {
+    /* lsp-erlang-elp-type-dynamic-modifier-face */
     font-weight: bold;
 }
-.org-log-view-message {
-    /* log-view-message */
-    background-color: #d9d9d9;
+.org-lsp-face-highlight-read {
+    /* lsp-face-highlight-read */
+    background-color: #b4eeb4;
+    text-decoration: underline;
 }
-.org-magit-bisect-bad {
-    /* magit-bisect-bad */
-    color: #8b3a3a;
+.org-lsp-face-highlight-textual {
+    /* lsp-face-highlight-textual */
+    background-color: #b4eeb4;
 }
-.org-magit-bisect-good {
-    /* magit-bisect-good */
-    color: #556b2f;
+.org-lsp-face-highlight-write {
+    /* lsp-face-highlight-write */
+    background-color: #b4eeb4;
+    font-weight: bold;
 }
-.org-magit-bisect-skip {
-    /* magit-bisect-skip */
-    color: #b8860b;
+.org-lsp-face-rename {
+    /* lsp-face-rename */
+    text-decoration: underline;
 }
-.org-magit-blame-date {
+.org-lsp-face-semhl-class {
+    /* lsp-face-semhl-class */
+    color: #228b22;
 }
-.org-magit-blame-dimmed {
-    /* magit-blame-dimmed */
-    color: #7f7f7f;
+.org-lsp-face-semhl-comment {
+    /* lsp-face-semhl-comment */
+    color: #b22222;
 }
-.org-magit-blame-hash {
+.org-lsp-face-semhl-constant {
+    /* lsp-face-semhl-constant */
+    color: #008b8b;
 }
-.org-magit-blame-heading {
-    /* magit-blame-heading */
-    color: #000000;
-    background-color: #cccccc;
+.org-lsp-face-semhl-decorator {
+    /* lsp-face-semhl-decorator */
+    color: #483d8b;
 }
-.org-magit-blame-highlight {
-    /* magit-blame-highlight */
-    color: #000000;
-    background-color: #cccccc;
+.org-lsp-face-semhl-default-library {
+    /* lsp-face-semhl-default-library */
+    color: #483d8b;
 }
-.org-magit-blame-margin {
-    /* magit-blame-margin */
-    color: #000000;
-    background-color: #cccccc;
+.org-lsp-face-semhl-definition {
+    /* lsp-face-semhl-definition */
+    color: #0000ff;
+    font-weight: bold;
 }
-.org-magit-blame-name {
+.org-lsp-face-semhl-deprecated {
+    /* lsp-face-semhl-deprecated */
+    text-decoration: line-through;
 }
-.org-magit-blame-summary {
+.org-lsp-face-semhl-enum {
+    /* lsp-face-semhl-enum */
+    color: #228b22;
 }
-.org-magit-branch-current {
-    /* magit-branch-current */
-    color: #4a708b;
+.org-lsp-face-semhl-enum-member {
+    /* lsp-face-semhl-enum-member */
+    color: #008b8b;
 }
-.org-magit-branch-local {
-    /* magit-branch-local */
-    color: #4a708b;
+.org-lsp-face-semhl-event {
+    /* lsp-face-semhl-event */
+    color: #a0522d;
 }
-.org-magit-branch-remote {
-    /* magit-branch-remote */
-    color: #6e8b3d;
+.org-lsp-face-semhl-function {
+    /* lsp-face-semhl-function */
+    color: #0000ff;
 }
-.org-magit-branch-remote-head {
-    /* magit-branch-remote-head */
-    color: #6e8b3d;
+.org-lsp-face-semhl-implementation {
+    /* lsp-face-semhl-implementation */
+    color: #0000ff;
+    font-weight: bold;
 }
-.org-magit-branch-upstream {
-    /* magit-branch-upstream */
+.org-lsp-face-semhl-interface {
+    /* lsp-face-semhl-interface */
+    color: #228b22;
+}
+.org-lsp-face-semhl-keyword {
+    /* lsp-face-semhl-keyword */
+    color: #a020f0;
+}
+.org-lsp-face-semhl-label {
+    /* lsp-face-semhl-label */
+    color: #b22222;
+}
+.org-lsp-face-semhl-macro {
+    /* lsp-face-semhl-macro */
+    color: #483d8b;
+}
+.org-lsp-face-semhl-member {
+    /* lsp-face-semhl-member */
+    color: #a0522d;
+}
+.org-lsp-face-semhl-method {
+    /* lsp-face-semhl-method */
+    color: #0000ff;
+}
+.org-lsp-face-semhl-modifier {
+    /* lsp-face-semhl-modifier */
+    color: #a020f0;
+}
+.org-lsp-face-semhl-namespace {
+    /* lsp-face-semhl-namespace */
+    color: #228b22;
+    font-weight: bold;
+}
+.org-lsp-face-semhl-number {
+    /* lsp-face-semhl-number */
+    color: #008b8b;
+}
+.org-lsp-face-semhl-operator {
+    /* lsp-face-semhl-operator */
+    color: #0000ff;
+}
+.org-lsp-face-semhl-parameter {
+    /* lsp-face-semhl-parameter */
+    color: #a0522d;
+}
+.org-lsp-face-semhl-property {
+    /* lsp-face-semhl-property */
+    color: #a0522d;
+}
+.org-lsp-face-semhl-regexp {
+    /* lsp-face-semhl-regexp */
+    color: #8b2252;
     font-style: italic;
 }
-.org-magit-branch-warning {
-    /* magit-branch-warning */
+.org-lsp-face-semhl-static {
+    /* lsp-face-semhl-static */
+    color: #a020f0;
+}
+.org-lsp-face-semhl-string {
+    /* lsp-face-semhl-string */
+    color: #8b2252;
+}
+.org-lsp-face-semhl-struct {
+    /* lsp-face-semhl-struct */
+    color: #228b22;
+}
+.org-lsp-face-semhl-type {
+    /* lsp-face-semhl-type */
+    color: #228b22;
+}
+.org-lsp-face-semhl-type-parameter {
+    /* lsp-face-semhl-type-parameter */
+    color: #228b22;
+}
+.org-lsp-face-semhl-variable {
+    /* lsp-face-semhl-variable */
+    color: #a0522d;
+}
+.org-lsp-inlay-hint {
+    /* lsp-inlay-hint-face */
+    color: #b22222;
+}
+.org-lsp-inlay-hint-parameter {
+    /* lsp-inlay-hint-parameter-face */
+    color: #b22222;
+}
+.org-lsp-inlay-hint-type {
+    /* lsp-inlay-hint-type-face */
+    color: #b22222;
+}
+.org-lsp-installation-buffer {
+    /* lsp-installation-buffer-face */
+    color: #00ff00;
+}
+.org-lsp-installation-finished-buffer {
+    /* lsp-installation-finished-buffer-face */
+    color: #ffa500;
+}
+.org-lsp-java-progress {
+    /* lsp-java-progress-face */
+    color: #228b22;
+    font-weight: bold;
+}
+.org-lsp-ocaml-highlight-region {
+    /* lsp-ocaml-highlight-region-face */
+    background-color: #eedc82;
+}
+.org-lsp-rename-placeholder {
+    /* lsp-rename-placeholder-face */
+    color: #a0522d;
+}
+.org-lsp-rust-analyzer-abstract-modifier {
+}
+.org-lsp-rust-analyzer-async-modifier {
+}
+.org-lsp-rust-analyzer-attribute-modifier {
+}
+.org-lsp-rust-analyzer-callable-modifier {
+}
+.org-lsp-rust-analyzer-constant-modifier {
+}
+.org-lsp-rust-analyzer-consuming-modifier {
+}
+.org-lsp-rust-analyzer-control-flow-modifier {
+}
+.org-lsp-rust-analyzer-crate-root-modifier {
+}
+.org-lsp-rust-analyzer-declaration-modifier {
+}
+.org-lsp-rust-analyzer-default-library-modifier {
+}
+.org-lsp-rust-analyzer-definition-modifier {
+}
+.org-lsp-rust-analyzer-deprecated-modifier {
+}
+.org-lsp-rust-analyzer-documentation-modifier {
+}
+.org-lsp-rust-analyzer-injected-modifier {
+}
+.org-lsp-rust-analyzer-intra-doc-link-modifier {
+}
+.org-lsp-rust-analyzer-library-modifier {
+}
+.org-lsp-rust-analyzer-mutable-modifier {
+    /* lsp-rust-analyzer-mutable-modifier-face */
+    text-decoration: underline;
+}
+.org-lsp-rust-analyzer-public-modifier {
+}
+.org-lsp-rust-analyzer-readonly-modifier {
+}
+.org-lsp-rust-analyzer-reference-modifier {
+    /* lsp-rust-analyzer-reference-modifier-face */
+    font-weight: bold;
+}
+.org-lsp-rust-analyzer-static-modifier {
+}
+.org-lsp-rust-analyzer-trait-modifier {
+}
+.org-lsp-rust-analyzer-unsafe-modifier {
+}
+.org-lsp-signature {
+    /* lsp-signature-face */
+    color: #7f7f7f;
+    font-size: 80%;
+}
+.org-lsp-signature-highlight-function-argument {
+    /* lsp-signature-highlight-function-argument */
+    font-weight: bold;
+}
+.org-lsp-signature-posframe {
+    /* lsp-signature-posframe */
+    color: #000000;
+    background-color: #ffffe0;
+}
+.org-lsp-treemacs-file-error {
+    /* lsp-treemacs-file-error */
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-lsp-treemacs-file-hint {
+    /* lsp-treemacs-file-hint */
+    color: #228b22;
+    font-weight: bold;
+}
+.org-lsp-treemacs-file-info {
+    /* lsp-treemacs-file-info */
+    color: #228b22;
+    font-weight: bold;
+}
+.org-lsp-treemacs-file-warn {
+    /* lsp-treemacs-file-warn */
     color: #ff8c00;
     font-weight: bold;
 }
-.org-magit-cherry-equivalent {
-    /* magit-cherry-equivalent */
-    color: #ff00ff;
+.org-lsp-treemacs-project-root-error {
+    /* lsp-treemacs-project-root-error */
+    color: #a020f0;
 }
-.org-magit-cherry-unmatched {
-    /* magit-cherry-unmatched */
-    color: #00ffff;
+.org-lsp-treemacs-project-root-info {
+    /* lsp-treemacs-project-root-info */
+    color: #a020f0;
 }
-.org-magit-diff-added {
-    /* magit-diff-added */
-    color: #22aa22;
-    background-color: #ddffdd;
+.org-lsp-treemacs-project-root-warn {
+    /* lsp-treemacs-project-root-warn */
+    color: #a020f0;
 }
-.org-magit-diff-added-highlight {
-    /* magit-diff-added-highlight */
-    color: #22aa22;
-    background-color: #cceecc;
-}
-.org-magit-diff-added-indicator {
-    /* magit-diff-added-indicator */
-    color: #22aa22;
-}
-.org-magit-diff-base {
-    /* magit-diff-base */
-    color: #aaaa11;
-    background-color: #ffffcc;
-}
-.org-magit-diff-base-heading {
-    /* magit-diff-base-heading */
-    color: #ffffcc;
-    background-color: #aaaa11;
-}
-.org-magit-diff-base-highlight {
-    /* magit-diff-base-highlight */
-    color: #aaaa11;
-    background-color: #eeeebb;
-}
-.org-magit-diff-base-indicator {
-    /* magit-diff-base-indicator */
-    color: #aaaa11;
-}
-.org-magit-diff-conflict-heading {
-    /* magit-diff-conflict-heading */
-    color: #333333;
-    background-color: #e5e5e5;
-}
-.org-magit-diff-conflict-heading-highlight {
-    /* magit-diff-conflict-heading-highlight */
-    color: #333333;
+.org-lv-separator {
+    /* lv-separator */
     background-color: #cccccc;
-}
-.org-magit-diff-context {
-    /* magit-diff-context */
-    color: #7f7f7f;
-}
-.org-magit-diff-context-highlight {
-    /* magit-diff-context-highlight */
-    color: #7f7f7f;
-    background-color: #f2f2f2;
-}
-.org-magit-diff-file-heading {
-    /* magit-diff-file-heading */
-    font-weight: bold;
-}
-.org-magit-diff-file-heading-highlight {
-    /* magit-diff-file-heading-highlight */
-    background-color: #f2f2f2;
-}
-.org-magit-diff-file-heading-selection {
-    /* magit-diff-file-heading-selection */
-    color: #8b4c39;
-    background-color: #f2f2f2;
-}
-.org-magit-diff-hunk-heading {
-    /* magit-diff-hunk-heading */
-    color: #333333;
-    background-color: #e5e5e5;
-}
-.org-magit-diff-hunk-heading-highlight {
-    /* magit-diff-hunk-heading-highlight */
-    color: #333333;
-    background-color: #cccccc;
-}
-.org-magit-diff-hunk-heading-selection {
-    /* magit-diff-hunk-heading-selection */
-    color: #8b4c39;
-    background-color: #cccccc;
-}
-.org-magit-diff-hunk-region {
-    /* magit-diff-hunk-region */
-    font-weight: bold;
-}
-.org-magit-diff-lines-boundary {
-    /* magit-diff-lines-boundary */
-    color: #333333;
-    background-color: #cd8162;
-}
-.org-magit-diff-lines-heading {
-    /* magit-diff-lines-heading */
-    color: #333333;
-    background-color: #cd8162;
-}
-.org-magit-diff-our {
-    /* magit-diff-our */
-    color: #aa2222;
-    background-color: #ffdddd;
-}
-.org-magit-diff-our-heading {
-    /* magit-diff-our-heading */
-    color: #ffdddd;
-    background-color: #aa2222;
-}
-.org-magit-diff-our-highlight {
-    /* magit-diff-our-highlight */
-    color: #aa2222;
-    background-color: #eecccc;
-}
-.org-magit-diff-our-indicator {
-    /* magit-diff-our-indicator */
-    color: #aa2222;
-}
-.org-magit-diff-removed {
-    /* magit-diff-removed */
-    color: #aa2222;
-    background-color: #ffdddd;
-}
-.org-magit-diff-removed-highlight {
-    /* magit-diff-removed-highlight */
-    color: #aa2222;
-    background-color: #eecccc;
-}
-.org-magit-diff-removed-indicator {
-    /* magit-diff-removed-indicator */
-    color: #aa2222;
-}
-.org-magit-diff-revision-summary {
-    /* magit-diff-revision-summary */
-    color: #333333;
-    background-color: #e5e5e5;
-}
-.org-magit-diff-revision-summary-highlight {
-    /* magit-diff-revision-summary-highlight */
-    color: #333333;
-    background-color: #cccccc;
-}
-.org-magit-diff-their {
-    /* magit-diff-their */
-    color: #22aa22;
-    background-color: #ddffdd;
-}
-.org-magit-diff-their-heading {
-    /* magit-diff-their-heading */
-    color: #ddffdd;
-    background-color: #22aa22;
-}
-.org-magit-diff-their-highlight {
-    /* magit-diff-their-highlight */
-    color: #22aa22;
-    background-color: #cceecc;
-}
-.org-magit-diff-their-indicator {
-    /* magit-diff-their-indicator */
-    color: #22aa22;
-}
-.org-magit-diff-whitespace-warning {
-    /* magit-diff-whitespace-warning */
-    background-color: #ff0000;
-}
-.org-magit-diffstat-added {
-    /* magit-diffstat-added */
-    color: #22aa22;
-}
-.org-magit-diffstat-removed {
-    /* magit-diffstat-removed */
-    color: #aa2222;
-}
-.org-magit-dimmed {
-    /* magit-dimmed */
-    color: #7f7f7f;
-}
-.org-magit-filename {
-}
-.org-magit-hash {
-    /* magit-hash */
-    color: #999999;
-}
-.org-magit-head {
-    /* magit-head */
-    color: #4a708b;
-}
-.org-magit-header-line {
-    /* magit-header-line */
-    color: #8b6508;
-    font-weight: bold;
-}
-.org-magit-header-line-key {
-    /* magit-header-line-key */
-    color: #483d8b;
-}
-.org-magit-header-line-log-select {
-    /* magit-header-line-log-select */
-    font-weight: bold;
-}
-.org-magit-keyword {
-    /* magit-keyword */
-    color: #8b2252;
-}
-.org-magit-keyword-squash {
-    /* magit-keyword-squash */
-    color: #ff0000;
-    font-weight: bold;
 }
 .org-magit-left-margin {
     /* magit-left-margin */
     color: #000000;
     background-color: #ffffff;
-}
-.org-magit-log-author {
-    /* magit-log-author */
-    color: #b22222;
-}
-.org-magit-log-date {
-    /* magit-log-date */
-    color: #4d4d4d;
-}
-.org-magit-log-graph {
-    /* magit-log-graph */
-    color: #4d4d4d;
 }
 .org-magit-mode-line-process {
     /* magit-mode-line-process */
@@ -1843,58 +1867,6 @@ body {
     color: #00ff00;
     font-weight: bold;
 }
-.org-magit-reflog-amend {
-    /* magit-reflog-amend */
-    color: #ff00ff;
-}
-.org-magit-reflog-checkout {
-    /* magit-reflog-checkout */
-    color: #0000ff;
-}
-.org-magit-reflog-cherry-pick {
-    /* magit-reflog-cherry-pick */
-    color: #00ff00;
-}
-.org-magit-reflog-commit {
-    /* magit-reflog-commit */
-    color: #00ff00;
-}
-.org-magit-reflog-merge {
-    /* magit-reflog-merge */
-    color: #00ff00;
-}
-.org-magit-reflog-other {
-    /* magit-reflog-other */
-    color: #00ffff;
-}
-.org-magit-reflog-rebase {
-    /* magit-reflog-rebase */
-    color: #ff00ff;
-}
-.org-magit-reflog-remote {
-    /* magit-reflog-remote */
-    color: #00ffff;
-}
-.org-magit-reflog-reset {
-    /* magit-reflog-reset */
-    color: #ff0000;
-}
-.org-magit-refname {
-    /* magit-refname */
-    color: #4d4d4d;
-}
-.org-magit-refname-pullreq {
-    /* magit-refname-pullreq */
-    color: #4d4d4d;
-}
-.org-magit-refname-stash {
-    /* magit-refname-stash */
-    color: #4d4d4d;
-}
-.org-magit-refname-wip {
-    /* magit-refname-wip */
-    color: #4d4d4d;
-}
 .org-magit-section-child-count {
 }
 .org-magit-section-heading {
@@ -1914,71 +1886,170 @@ body {
     /* magit-section-secondary-heading */
     font-weight: bold;
 }
-.org-magit-sequence-done {
-    /* magit-sequence-done */
-    color: #999999;
+.org-markdown-blockquote {
+    /* markdown-blockquote-face */
+    color: #8b2252;
 }
-.org-magit-sequence-drop {
-    /* magit-sequence-drop */
-    color: #cd5c5c;
+.org-markdown-bold {
+    /* markdown-bold-face */
+    font-weight: bold;
 }
-.org-magit-sequence-exec {
-    /* magit-sequence-exec */
-    color: #999999;
+.org-markdown-code {
 }
-.org-magit-sequence-head {
-    /* magit-sequence-head */
-    color: #4a708b;
+.org-markdown-comment {
+    /* markdown-comment-face */
+    color: #b22222;
 }
-.org-magit-sequence-onto {
-    /* magit-sequence-onto */
-    color: #999999;
+.org-markdown-footnote-marker {
+    /* markdown-footnote-marker-face */
+    color: #7f7f7f;
 }
-.org-magit-sequence-part {
-    /* magit-sequence-part */
-    color: #8b6914;
+.org-markdown-footnote-text {
+    /* markdown-footnote-text-face */
+    color: #b22222;
 }
-.org-magit-sequence-pick {
-    /* magit-sequence-pick */
+.org-markdown-gfm-checkbox {
+    /* markdown-gfm-checkbox-face */
+    color: #483d8b;
+}
+.org-markdown-header-delimiter {
+    /* markdown-header-delimiter-face */
+    color: #7f7f7f;
+}
+.org-markdown-header-face-1 {
+    /* markdown-header-face-1 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-face-2 {
+    /* markdown-header-face-2 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-face-3 {
+    /* markdown-header-face-3 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-face-4 {
+    /* markdown-header-face-4 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-face-5 {
+    /* markdown-header-face-5 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-face-6 {
+    /* markdown-header-face-6 */
+    color: #0000ff;
+    font-weight: bold;
+}
+.org-markdown-header-rule {
+    /* markdown-header-rule-face */
+    color: #7f7f7f;
+}
+.org-markdown-highlight {
+    /* markdown-highlight-face */
+    background-color: #b4eeb4;
+}
+.org-markdown-highlighting {
+    /* markdown-highlighting-face */
     color: #000000;
-    background-color: #ffffff;
+    background-color: #ffff00;
 }
-.org-magit-sequence-stop {
-    /* magit-sequence-stop */
-    color: #6e8b3d;
+.org-markdown-hr {
+    /* markdown-hr-face */
+    color: #7f7f7f;
 }
-.org-magit-signature-bad {
-    /* magit-signature-bad */
+.org-markdown-html-attr-name {
+    /* markdown-html-attr-name-face */
+    color: #a0522d;
+}
+.org-markdown-html-attr-value {
+    /* markdown-html-attr-value-face */
+    color: #8b2252;
+}
+.org-markdown-html-entity {
+    /* markdown-html-entity-face */
+    color: #a0522d;
+}
+.org-markdown-html-tag-delimiter {
+    /* markdown-html-tag-delimiter-face */
+    color: #7f7f7f;
+}
+.org-markdown-html-tag-name {
+    /* markdown-html-tag-name-face */
+    color: #228b22;
+}
+.org-markdown-italic {
+    /* markdown-italic-face */
+    font-style: italic;
+}
+.org-markdown-language-info {
+    /* markdown-language-info-face */
+    color: #8b2252;
+}
+.org-markdown-language-keyword {
+    /* markdown-language-keyword-face */
+    color: #228b22;
+}
+.org-markdown-line-break {
+    /* markdown-line-break-face */
+    color: #008b8b;
+    text-decoration: underline;
+}
+.org-markdown-link {
+    /* markdown-link-face */
+    color: #3a5fcd;
+    text-decoration: underline;
+}
+.org-markdown-link-title {
+    /* markdown-link-title-face */
+    color: #b22222;
+}
+.org-markdown-list {
+    /* markdown-list-face */
+    color: #7f7f7f;
+}
+.org-markdown-markup {
+    /* markdown-markup-face */
+    color: #7f7f7f;
+}
+.org-markdown-math {
+    /* markdown-math-face */
+    color: #8b2252;
+}
+.org-markdown-metadata-key {
+    /* markdown-metadata-key-face */
+    color: #a0522d;
+}
+.org-markdown-metadata-value {
+    /* markdown-metadata-value-face */
+    color: #8b2252;
+}
+.org-markdown-missing-link {
+    /* markdown-missing-link-face */
     color: #ff0000;
     font-weight: bold;
 }
-.org-magit-signature-error {
-    /* magit-signature-error */
-    color: #add8e6;
+.org-markdown-plain-url {
+    /* markdown-plain-url-face */
+    color: #3a5fcd;
+    text-decoration: underline;
 }
-.org-magit-signature-expired {
-    /* magit-signature-expired */
-    color: #ffa500;
+.org-markdown-reference {
+    /* markdown-reference-face */
+    color: #7f7f7f;
 }
-.org-magit-signature-expired-key {
-    /* magit-signature-expired-key */
-    color: #ffa500;
+.org-markdown-strike-through {
+    /* markdown-strike-through-face */
+    text-decoration: line-through;
 }
-.org-magit-signature-good {
-    /* magit-signature-good */
-    color: #00ff00;
-}
-.org-magit-signature-revoked {
-    /* magit-signature-revoked */
-    color: #d02090;
-}
-.org-magit-signature-untrusted {
-    /* magit-signature-untrusted */
-    color: #66cdaa;
-}
-.org-magit-tag {
-    /* magit-tag */
-    color: #8b6914;
+.org-markdown-url {
+    /* markdown-url-face */
+    color: #8b2252;
 }
 .org-match {
     /* match */
@@ -2636,6 +2707,14 @@ body {
     /* font-lock-property-use-face */
     color: #a0522d;
 }
+.org-pulse-highlight {
+    /* pulse-highlight-face */
+    background-color: #FFFFAA;
+}
+.org-pulse-highlight-start {
+    /* pulse-highlight-start-face */
+    background-color: #FFFFAA;
+}
 .org-punctuation {
 }
 .org-query-replace {
@@ -2689,13 +2768,6 @@ body {
 .org-shadow {
     /* shadow */
     color: #7f7f7f;
-}
-.org-shortdoc-heading {
-    /* shortdoc-heading */
-    font-size: 130%;
-    font-weight: bold;
-}
-.org-shortdoc-section {
 }
 .org-show-paren-match {
     /* show-paren-match */
@@ -2773,32 +2845,6 @@ body {
 .org-shr-text {
     /* shr-text */
     font-size: 110%;
-}
-.org-smerge-base {
-    /* smerge-base */
-    background-color: #ffffaa;
-}
-.org-smerge-lower {
-    /* smerge-lower */
-    background-color: #ddffdd;
-}
-.org-smerge-markers {
-    /* smerge-markers */
-    background-color: #d9d9d9;
-}
-.org-smerge-refined-added {
-    /* smerge-refined-added */
-    background-color: #aaffaa;
-}
-.org-smerge-refined-changed {
-}
-.org-smerge-refined-removed {
-    /* smerge-refined-removed */
-    background-color: #ffbbbb;
-}
-.org-smerge-upper {
-    /* smerge-upper */
-    background-color: #ffdddd;
 }
 .org-string {
     /* font-lock-string-face */
@@ -2989,6 +3035,122 @@ body {
     color: #8b2252;
     font-weight: bold;
 }
+.org-treemacs-directory {
+    /* treemacs-directory-face */
+    color: #0000ff;
+}
+.org-treemacs-directory-collapsed {
+    /* treemacs-directory-collapsed-face */
+    color: #0000ff;
+}
+.org-treemacs-file {
+    /* treemacs-file-face */
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-treemacs-fringe-indicator {
+    /* treemacs-fringe-indicator-face */
+    color: #000000;
+}
+.org-treemacs-git-added {
+    /* treemacs-git-added-face */
+    color: #228b22;
+}
+.org-treemacs-git-conflict {
+    /* treemacs-git-conflict-face */
+    color: #ff0000;
+    font-weight: bold;
+}
+.org-treemacs-git-ignored {
+    /* treemacs-git-ignored-face */
+    color: #b22222;
+}
+.org-treemacs-git-modified {
+    /* treemacs-git-modified-face */
+    color: #a0522d;
+}
+.org-treemacs-git-renamed {
+    /* treemacs-git-renamed-face */
+    color: #8b2252;
+}
+.org-treemacs-git-unmodified {
+    /* treemacs-git-unmodified-face */
+    color: #000000;
+    background-color: #ffffff;
+}
+.org-treemacs-git-untracked {
+    /* treemacs-git-untracked-face */
+    color: #8b2252;
+}
+.org-treemacs-help-column {
+    /* treemacs-help-column-face */
+    color: #a020f0;
+    text-decoration: underline;
+}
+.org-treemacs-help-title {
+    /* treemacs-help-title-face */
+    color: #008b8b;
+}
+.org-treemacs-hl-line {
+    /* treemacs-hl-line-face */
+    background-color: #e0eeee;
+}
+.org-treemacs-marked-file {
+    /* treemacs-marked-file-face */
+    color: #F0C674;
+    background-color: #AB3737;
+    font-weight: bold;
+}
+.org-treemacs-on-failure-pulse {
+    /* treemacs-on-failure-pulse-face */
+    color: #111111;
+    background-color: #ab3737;
+}
+.org-treemacs-on-success-pulse {
+    /* treemacs-on-success-pulse-face */
+    color: #111111;
+    background-color: #669966;
+}
+.org-treemacs-peek-mode-indicator {
+    /* treemacs-peek-mode-indicator-face */
+    background-color: #669966;
+}
+.org-treemacs-root {
+    /* treemacs-root-face */
+    color: #008b8b;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.org-treemacs-root-remote-unreadable {
+    /* treemacs-root-remote-unreadable-face */
+    color: #008b8b;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration: line-through;
+}
+.org-treemacs-root-unreadable {
+    /* treemacs-root-unreadable-face */
+    color: #008b8b;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration: line-through;
+}
+.org-treemacs-tags {
+    /* treemacs-tags-face */
+    color: #483d8b;
+}
+.org-treemacs-term-node {
+    /* treemacs-term-node-face */
+    color: #8b2252;
+}
+.org-treemacs-window-background {
+    /* treemacs-window-background-face */
+    color: #000000;
+    background-color: #ffffff;
+}
 .org-treesit-explorer-anonymous-node {
     /* treesit-explorer-anonymous-node */
     color: #7f7f7f;
@@ -3073,10 +3235,6 @@ body {
     /* font-lock-warning-face */
     color: #ff0000;
     font-weight: bold;
-}
-.org-which-func {
-    /* which-func */
-    color: #0000ff;
 }
 .org-which-key-command-description {
     /* which-key-command-description-face */
@@ -3166,10 +3324,10 @@ body {
 }
 
 a {
+    color: inherit;
+    background-color: inherit;
     font: inherit;
-    /* color: inherit; */
-    /* background-color: inherit; */
-    /* text-decoration: inherit; */
+    text-decoration: inherit;
 }
 a:hover {
     text-decoration: underline;

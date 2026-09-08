@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 36, 2026 (Aug 31 - Sept 6)</h1>
-<div id="outline-container-orgf386708" class="outline-2">
-<h2 id="orgf386708">Refactoring to Record-based API</h2>
-<div class="outline-text-2" id="text-orgf386708">
+<div id="outline-container-orgaabc2fe" class="outline-2">
+<h2 id="orgaabc2fe">Refactoring to Record-based API</h2>
+<div class="outline-text-2" id="text-orgaabc2fe">
 <p>
 The refactor to record-based API is complete. The server is operational.
 </p>
@@ -224,9 +224,9 @@ In particular, <code>AsServerT</code> and <code>ServerT</code> refers to each ot
 </dl>
 </div>
 </div>
-<div id="outline-container-orgc0ed974" class="outline-2">
-<h2 id="orgc0ed974">Authentication and Permission</h2>
-<div class="outline-text-2" id="text-orgc0ed974">
+<div id="outline-container-org36b4006" class="outline-2">
+<h2 id="org36b4006">Authentication and Permission</h2>
+<div class="outline-text-2" id="text-org36b4006">
 <p>
 First, given my understanding, it seems authentication and permission are different concepts. Authentication first identifies the user. If the user can be identified, we can further check whether the user has permission to access a resource.
 </p>
@@ -256,9 +256,9 @@ Taking lesson from previous weeks, I have decided to make permission check funct
 </p>
 </div>
 </div>
-<div id="outline-container-orgf9bad4a" class="outline-2">
-<h2 id="orgf9bad4a">Refactoring to Improve Build Experience</h2>
-<div class="outline-text-2" id="text-orgf9bad4a">
+<div id="outline-container-orgddd26ce" class="outline-2">
+<h2 id="orgddd26ce">Refactoring to Improve Build Experience</h2>
+<div class="outline-text-2" id="text-orgddd26ce">
 <p>
 I put the source code of each internal library into a separate directory. This fixed the old build issue where I had to repeat many modules in <code>other-modules</code>.
 </p>
@@ -272,13 +272,13 @@ I still need to understand how Cabal resolves dependency. It's something to lear
 </p>
 </div>
 </div>
-<div id="outline-container-org5dc31dd" class="outline-2">
-<h2 id="org5dc31dd">Learning About <code>persistent</code></h2>
-<div class="outline-text-2" id="text-org5dc31dd">
+<div id="outline-container-orge17ead2" class="outline-2">
+<h2 id="orge17ead2">Learning About <code>persistent</code></h2>
+<div class="outline-text-2" id="text-orge17ead2">
 </div>
-<div id="outline-container-orge523a23" class="outline-3">
-<h3 id="orge523a23">Setting</h3>
-<div class="outline-text-3" id="text-orge523a23">
+<div id="outline-container-org771198f" class="outline-3">
+<h3 id="org771198f">Setting</h3>
+<div class="outline-text-3" id="text-org771198f">
 <p>
 It is possible that one endpoint call leads to multiple database updates. Consider the following example:
 </p>
@@ -295,9 +295,9 @@ To preserve a sense of consistency, it seems reasonable that these two operation
 </p>
 </div>
 </div>
-<div id="outline-container-orga0e3436" class="outline-3">
-<h3 id="orga0e3436"><code>persistent</code>'s Built-in Rollback and Logic</h3>
-<div class="outline-text-3" id="text-orga0e3436">
+<div id="outline-container-orgf5bbb4c" class="outline-3">
+<h3 id="orgf5bbb4c"><code>persistent</code>'s Built-in Rollback and Logic</h3>
+<div class="outline-text-3" id="text-orgf5bbb4c">
 <p>
 The <code>persistent</code> library guarantees when executing a database action, either the entire action succeed or an SQL error is raised and no modification happens. It would seem <code>persistent</code>'s already guarantees us the consistency we want.
 </p>
@@ -306,12 +306,12 @@ The <code>persistent</code> library guarantees when executing a database action,
 However, by examine the source code of <code>persistent</code> <sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>, we see <code>insertUnique</code> first performs an existential check, only inserting after checking the data about to be inserted does not violate uniquenesss property.
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">insertUnique datum = do
-  conflict &lt;- checkUnique datum          -- Check existential
-  case conflict of
-    Nothing -&gt; Just `liftM` insert datum -- If doesn't exist, perform insert
-    Just _ -&gt; return Nothing             -- If already exists, return Nothing
-                                         -- Notice no SQL error
+<pre class="src src-haskell"><span class="org-haskell-definition">insertUnique</span> datum <span class="org-haskell-operator">=</span> <span class="org-haskell-keyword">do</span>
+  conflict <span class="org-haskell-operator">&lt;-</span> checkUnique datum          <span class="org-comment-delimiter">-- </span><span class="org-comment">Check existential
+</span>  <span class="org-haskell-keyword">case</span> conflict <span class="org-haskell-keyword">of</span>
+    <span class="org-haskell-constructor">Nothing</span> <span class="org-haskell-operator">-&gt;</span> <span class="org-haskell-constructor">Just</span> <span class="org-haskell-operator">`liftM`</span> insert datum <span class="org-comment-delimiter">-- </span><span class="org-comment">If doesn't exist, perform insert
+</span>    <span class="org-haskell-constructor">Just</span> <span class="org-haskell-keyword">_</span> <span class="org-haskell-operator">-&gt;</span> return <span class="org-haskell-constructor">Nothing</span>             <span class="org-comment-delimiter">-- </span><span class="org-comment">If already exists, return Nothing
+</span>                                         <span class="org-comment-delimiter">-- </span><span class="org-comment">Notice no SQL error</span>
 </pre>
 </div>
 <p>
@@ -319,15 +319,15 @@ This means <code>insertUnique</code> will never raise an SQL error, and <code>pe
 </p>
 </div>
 </div>
-<div id="outline-container-org9222447" class="outline-3">
-<h3 id="org9222447">Solution: Explicit Raising Errors</h3>
-<div class="outline-text-3" id="text-org9222447">
+<div id="outline-container-orgf6ca2dc" class="outline-3">
+<h3 id="orgf6ca2dc">Solution: Explicit Raising Errors</h3>
+<div class="outline-text-3" id="text-orgf6ca2dc">
 <p>
 After discussion with colleagues, we solved the problem by using the implicite <code>fail</code> call with <code>do</code> notation:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">do { Just tripId &lt;- insertUnique newTrip
-   ; Just membershipId &lt;- insertUnique newMembership
+<pre class="src src-haskell"><span class="org-haskell-keyword">do</span> { <span class="org-haskell-constructor">Just</span> tripId <span class="org-haskell-operator">&lt;-</span> insertUnique newTrip
+   ; <span class="org-haskell-constructor">Just</span> membershipId <span class="org-haskell-operator">&lt;-</span> insertUnique newMembership
    }
 </pre>
 </div>
@@ -349,9 +349,9 @@ However, this also necessitated the use of a <code>catch</code> block to recover
 </div>
 </div>
 </div>
-<div id="outline-container-orgafecd13" class="outline-2">
-<h2 id="orgafecd13"><code>MaybeT</code></h2>
-<div class="outline-text-2" id="text-orgafecd13">
+<div id="outline-container-orgafd5023" class="outline-2">
+<h2 id="orgafd5023"><code>MaybeT</code></h2>
+<div class="outline-text-2" id="text-orgafd5023">
 <p>
 Expanding on the previous header, we also attempted to use <code>MaybeT</code> to write cleaner code.
 </p>
@@ -360,16 +360,16 @@ Expanding on the previous header, we also attempted to use <code>MaybeT</code> t
 Previously, we have the following code:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">action :: ReaderT backend m (Maybe a)
-action = do
-  { maybeId1 &lt;- insertUnique entity1
-  ; case maybeId1 of
-      Nothing -&gt; return Nothing
-      Just id1 -&gt; do
-        { maybeId2 &lt;- insertUnique entity2
-        ; case maybeId2 of
-            Nothing -&gt; return Nothing
-            Just id2 -&gt; return $ Just a
+<pre class="src src-haskell"><span class="org-haskell-definition">action</span> <span class="org-haskell-operator">::</span> <span class="org-haskell-type">ReaderT</span> backend m (<span class="org-haskell-type">Maybe</span> a)
+<span class="org-haskell-definition">action</span> <span class="org-haskell-operator">=</span> <span class="org-haskell-keyword">do</span>
+  { maybeId1 <span class="org-haskell-operator">&lt;-</span> insertUnique entity1
+  ; <span class="org-haskell-keyword">case</span> maybeId1 <span class="org-haskell-keyword">of</span>
+      <span class="org-haskell-constructor">Nothing</span> <span class="org-haskell-operator">-&gt;</span> return <span class="org-haskell-constructor">Nothing</span>
+      <span class="org-haskell-constructor">Just</span> id1 <span class="org-haskell-operator">-&gt;</span> <span class="org-haskell-keyword">do</span>
+        { maybeId2 <span class="org-haskell-operator">&lt;-</span> insertUnique entity2
+        ; <span class="org-haskell-keyword">case</span> maybeId2 <span class="org-haskell-keyword">of</span>
+            <span class="org-haskell-constructor">Nothing</span> <span class="org-haskell-operator">-&gt;</span> return <span class="org-haskell-constructor">Nothing</span>
+            <span class="org-haskell-constructor">Just</span> id2 <span class="org-haskell-operator">-&gt;</span> return <span class="org-haskell-operator">$</span> <span class="org-haskell-constructor">Just</span> a
         }
   }
 </pre>
@@ -379,9 +379,9 @@ action = do
 While we might want to exact the data out of <code>maybeId1, maybeId2</code>, we cannot because the type of <code>insertUnique</code> does not incorporate <code>Maybe</code> into the monad:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">insertUnique ::
-  (MonadIO m , ...)
-  =&gt; record -&gt; ReaderT backend m (Maybe (Key Record))
+<pre class="src src-haskell"><span class="org-haskell-definition">insertUnique</span> <span class="org-haskell-operator">::</span>
+  (<span class="org-haskell-type">MonadIO</span> m , <span class="org-haskell-operator">...</span>)
+  <span class="org-haskell-operator">=&gt;</span> record <span class="org-haskell-operator">-&gt;</span> <span class="org-haskell-type">ReaderT</span> backend m (<span class="org-haskell-type">Maybe</span> (<span class="org-haskell-type">Key</span> <span class="org-haskell-type">Record</span>))
 </pre>
 </div>
 
@@ -389,7 +389,7 @@ While we might want to exact the data out of <code>maybeId1, maybeId2</code>, we
 Luckily, this can be resolved using <code>MaybeT</code>. Consider the type of the constructor:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">MaybeT :: m (Maybe a) -&gt; MaybeT m a
+<pre class="src src-haskell"><span class="org-haskell-constructor">MaybeT</span> <span class="org-haskell-operator">::</span> m (<span class="org-haskell-type">Maybe</span> a) <span class="org-haskell-operator">-&gt;</span> <span class="org-haskell-type">MaybeT</span> m a
 </pre>
 </div>
 
@@ -397,11 +397,11 @@ Luckily, this can be resolved using <code>MaybeT</code>. Consider the type of th
 So the same code can be written as:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">action :: MaybeT (ReaderT backend m a)
-action = do
-  { id1 &lt;- MaybeT $ insertUnique entity1
-  ; id2 &lt;- MaybeT $ insertUnique entity2
-  ; return $ Just a
+<pre class="src src-haskell"><span class="org-haskell-definition">action</span> <span class="org-haskell-operator">::</span> <span class="org-haskell-type">MaybeT</span> (<span class="org-haskell-type">ReaderT</span> backend m a)
+<span class="org-haskell-definition">action</span> <span class="org-haskell-operator">=</span> <span class="org-haskell-keyword">do</span>
+  { id1 <span class="org-haskell-operator">&lt;-</span> <span class="org-haskell-constructor">MaybeT</span> <span class="org-haskell-operator">$</span> insertUnique entity1
+  ; id2 <span class="org-haskell-operator">&lt;-</span> <span class="org-haskell-constructor">MaybeT</span> <span class="org-haskell-operator">$</span> insertUnique entity2
+  ; return <span class="org-haskell-operator">$</span> <span class="org-haskell-constructor">Just</span> a
   }
 </pre>
 </div>
@@ -410,7 +410,7 @@ action = do
 Then, simply use <code>runMaybeT</code> to get the original type back:
 </p>
 <div class="org-src-container">
-<pre class="src src-haskell">runMaybeT action :: ReaderT backend m (Maybe a)
+<pre class="src src-haskell"><span class="org-haskell-definition">runMaybeT</span> action <span class="org-haskell-operator">::</span> <span class="org-haskell-type">ReaderT</span> backend m (<span class="org-haskell-type">Maybe</span> a)
 </pre>
 </div>
 

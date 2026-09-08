@@ -58,6 +58,12 @@ img, video {
     margin-bottom: 0.5rem;
 }
 
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 #main-header a {
     float: left;
     text-align: center;
@@ -70,6 +76,7 @@ img, video {
 
 #main-header a:hover {
     background-color: #E8E8E8;
+    text-decoration: underline;
 }
 
 h1 {
@@ -101,4 +108,11 @@ pre.src {
     max-width: 100%;
     overflow-x: auto;
     white-space: pre;
+}
+
+code {
+    color: #000000;
+    background-color: #d3d3d3;
+    padding: 1px 5px;
+    border-radius: 5px;
 }
