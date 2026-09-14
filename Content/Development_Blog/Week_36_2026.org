@@ -21,7 +21,7 @@ Last week, I was confused by the ~servant~ framework requiring ~CookieSettings~ 
 #+begin_quote
 With ~Servant.Auth~, we’ll have to put both ~CookieSettings~ and ~JWTSettings~ into context even if we’re not using those [...]
 #+end_quote
-I will return to the why later.
+I will try figure out why at some later date.
 
 The authentication function now has access to the database. The logic is very simple right now to ease development experience. I will come back to it later. 
 

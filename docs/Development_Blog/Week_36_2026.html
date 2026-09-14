@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 36, 2026 (Aug 31 - Sept 6)</h1>
-<div id="outline-container-orgaabc2fe" class="outline-2">
-<h2 id="orgaabc2fe">Refactoring to Record-based API</h2>
-<div class="outline-text-2" id="text-orgaabc2fe">
+<div id="outline-container-orgdb40980" class="outline-2">
+<h2 id="orgdb40980">Refactoring to Record-based API</h2>
+<div class="outline-text-2" id="text-orgdb40980">
 <p>
 The refactor to record-based API is complete. The server is operational.
 </p>
@@ -224,9 +224,9 @@ In particular, <code>AsServerT</code> and <code>ServerT</code> refers to each ot
 </dl>
 </div>
 </div>
-<div id="outline-container-org36b4006" class="outline-2">
-<h2 id="org36b4006">Authentication and Permission</h2>
-<div class="outline-text-2" id="text-org36b4006">
+<div id="outline-container-org37a7857" class="outline-2">
+<h2 id="org37a7857">Authentication and Permission</h2>
+<div class="outline-text-2" id="text-org37a7857">
 <p>
 First, given my understanding, it seems authentication and permission are different concepts. Authentication first identifies the user. If the user can be identified, we can further check whether the user has permission to access a resource.
 </p>
@@ -240,7 +240,7 @@ With <code>Servant.Auth</code>, we’ll have to put both <code>CookieSettings</c
 </p>
 </blockquote>
 <p>
-I will return to the why later.
+I will try figure out why at some later date.
 </p>
 
 <p>
@@ -256,9 +256,9 @@ Taking lesson from previous weeks, I have decided to make permission check funct
 </p>
 </div>
 </div>
-<div id="outline-container-orgddd26ce" class="outline-2">
-<h2 id="orgddd26ce">Refactoring to Improve Build Experience</h2>
-<div class="outline-text-2" id="text-orgddd26ce">
+<div id="outline-container-org3be99a3" class="outline-2">
+<h2 id="org3be99a3">Refactoring to Improve Build Experience</h2>
+<div class="outline-text-2" id="text-org3be99a3">
 <p>
 I put the source code of each internal library into a separate directory. This fixed the old build issue where I had to repeat many modules in <code>other-modules</code>.
 </p>
@@ -272,13 +272,13 @@ I still need to understand how Cabal resolves dependency. It's something to lear
 </p>
 </div>
 </div>
-<div id="outline-container-orge17ead2" class="outline-2">
-<h2 id="orge17ead2">Learning About <code>persistent</code></h2>
-<div class="outline-text-2" id="text-orge17ead2">
+<div id="outline-container-org5425c2d" class="outline-2">
+<h2 id="org5425c2d">Learning About <code>persistent</code></h2>
+<div class="outline-text-2" id="text-org5425c2d">
 </div>
-<div id="outline-container-org771198f" class="outline-3">
-<h3 id="org771198f">Setting</h3>
-<div class="outline-text-3" id="text-org771198f">
+<div id="outline-container-org2393dd8" class="outline-3">
+<h3 id="org2393dd8">Setting</h3>
+<div class="outline-text-3" id="text-org2393dd8">
 <p>
 It is possible that one endpoint call leads to multiple database updates. Consider the following example:
 </p>
@@ -295,9 +295,9 @@ To preserve a sense of consistency, it seems reasonable that these two operation
 </p>
 </div>
 </div>
-<div id="outline-container-orgf5bbb4c" class="outline-3">
-<h3 id="orgf5bbb4c"><code>persistent</code>'s Built-in Rollback and Logic</h3>
-<div class="outline-text-3" id="text-orgf5bbb4c">
+<div id="outline-container-org144d99a" class="outline-3">
+<h3 id="org144d99a"><code>persistent</code>'s Built-in Rollback and Logic</h3>
+<div class="outline-text-3" id="text-org144d99a">
 <p>
 The <code>persistent</code> library guarantees when executing a database action, either the entire action succeed or an SQL error is raised and no modification happens. It would seem <code>persistent</code>'s already guarantees us the consistency we want.
 </p>
@@ -319,9 +319,9 @@ This means <code>insertUnique</code> will never raise an SQL error, and <code>pe
 </p>
 </div>
 </div>
-<div id="outline-container-orgf6ca2dc" class="outline-3">
-<h3 id="orgf6ca2dc">Solution: Explicit Raising Errors</h3>
-<div class="outline-text-3" id="text-orgf6ca2dc">
+<div id="outline-container-org4106238" class="outline-3">
+<h3 id="org4106238">Solution: Explicit Raising Errors</h3>
+<div class="outline-text-3" id="text-org4106238">
 <p>
 After discussion with colleagues, we solved the problem by using the implicite <code>fail</code> call with <code>do</code> notation:
 </p>
@@ -349,9 +349,9 @@ However, this also necessitated the use of a <code>catch</code> block to recover
 </div>
 </div>
 </div>
-<div id="outline-container-orgafd5023" class="outline-2">
-<h2 id="orgafd5023"><code>MaybeT</code></h2>
-<div class="outline-text-2" id="text-orgafd5023">
+<div id="outline-container-orgd15a700" class="outline-2">
+<h2 id="orgd15a700"><code>MaybeT</code></h2>
+<div class="outline-text-2" id="text-orgd15a700">
 <p>
 Expanding on the previous header, we also attempted to use <code>MaybeT</code> to write cleaner code.
 </p>

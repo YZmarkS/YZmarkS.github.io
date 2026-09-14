@@ -1,0 +1,69 @@
+#+TITLE: Week 37, 2026 (Sept 7 - Sept 13)
+
+* Proper Authentication
+
+After an extensive dicussion with a colleague, I decided to first implement authentication properly before working on the functionality of other endpoints.
+In theory, most API clients should support setting cookies based on the ~Set-Cookie~ response header, so development experience should not be impacted.
+I am somewhat concerned whether axios and HttpOnly cookies are compatible, but I also have faith that this is common enough situation that axios' developers would have came up with a solution already. 
+
+* Password Storage
+
+I implemented proper password storage with salt and hashing [fn:1]. The concept is likely well known across the web development community, the challenge is finding the right implementations and connecting the wires in Haskell.
+
+I am using ~crypton~ [fn:2] for the cryptographically secure functions, and mostly followed [[https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html][the OWASP cheat sheet]] [fn:3].
+
+The logic is not difficult. However, one will encounter a few similar byte-related typeclasses. Additionally, the library defines its own result type for computations that can fail. 
+
+* JWT Generation
+
+The ~jose~ [fn:4] library is brought in to handle JWT. I have only implemented JWT generation, and I am blocked by ~servant~'s header system to then implement the verification. 
+
+I get a sense that strongly-typed language like Haskell does not work well with datatypes that are too malleable (like JSON), requiring  advanced techniques like Lenses.
+
+Furthermore, for the first time I had to provide a manual type application to help the typechecker resolve a type ambiguity error:
+
+#+begin_src haskell
+  liftIO $ runJOSE @JWTError ...
+#+end_src
+
+* Supporting Multiple Authentication Handlers
+
+*WIP: I have not implemented this proposed solution, but I think my proposal will work*
+
+Another challenge I will need to overcome is supporting two different authentication handlers for resource access and token refresh.
+
+Consider the following ~HasServer~ instance [fn:5]:
+#+begin_src haskell
+  (..., HasContextEntry context (AuthHandler Request (AuthServerData (AuthProtect tag))))
+  => HasServer (AuthProtect tag :> api :: Type) context
+#+end_src
+
+Notice the class ~HasContextEntry context elem~ picks out the first element from the context with the type ~elem~. In this case, we are picking out an element of the type ~(AuthHandler Request usr)~. 
+
+~(AuthHandler Request usr)~ is essentially a function of the type ~Request -> Handler usr~, where ~usr~ stands for the data produced by the authentication function, usually representing a paricular user.
+
+Now suppose we have two endpoints with different authentication logic but both return a user id as ~Int~. We will need to insert both handlers into the context list, but because the return types are the same, ~servant~ will always use the first one in the list, regardless of the endpoint.
+
+We solve the problem by using ~AuthServerData~, which is a /type family/. We give different tags to different endpoints, and forcefully make the type-level function return distinct types:
+
+#+begin_src haskell
+  newtype AuthType1 = AuthType1 Int
+  newtype AuthType2 = AuthType2 Int
+
+  type instance AuthServerData (AuthProtect "auth1") = AuthType1
+  type instance AuthServerData (AuthProtect "auth2") = AuthType2
+#+end_src
+
+Now we can create two authentication handlers that outputs distinct types, and ~servant~ should be able to handle it properly.
+
+* Footnotes
+
+[fn:1] Auth0 Blog, [[https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/][Adding Salt to Hashing, A Better Way to Store Passwords]]
+
+[fn:2] ~crypton~ Hackage, [[https://hackage.haskell.org/package/crypton][~crypton~: Cryptography Primitives sink]]
+
+[fn:3] OWASP Cheat Sheet, [[https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html][Password Storage Cheet Sheet]]
+
+[fn:4] ~jose~ Hackage, [[https://hackage-content.haskell.org/package/jose][~jose~: JSON Object Signing and Encryption (JOSE) and JSON Web Token (JWT) library]]
+
+[fn:5] ~servant~ Hackage, [[https://hackage-content.haskell.org/package/servant-server-0.20.3.0/docs/Servant-Server.html#t:HasServer][An ~HasServer~ instance for an API with ~AuthProtect~]]

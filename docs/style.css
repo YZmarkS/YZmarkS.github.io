@@ -43,6 +43,14 @@ img, video {
     max-width: 100%;
 }
 
+/* Links are blue/purple coloured */
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Nav Bar Styling */
 #main-header {
     display: flex;
     justify-content: flex-start;
@@ -56,12 +64,6 @@ img, video {
     margin-left: -0.5rem;
     margin-right: -0.5rem;
     margin-bottom: 0.5rem;
-}
-
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
 }
 
 #main-header a {
@@ -104,12 +106,14 @@ h6 {
   overflow-wrap:break-word
 }
 
+/* Hide long line when viewing on narrow screen */
 pre.src {
     max-width: 100%;
     overflow-x: auto;
     white-space: pre;
 }
 
+/* Style inline code */
 code {
     color: #000000;
     background-color: #d3d3d3;
