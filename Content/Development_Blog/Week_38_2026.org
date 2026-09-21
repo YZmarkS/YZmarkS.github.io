@@ -1,0 +1,56 @@
+#+TITLE: Week 38, 2026 (Sept 14 - Sept 20)
+
+* JWT in Headers
+
+[[id:7e3f8f2d-4310-47d9-91a8-372814afd984][Last week]] I said I was blocked by servant's header system. This week, I used the [[https://hackage-content.haskell.org/package/servant-auth-server-0.4.10.0/docs/Servant-Auth-Server-Internal-Cookie.html#v:acceptLogin][source code of ~servant-auth-server~]] as reference [fn:1], and with some reference to the ~AddHeader~ typeclass [fn:2], I made sense of the interface and was able to add cookie headers to the HTTP response.
+
+* Encoding and Decoding JWT
+
+I have encountered many difficulties with the JWT format. According to the JWT standard, the ~sub~ (Subject) claim of the JWT body can be used to encode "statements about the subject" [fn:3].
+
+The specification for the ~sub~ claim states:
+#+begin_quote
+The "sub" value is a case-sensitive string containing a StringOrURI value.
+#+end_quote
+Here, the ~StringOrURI~ value is a string where if the string contains a ~:~, it must also be an URI. When I tried to put an encoding of the user object into the ~sub~ claim, the ~:~ in JSON bytestring conflicted with the specification, causing issue when decoding. 
+
+In ~JOSE~, this requirement is encoded by the type ~StringOrURI~ [fn:4]. Interfacing with this type was rather difficult where ~fromString~ is essentially the only way to construct such value from scratch.
+
+* Understanding ~Show~
+
+Initially, I constructed the ~sub~ claim using ~show~:
+#+begin_src haskell
+  fromString $ show $ encode userId :: StringOrURI
+#+end_src
+The behaviour of ~show~ on ~ByteString~ surrounds the byte string with a pair of ~"..."~ . As such, the length of ~show $ encode userId~ is actually 3. This was unexpected. Furthermore, I created even more quotation marks on decoding.
+
+The correct solution was to use ~pack~ and ~unpack~ [fn:5]
+#+begin_src haskell
+  pack :: String -> ByteString
+  unpack :: ByteString -> String
+#+end_src
+And we have the following dataflow:
+#+begin_src
+               Creating JWT                    |                   Reading JWT
+  UserId ---> ByteString ---> String ---> StringOrURI ---> Text ---> ByteString ---> UserId 
+          |               |           |                |         |               |
+        encode          unpack    fromString          Lens  encodeUTF8      decodeStrict
+#+end_src
+
+* Authentication
+
+I also proposed a authentication method last week. I tried to implement one of the ~AuthProtect~ combinator, and the server worked with it. Will have to see if having two different ~AuthProtect~ with different symbol still works.
+
+* Other
+
+I did not do as much Haskell development this week because I was also working a separate project in C. Had to read a lot of ~man~ pages.
+
+* Footnotes
+[fn:5] ~ByteString~ Hackage, [[https://hackage-content.haskell.org/package/bytestring-0.12.1.0/docs/Data-ByteString-Char8.html#v:pack][Data.ByteString.Char8, ~pack~]]
+
+[fn:4] ~JOSE~ Hackage, [[https://hackage-content.haskell.org/package/jose-0.13/docs/Crypto-JWT.html#t:StringOrURI][Crypto.JWT, ~StringOrURI~]]
+
+[fn:3] RFC7519, [[https://datatracker.ietf.org/doc/html/rfc7519#section-4.1][Registered Claim Names, "sub" (Subject) Claim]]
+[fn:2] ~servant~ Hackage, [[https://hackage-content.haskell.org/package/servant-0.20.3.0/docs/Servant-API.html#t:AddHeader][Class ~AddHeader~]]
+
+[fn:1] ~servant-auth-server~ Hackage, [[https://hackage-content.haskell.org/package/servant-auth-server-0.4.10.0/docs/Servant-Auth-Server-Internal-Cookie.html#v:acceptLogin][~acceptLogin~]] 

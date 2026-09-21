@@ -1,3 +1,6 @@
+:PROPERTIES:
+:ID:       7e3f8f2d-4310-47d9-91a8-372814afd984
+:END:
 #+TITLE: Week 37, 2026 (Sept 7 - Sept 13)
 
 * Proper Authentication
