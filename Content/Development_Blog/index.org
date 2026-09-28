@@ -1,5 +1,6 @@
 #+TITLE: Development Blog
 
+- [[file:Week_39_2026.org][Week 39, 2026]]
 - [[file:Week_38_2026.org][Week 38, 2026]]
 - [[file:Week_37_2026.org][Week 37, 2026]]
 - [[file:Week_36_2026.org][Week 36, 2026]]

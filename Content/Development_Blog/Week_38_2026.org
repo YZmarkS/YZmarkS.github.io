@@ -46,11 +46,13 @@ I also proposed a authentication method last week. I tried to implement one of t
 I did not do as much Haskell development this week because I was also working a separate project in C. Had to read a lot of ~man~ pages.
 
 * Footnotes
-[fn:5] ~ByteString~ Hackage, [[https://hackage-content.haskell.org/package/bytestring-0.12.1.0/docs/Data-ByteString-Char8.html#v:pack][Data.ByteString.Char8, ~pack~]]
+
+[fn:1] ~servant-auth-server~ Hackage, [[https://hackage-content.haskell.org/package/servant-auth-server-0.4.10.0/docs/Servant-Auth-Server-Internal-Cookie.html#v:acceptLogin][~acceptLogin~]]
+
+[fn:2] ~servant~ Hackage, [[https://hackage-content.haskell.org/package/servant-0.20.3.0/docs/Servant-API.html#t:AddHeader][Class ~AddHeader~]]
+
+[fn:3] RFC7519, [[https://datatracker.ietf.org/doc/html/rfc7519#section-4.1][Registered Claim Names, "sub" (Subject) Claim]]
 
 [fn:4] ~JOSE~ Hackage, [[https://hackage-content.haskell.org/package/jose-0.13/docs/Crypto-JWT.html#t:StringOrURI][Crypto.JWT, ~StringOrURI~]]
 
-[fn:3] RFC7519, [[https://datatracker.ietf.org/doc/html/rfc7519#section-4.1][Registered Claim Names, "sub" (Subject) Claim]]
-[fn:2] ~servant~ Hackage, [[https://hackage-content.haskell.org/package/servant-0.20.3.0/docs/Servant-API.html#t:AddHeader][Class ~AddHeader~]]
-
-[fn:1] ~servant-auth-server~ Hackage, [[https://hackage-content.haskell.org/package/servant-auth-server-0.4.10.0/docs/Servant-Auth-Server-Internal-Cookie.html#v:acceptLogin][~acceptLogin~]] 
+[fn:5] ~ByteString~ Hackage, [[https://hackage-content.haskell.org/package/bytestring-0.12.1.0/docs/Data-ByteString-Char8.html#v:pack][Data.ByteString.Char8, ~pack~]]

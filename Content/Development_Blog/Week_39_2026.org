@@ -1,0 +1,19 @@
+#+TITLE: Week 39, 2026 (Sept 21 - Sept 27)
+
+* Hike
+
+The main project received little attention this week because I was out of the house a lot. I spend time over the weekend documenting the authentication procedure.
+
+* Coding in C
+
+I spun up a different project to learn about low-level programming. I had experience with C programming back in my first and second year of university, but nothing serious since, so I am very rusty.
+
+Late last week, I started the program project by first implementing the logic to extract file metadata through system calls. 
+
+Designing a TUI is also difficult. First, the "resolution" is very low, and I have to decide what is the smallest element that will be displayed. Second, the smallest unit of display, a character, is not a square, so it was unclear how that affects the display.
+
+I worked on the main algorithm three times, each time making the logic simplier to understand and maintain. In the end, because I am displaying items by their ratio with respect to the whole, as long as I am not changing axis in the middle of calculation, the non-square unit of display is not an issue.
+
+There were many challenges when it comes to data modeling, memory management, reference vs copy, off-by-one error, text field rendering logic, etc.. But I have so far overcame those issues.
+
+There are some very interested challenge I am looking forward to working on. User interaction, multi-threading, message passing, signal handling, proper clean up on interruption.
