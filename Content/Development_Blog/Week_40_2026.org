@@ -1,0 +1,19 @@
+#+TITLE: Week40, 2026 (Sept 28 - Oct 4)
+
+* Hike Authentication
+
+Hike's refresh JWT logic has been completed.
+
+Authenticating an access token is very easy. Assuming the communication is done through HTTPS, because the access token has a short valid period, it is reasonable to assume during the period, the intended user is the only user with access to the token (Relies on HTTPS being hard to crack).
+
+Refresh token has longer valid period, so we run the risk of it being compromised. The solution is to track the refresh token in database, with the option to revoke it. Thus the authentication process will need access to the database, and check for a status before refreshing.
+
+I am doing everything with just SQLite. However, I can imagine at scale, to ensure authentication does not become a bottleneck, refresh tokens can be tracked in a faster database like Redis. 
+
+* Coding in C and Rust
+
+The low level project is also going.
+
+The terminal interface may push anywhere from 1 to 4 characters into the input stream for each user action. This makes parsing incredibly difficult. I am tempted to simply get a prototype working in C instead of implementing full user input parsing.
+
+I also dicussed multi-threading with a friend. His input on solving the problem using worker pool and work queue is very valuable. I am tempted on implementing it.
