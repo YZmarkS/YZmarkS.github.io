@@ -1,0 +1,14 @@
+#+TITLE: Week 41, 2026 (Oct 12 - Oct 18)
+
+I had to prepare for interview, so almost no development this week. 
+
+* Learning TypeScript for Interview
+
+I don't like JavaScript and its descendance, period.
+
+~const~ is not really a constant (You cannot update there object reference, but you can update the object itself).
+
+You can never be sure the shape of the data coming in, leading to countless potential null and undefined values.
+
+The ~extends~ keywords acts like a subtype relation. However, the meaning seems to differ depending on what type is on the right hand side, and often produce a relation that does not match the connotation of /"extends"/.
+

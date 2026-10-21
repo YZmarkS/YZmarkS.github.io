@@ -1,0 +1,34 @@
+#+TITLE: Week 41, 2026 (Oct 5 - Oct 11)
+
+* Porting to Rust
+
+Due to various reasons, I had to shift my focus from Haskell and C to Rust to produce some results.
+
+My goal of this project is to learn system programming concept common across all hardware and OS platforms. For example, almost all OS has support for mutex, but the function for creating a mutex may be different.
+
+Rust both helps and hurts this goal. Rust ~std~ exposes many system programming concepts with a unified framework, such as mutex. This helps me. In other cases, such as thread and channel, I believe Rust hides too much details that I would rather learn. For now, I am willing to sacrifies some implementation detail.
+
+The porting went mostly smoothly. The algorithm for constructing my data structures was working in C, so I simply have to copy the logic over.
+
+* User Experience of "Fearless Concurrency" in Rust
+
+Rust pride itself on supporting "Fearless Concurrency". My understanding is that Rust's borrow checker and type system rejects a class of incorrect concurrent programs.
+
+The old C codebase did not have any concurrency, so I had to develop a concurrent algorithm and implement it for the first time in Rust. My algorithm uses a mix of message passing and shared state.
+
+I believe Rust's type system prevented me from writing many incorrect programs, and forced me to arrive at a principled solution. Occasionally I encounter a Rust's error message, which even if does not tell me why it can cause race condition, at least points me toward the right direction.
+
+However, I also believe it can be overly restrictive. Consider the following case:
+
+#+begin_src rust
+  let shared_data = Arc::new(Mutex::new(Rc::new(RefCell::new(42))));
+
+  thread::spawn(move || {
+      compute(shared_data)
+  	todo!("Computation")
+  });
+#+end_src
+
+In Rust, one cannot send a ~Rc~ instance to another thread, because the reference counting is not atomic. However, there are occasions where every instance of the the ~Rc~ is behind an ~Arc<Mutex<...>>~. In such case, I should be able to increment/decrement the reference count to the ~Rc~ instance safely, because any update to it will first require obtaining a mutex lock.
+
+I found the limitation to what can be sent between thread to be frustracting, and have yet to found a better solution. 

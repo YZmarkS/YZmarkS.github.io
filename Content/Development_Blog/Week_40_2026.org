@@ -1,4 +1,4 @@
-#+TITLE: Week40, 2026 (Sept 28 - Oct 4)
+#+TITLE: Week 40, 2026 (Sept 28 - Oct 4)
 
 * Hike Authentication
 
