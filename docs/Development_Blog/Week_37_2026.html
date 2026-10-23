@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 37, 2026 (Sept 7 - Sept 13)</h1>
-<div id="outline-container-orga68a345" class="outline-2">
-<h2 id="orga68a345">Proper Authentication</h2>
-<div class="outline-text-2" id="text-orga68a345">
+<div id="outline-container-orgbc65aa8" class="outline-2">
+<h2 id="orgbc65aa8">Proper Authentication</h2>
+<div class="outline-text-2" id="text-orgbc65aa8">
 <p>
 After an extensive dicussion with a colleague, I decided to first implement authentication properly before working on the functionality of other endpoints.
 In theory, most API clients should support setting cookies based on the <code>Set-Cookie</code> response header, so development experience should not be impacted.
@@ -209,9 +209,9 @@ I am somewhat concerned whether axios and HttpOnly cookies are compatible, but I
 </p>
 </div>
 </div>
-<div id="outline-container-org2df0299" class="outline-2">
-<h2 id="org2df0299">Password Storage</h2>
-<div class="outline-text-2" id="text-org2df0299">
+<div id="outline-container-org547b956" class="outline-2">
+<h2 id="org547b956">Password Storage</h2>
+<div class="outline-text-2" id="text-org547b956">
 <p>
 I implemented proper password storage with salt and hashing <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>. The concept is likely well known across the web development community, the challenge is finding the right implementations and connecting the wires in Haskell.
 </p>
@@ -225,9 +225,9 @@ The logic is not difficult. However, one will encounter a few similar byte-relat
 </p>
 </div>
 </div>
-<div id="outline-container-orgecbaf5a" class="outline-2">
-<h2 id="orgecbaf5a">JWT Generation</h2>
-<div class="outline-text-2" id="text-orgecbaf5a">
+<div id="outline-container-orgc97475e" class="outline-2">
+<h2 id="orgc97475e">JWT Generation</h2>
+<div class="outline-text-2" id="text-orgc97475e">
 <p>
 The <code>jose</code> <sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup> library is brought in to handle JWT. I have only implemented JWT generation, and I am blocked by <code>servant</code>'s header system to then implement the verification. 
 </p>
@@ -246,9 +246,9 @@ Furthermore, for the first time I had to provide a manual type application to he
 </div>
 </div>
 </div>
-<div id="outline-container-org75e842b" class="outline-2">
-<h2 id="org75e842b">Supporting Multiple Authentication Handlers</h2>
-<div class="outline-text-2" id="text-org75e842b">
+<div id="outline-container-org03c7815" class="outline-2">
+<h2 id="org03c7815">Supporting Multiple Authentication Handlers</h2>
+<div class="outline-text-2" id="text-org03c7815">
 <p>
 <b>WIP: I have not implemented this proposed solution, but I think my proposal will work</b>
 </p>

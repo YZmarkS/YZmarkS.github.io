@@ -199,17 +199,17 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 38, 2026 (Sept 14 - Sept 20)</h1>
-<div id="outline-container-org2b3ff39" class="outline-2">
-<h2 id="org2b3ff39">JWT in Headers</h2>
-<div class="outline-text-2" id="text-org2b3ff39">
+<div id="outline-container-org4bff528" class="outline-2">
+<h2 id="org4bff528">JWT in Headers</h2>
+<div class="outline-text-2" id="text-org4bff528">
 <p>
 <a href="Week_37_2026.html#ID-7e3f8f2d-4310-47d9-91a8-372814afd984">Last week</a> I said I was blocked by servant's header system. This week, I used the <a href="https://hackage-content.haskell.org/package/servant-auth-server-0.4.10.0/docs/Servant-Auth-Server-Internal-Cookie.html#v:acceptLogin">source code of <code>servant-auth-server</code></a> as reference <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, and with some reference to the <code>AddHeader</code> typeclass <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>, I made sense of the interface and was able to add cookie headers to the HTTP response.
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6dd7b9" class="outline-2">
-<h2 id="orgb6dd7b9">Encoding and Decoding JWT</h2>
-<div class="outline-text-2" id="text-orgb6dd7b9">
+<div id="outline-container-org174a6d0" class="outline-2">
+<h2 id="org174a6d0">Encoding and Decoding JWT</h2>
+<div class="outline-text-2" id="text-org174a6d0">
 <p>
 I have encountered many difficulties with the JWT format. According to the JWT standard, the <code>sub</code> (Subject) claim of the JWT body can be used to encode "statements about the subject" <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>.
 </p>
@@ -231,9 +231,9 @@ In <code>JOSE</code>, this requirement is encoded by the type <code>StringOrURI<
 </p>
 </div>
 </div>
-<div id="outline-container-org9481963" class="outline-2">
-<h2 id="org9481963">Understanding <code>Show</code></h2>
-<div class="outline-text-2" id="text-org9481963">
+<div id="outline-container-orgdb84cdf" class="outline-2">
+<h2 id="orgdb84cdf">Understanding <code>Show</code></h2>
+<div class="outline-text-2" id="text-orgdb84cdf">
 <p>
 Initially, I constructed the <code>sub</code> claim using <code>show</code>:
 </p>
@@ -265,17 +265,17 @@ UserId ---&gt; ByteString ---&gt; String ---&gt; StringOrURI ---&gt; Text ---&gt
 </div>
 </div>
 </div>
-<div id="outline-container-org7531ea7" class="outline-2">
-<h2 id="org7531ea7">Authentication</h2>
-<div class="outline-text-2" id="text-org7531ea7">
+<div id="outline-container-org272c870" class="outline-2">
+<h2 id="org272c870">Authentication</h2>
+<div class="outline-text-2" id="text-org272c870">
 <p>
 I also proposed a authentication method last week. I tried to implement one of the <code>AuthProtect</code> combinator, and the server worked with it. Will have to see if having two different <code>AuthProtect</code> with different symbol still works.
 </p>
 </div>
 </div>
-<div id="outline-container-org2de1960" class="outline-2">
-<h2 id="org2de1960">Other</h2>
-<div class="outline-text-2" id="text-org2de1960">
+<div id="outline-container-org38659a3" class="outline-2">
+<h2 id="org38659a3">Other</h2>
+<div class="outline-text-2" id="text-org38659a3">
 <p>
 I did not do as much Haskell development this week because I was also working a separate project in C. Had to read a lot of <code>man</code> pages.
 </p>

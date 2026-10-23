@@ -31,4 +31,4 @@ However, I also believe it can be overly restrictive. Consider the following cas
 
 In Rust, one cannot send a ~Rc~ instance to another thread, because the reference counting is not atomic. However, there are occasions where every instance of the the ~Rc~ is behind an ~Arc<Mutex<...>>~. In such case, I should be able to increment/decrement the reference count to the ~Rc~ instance safely, because any update to it will first require obtaining a mutex lock.
 
-I found the limitation to what can be sent between thread to be frustracting, and have yet to found a better solution. 
+I found the limitation to what can be sent between thread to be frustrating, and have yet to found a better solution. 
