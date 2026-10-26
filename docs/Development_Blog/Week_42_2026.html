@@ -202,23 +202,20 @@
 <p>
 I had to prepare for interview, so almost no development this week. 
 </p>
-<div id="outline-container-orgd9b5b00" class="outline-2">
-<h2 id="orgd9b5b00">Learning TypeScript for Interview</h2>
-<div class="outline-text-2" id="text-orgd9b5b00">
+<div id="outline-container-org43c6017" class="outline-2">
+<h2 id="org43c6017">Learning TypeScript for Interview</h2>
+<div class="outline-text-2" id="text-org43c6017">
 <p>
-I don't like JavaScript and its descendance, period.
+I found some design features of TypeScript to be puzzling: 
 </p>
 
-<p>
-<code>const</code> is not really a constant (You cannot update there object reference, but you can update the object itself).
-</p>
+<ul class="org-ul">
+<li><code>const</code> is not really a constant (You cannot update there object reference, but you can update the object itself).</li>
+<li>The <code>extends</code> keywords acts like a subtype relation. However, the meaning seems to differ depending on what type is on the right hand side, and often produce a relation that does not match the connotation of <i>"extends"</i>.</li>
+</ul>
 
 <p>
-You can never be sure the shape of the data coming in, leading to countless potential null and undefined values.
-</p>
-
-<p>
-The <code>extends</code> keywords acts like a subtype relation. However, the meaning seems to differ depending on what type is on the right hand side, and often produce a relation that does not match the connotation of <i>"extends"</i>.
+I believe it is possible to get used to many ofthe quirks. Furthermore, TypeScript has to be compatible with JavaScript while maintaining some sense of safety, a really tall order. What it has managed to achieve is already impressive.
 </p>
 </div>
 </div>
