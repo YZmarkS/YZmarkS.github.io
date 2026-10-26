@@ -10,8 +10,11 @@
 
 ;; Install dependencies
 (package-install 'htmlize)
+(package-install 'rust-mode)
 
 (require 'ox-publish)
+(require 'rust-mode)
+
 
 ;; Define the publishing project
 (setq org-publish-project-alist

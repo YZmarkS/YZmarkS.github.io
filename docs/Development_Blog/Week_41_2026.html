@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 41, 2026 (Oct 5 - Oct 11)</h1>
-<div id="outline-container-org808aa14" class="outline-2">
-<h2 id="org808aa14">Porting to Rust</h2>
-<div class="outline-text-2" id="text-org808aa14">
+<div id="outline-container-orgf79dff0" class="outline-2">
+<h2 id="orgf79dff0">Porting to Rust</h2>
+<div class="outline-text-2" id="text-orgf79dff0">
 <p>
 Due to various reasons, I had to shift my focus from Haskell and C to Rust to produce some results.
 </p>
@@ -219,9 +219,9 @@ The porting went mostly smoothly. The algorithm for constructing my data structu
 </p>
 </div>
 </div>
-<div id="outline-container-orgbfe67cb" class="outline-2">
-<h2 id="orgbfe67cb">User Experience of "Fearless Concurrency" in Rust</h2>
-<div class="outline-text-2" id="text-orgbfe67cb">
+<div id="outline-container-org496656e" class="outline-2">
+<h2 id="org496656e">User Experience of "Fearless Concurrency" in Rust</h2>
+<div class="outline-text-2" id="text-org496656e">
 <p>
 Rust pride itself on supporting "Fearless Concurrency". My understanding is that Rust's borrow checker and type system rejects a class of incorrect concurrent programs.
 </p>
@@ -239,11 +239,11 @@ However, I also believe it can be overly restrictive. Consider the following cas
 </p>
 
 <div class="org-src-container">
-<pre class="src src-rust">let shared_data = Arc::new(Mutex::new(Rc::new(RefCell::new(42))));
+<pre class="src src-rust"><span class="org-keyword">let</span> <span class="org-variable-name">shared_data</span> = <span class="org-type">Arc</span>::new(<span class="org-type">Mutex</span>::new(<span class="org-type">Rc</span>::new(<span class="org-type">RefCell</span>::new(42))));
 
-thread::spawn(move || {
+<span class="org-constant">thread</span>::spawn(<span class="org-keyword">move</span> || {
     compute(shared_data)
-        todo!("Computation")
+        <span class="org-preprocessor">todo!</span>(<span class="org-string">"Computation"</span>)
 });
 </pre>
 </div>
