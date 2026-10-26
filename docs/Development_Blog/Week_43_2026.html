@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 43, 2026 (Oct 19 - Oct 25)</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" href="/org_theme.css"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<div id="main-header"><a href="/index.html">Home</a><a href="/Notes/index.html">Notes</a><a href="/Development_Blog/index.html">Development Blog</a></div>
+</div>
+<div id="content" class="content">
+<h1 class="title">Week 43, 2026 (Oct 19 - Oct 25)</h1>
+<div id="outline-container-org34d29da" class="outline-2">
+<h2 id="org34d29da">Software Logic and Rendering</h2>
+<div class="outline-text-2" id="text-org34d29da">
+<p>
+For the first time I have to consider the order between rendering and performing logic operations. Previously I have worked with React and Svelte, however, in either case, the framework handled the switch between rendering and performing effects.
+</p>
+
+<p>
+At a high level, the main loop of the tool is as follow:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span class="org-keyword">loop</span> {
+    <span class="org-comment-delimiter">// </span><span class="org-comment">1. Draw a frame
+</span>    <span class="org-comment-delimiter">// </span><span class="org-comment">2. Update internal state
+</span>}
+</pre>
+</div>
+
+<p>
+I think this is a simple plan. However, if the update is computationally heavy, the update should be done in a separate thread, and will need a way to signal completion back to the main thread.
+</p>
+
+<p>
+Furthermore, due to my design choice, there are information that needs to be shared between the two operations, thus I need additional work threading data through. 
+</p>
+</div>
+</div>
+<div id="outline-container-org8d86155" class="outline-2">
+<h2 id="org8d86155">Finite States Machine Model</h2>
+<div class="outline-text-2" id="text-org8d86155">
+<p>
+I took inspiration from a friend, who used finite state machine to model a person project of his.
+</p>
+
+<p>
+I found it to be an easy mental model for me as well. Within the main loop, I can read the current state, perform corresponding action, and possibly change to a new state.
+</p>
+
+<p>
+Whether I am going to render can also depend on the state of the application.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc43d95" class="outline-2">
+<h2 id="orgdc43d95">Getting Window Size</h2>
+<div class="outline-text-2" id="text-orgdc43d95">
+<p>
+My render depends on the terminal size, and I think the approach I took to getting the window size is interesting.
+</p>
+
+<p>
+The basic usage of the <code>ratatui</code> library is the following <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span class="org-constant">ratatui</span>::run( | terminal | {
+    <span class="org-keyword">loop</span> {
+        terminal.draw( | frame | {
+            <span class="org-comment-delimiter">// </span><span class="org-comment">Draw logic
+</span>        });
+        <span class="org-comment-delimiter">// </span><span class="org-comment">Other logic
+</span>    }
+});
+</pre>
+</div>
+
+<p>
+Frame contains the windows size, which I used as the only source of truth. One challenge is passing this parameter that is local to the <code>terminal.draw</code> method out to <code>Other logic</code> so I can compute the layout.
+</p>
+
+<p>
+By implementing the <code>Widget</code> trait<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> for the application state, I can call the <code>render_widget</code> on <code>frame</code> to thread information about the frame through to the application state.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-rust"><span class="org-keyword">impl</span> <span class="org-type">State</span> {
+    <span class="org-keyword">pub</span> <span class="org-keyword">fn</span> <span class="org-function-name">main_loop</span>(<span class="org-rust-ampersand">&amp;</span><span class="org-keyword">mut</span> <span class="org-keyword">self</span>, <span class="org-variable-name">terminal</span>: <span class="org-rust-ampersand">&amp;</span><span class="org-keyword">mut</span> <span class="org-type">DefaultTerminal</span>) -&gt; ... {
+        <span class="org-keyword">loop</span> {
+            terminal.draw( | frame | {
+                <span class="org-comment-delimiter">// </span><span class="org-comment">[.render_widget] calls the [.render] method implemented by [self]
+</span>                <span class="org-comment-delimiter">// </span><span class="org-comment">using [frame.area()] as the canvas
+</span>                frame.render_widget(<span class="org-keyword">self</span>, frame.area());
+            });
+            <span class="org-comment-delimiter">// </span><span class="org-comment">Other logic              
+</span>        }
+    }
+}
+
+<span class="org-keyword">impl</span> <span class="org-type">Widget</span> <span class="org-keyword">for</span> <span class="org-rust-ampersand">&amp;</span><span class="org-keyword">mut</span> <span class="org-type">State</span> {
+    <span class="org-keyword">fn</span> <span class="org-function-name">render</span>(<span class="org-keyword">self</span>, <span class="org-variable-name">area</span>: <span class="org-type">Rect</span>, <span class="org-variable-name">buf</span>: <span class="org-rust-ampersand">&amp;</span><span class="org-keyword">mut</span> <span class="org-type">Buffer</span>) {
+        <span class="org-comment-delimiter">// </span><span class="org-comment">As above, [frame.area()] is passed as argument to [.render]
+</span>        <span class="org-comment-delimiter">// </span><span class="org-comment">It is now possible to store the frame area into the internal state
+</span>    }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Ratatui Tutorials, <a href="https://ratatui.rs/tutorials/hello-ratatui/">Hello Ratatui</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<code>ratatui</code> docs.rs, <a href="https://docs.rs/ratatui/latest/ratatui/widgets/trait.Widget.html">Trait Widget</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

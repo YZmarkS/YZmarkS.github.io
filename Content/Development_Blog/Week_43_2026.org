@@ -1,0 +1,75 @@
+#+TITLE: Week 43, 2026 (Oct 19 - Oct 25)
+
+* Software Logic and Rendering
+
+For the first time I have to consider the order between rendering and performing logic operations. Previously I have worked with React and Svelte, however, in either case, the framework handled the switch between rendering and performing effects.
+
+At a high level, the main loop of the tool is as follow:
+
+#+begin_src rust
+  loop {
+      // 1. Draw a frame
+      // 2. Update internal state
+  }
+#+end_src
+
+I think this is a simple plan. However, if the update is computationally heavy, the update should be done in a separate thread, and will need a way to signal completion back to the main thread.
+
+Furthermore, due to my design choice, there are information that needs to be shared between the two operations, thus I need additional work threading data through. 
+
+* Finite States Machine Model
+
+I took inspiration from a friend, who used finite state machine to model a person project of his.
+
+I found it to be an easy mental model for me as well. Within the main loop, I can read the current state, perform corresponding action, and possibly change to a new state.
+
+Whether I am going to render can also depend on the state of the application.
+
+* Getting Window Size
+
+My render depends on the terminal size, and I think the approach I took to getting the window size is interesting.
+
+The basic usage of the ~ratatui~ library is the following [fn:1]: 
+
+#+begin_src rust
+  ratatui::run( | terminal | {
+      loop {
+  	terminal.draw( | frame | {
+  	    // Draw logic
+  	});
+  	// Other logic
+      }
+  });
+#+end_src
+
+Frame contains the windows size, which I used as the only source of truth. One challenge is passing this parameter that is local to the ~terminal.draw~ method out to ~Other logic~ so I can compute the layout.
+
+By implementing the ~Widget~ trait[fn:2] for the application state, I can call the ~render_widget~ on ~frame~ to thread information about the frame through to the application state.
+
+#+begin_src rust
+  impl State {
+      pub fn main_loop(&mut self, terminal: &mut DefaultTerminal) -> ... {
+  	loop {
+  	    terminal.draw( | frame | {
+  		// [.render_widget] calls the [.render] method implemented by [self]
+  		// using [frame.area()] as the canvas
+  		frame.render_widget(self, frame.area());
+  	    });
+  	    // Other logic		
+  	}
+      }
+  }
+
+  impl Widget for &mut State {
+      fn render(self, area: Rect, buf: &mut Buffer) {
+  	// As above, [frame.area()] is passed as argument to [.render]
+  	// It is now possible to store the frame area into the internal state
+      }
+  }
+#+end_src
+
+* Footnotes
+
+[fn:1] Ratatui Tutorials, [[https://ratatui.rs/tutorials/hello-ratatui/][Hello Ratatui]]
+
+[fn:2] ~ratatui~ docs.rs, [[https://docs.rs/ratatui/latest/ratatui/widgets/trait.Widget.html][Trait Widget]]
