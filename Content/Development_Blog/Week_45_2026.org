@@ -1,0 +1,34 @@
+#+TITLE: Week 45, 2026 (Nov 02 - Nov 08)
+
+* Implementing Delete
+
+Delete is the last functionality I would like to implement before I am comfortable making a 1.0 release.
+
+I identified a few difficulties:
+- Return to the original state (minus the deleted entry) after deletion.
+- Return to the original state if deletion is aborted.
+- Responsive layout with respect to window resizing.
+
+While I cannot put my feeling into words, I feel the current design cannot support the goal I want to achieve.
+
+For example, currently, on resize, the utility will go through an intermediate state ~GetCanvasSize~, which always transition to ~CalcNewLayout~ and ~Displaying~, which displays the treemaps. In reality, there are many states that need to react to a resize event. It would be incorrect to always transition to display.
+
+A solution now is to calculate the UI on every render, and store the layout as a global state. There are much more details to be ironed out. 
+
+* GitHub Action
+
+Friend suggested to supply pre-built binaries, so they won't need to compile the source code themselves. I want to do this properly with the Release feature and GitHub Action.
+
+The choice of using yaml as the language is strange and can be a bit unintuitive. I mostly got it working. The main challenge I had to resolve has to do with the permission when executing GitHub CLI. As it turns out, the GitHub CLI on [[https://docs.github.com/en/actions/concepts/runners/github-hosted-runners][runners]][fn:1] with default permission cannot see draft releases. It needs to be given the permission:
+#+begin_src yaml
+  permissions:
+    contents: write
+#+end_src
+
+* Hike Revive
+
+Hike is back on the table. 
+
+* Footnotes
+
+[fn:1] GitHub Docs, [[https://docs.github.com/en/actions/concepts/runners/github-hosted-runners][GitHub-hosted runners]] 

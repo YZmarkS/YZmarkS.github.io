@@ -1,4 +1,4 @@
-#+TITLE: Week 43, 2026 (Oct 26 - Nov 01)
+#+TITLE: Week 44, 2026 (Oct 26 - Nov 01)
 
 * Profiling and Optimization
 

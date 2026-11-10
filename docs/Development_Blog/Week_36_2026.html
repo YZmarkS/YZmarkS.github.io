@@ -199,9 +199,9 @@
 </div>
 <div id="content" class="content">
 <h1 class="title">Week 36, 2026 (Aug 31 - Sept 6)</h1>
-<div id="outline-container-org116e62b" class="outline-2">
-<h2 id="org116e62b">Refactoring to Record-based API</h2>
-<div class="outline-text-2" id="text-org116e62b">
+<div id="outline-container-orgf6bffbe" class="outline-2">
+<h2 id="orgf6bffbe">Refactoring to Record-based API</h2>
+<div class="outline-text-2" id="text-orgf6bffbe">
 <p>
 The refactor to record-based API is complete. The server is operational.
 </p>
@@ -224,9 +224,9 @@ In particular, <code>AsServerT</code> and <code>ServerT</code> refers to each ot
 </dl>
 </div>
 </div>
-<div id="outline-container-orgb547dff" class="outline-2">
-<h2 id="orgb547dff">Authentication and Permission</h2>
-<div class="outline-text-2" id="text-orgb547dff">
+<div id="outline-container-orga34ef79" class="outline-2">
+<h2 id="orga34ef79">Authentication and Permission</h2>
+<div class="outline-text-2" id="text-orga34ef79">
 <p>
 First, given my understanding, it seems authentication and permission are different concepts. Authentication first identifies the user. If the user can be identified, we can further check whether the user has permission to access a resource.
 </p>
@@ -256,9 +256,9 @@ Taking lesson from previous weeks, I have decided to make permission check funct
 </p>
 </div>
 </div>
-<div id="outline-container-org31e6030" class="outline-2">
-<h2 id="org31e6030">Refactoring to Improve Build Experience</h2>
-<div class="outline-text-2" id="text-org31e6030">
+<div id="outline-container-orgf786927" class="outline-2">
+<h2 id="orgf786927">Refactoring to Improve Build Experience</h2>
+<div class="outline-text-2" id="text-orgf786927">
 <p>
 I put the source code of each internal library into a separate directory. This fixed the old build issue where I had to repeat many modules in <code>other-modules</code>.
 </p>
@@ -272,13 +272,13 @@ I still need to understand how Cabal resolves dependency. It's something to lear
 </p>
 </div>
 </div>
-<div id="outline-container-org14436a9" class="outline-2">
-<h2 id="org14436a9">Learning About <code>persistent</code></h2>
-<div class="outline-text-2" id="text-org14436a9">
+<div id="outline-container-orgb35babe" class="outline-2">
+<h2 id="orgb35babe">Learning About <code>persistent</code></h2>
+<div class="outline-text-2" id="text-orgb35babe">
 </div>
-<div id="outline-container-orgea02bcf" class="outline-3">
-<h3 id="orgea02bcf">Setting</h3>
-<div class="outline-text-3" id="text-orgea02bcf">
+<div id="outline-container-org33aa499" class="outline-3">
+<h3 id="org33aa499">Setting</h3>
+<div class="outline-text-3" id="text-org33aa499">
 <p>
 It is possible that one endpoint call leads to multiple database updates. Consider the following example:
 </p>
@@ -295,9 +295,9 @@ To preserve a sense of consistency, it seems reasonable that these two operation
 </p>
 </div>
 </div>
-<div id="outline-container-org455794b" class="outline-3">
-<h3 id="org455794b"><code>persistent</code>'s Built-in Rollback and Logic</h3>
-<div class="outline-text-3" id="text-org455794b">
+<div id="outline-container-orgfd6bd2d" class="outline-3">
+<h3 id="orgfd6bd2d"><code>persistent</code>'s Built-in Rollback and Logic</h3>
+<div class="outline-text-3" id="text-orgfd6bd2d">
 <p>
 The <code>persistent</code> library guarantees when executing a database action, either the entire action succeed or an SQL error is raised and no modification happens. It would seem <code>persistent</code>'s already guarantees us the consistency we want.
 </p>
@@ -319,9 +319,9 @@ This means <code>insertUnique</code> will never raise an SQL error, and <code>pe
 </p>
 </div>
 </div>
-<div id="outline-container-org78435b0" class="outline-3">
-<h3 id="org78435b0">Solution: Explicit Raising Errors</h3>
-<div class="outline-text-3" id="text-org78435b0">
+<div id="outline-container-org2b4cd4e" class="outline-3">
+<h3 id="org2b4cd4e">Solution: Explicit Raising Errors</h3>
+<div class="outline-text-3" id="text-org2b4cd4e">
 <p>
 After discussion with colleagues, we solved the problem by using the implicite <code>fail</code> call with <code>do</code> notation:
 </p>
@@ -349,9 +349,9 @@ However, this also necessitated the use of a <code>catch</code> block to recover
 </div>
 </div>
 </div>
-<div id="outline-container-org3d1c1cc" class="outline-2">
-<h2 id="org3d1c1cc"><code>MaybeT</code></h2>
-<div class="outline-text-2" id="text-org3d1c1cc">
+<div id="outline-container-org8f90367" class="outline-2">
+<h2 id="org8f90367"><code>MaybeT</code></h2>
+<div class="outline-text-2" id="text-org8f90367">
 <p>
 Expanding on the previous header, we also attempted to use <code>MaybeT</code> to write cleaner code.
 </p>

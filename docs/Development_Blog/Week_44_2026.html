@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Week 43, 2026 (Oct 26 - Nov 01)</title>
+<title>Week 44, 2026 (Oct 26 - Nov 01)</title>
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
   #content { max-width: 60em; margin: auto; }
@@ -198,10 +198,10 @@
 <div id="main-header"><a href="/index.html">Home</a><a href="/Notes/index.html">Notes</a><a href="/Development_Blog/index.html">Development Blog</a></div>
 </div>
 <div id="content" class="content">
-<h1 class="title">Week 43, 2026 (Oct 26 - Nov 01)</h1>
-<div id="outline-container-org1ccc85d" class="outline-2">
-<h2 id="org1ccc85d">Profiling and Optimization</h2>
-<div class="outline-text-2" id="text-org1ccc85d">
+<h1 class="title">Week 44, 2026 (Oct 26 - Nov 01)</h1>
+<div id="outline-container-org1546b89" class="outline-2">
+<h2 id="org1546b89">Profiling and Optimization</h2>
+<div class="outline-text-2" id="text-org1546b89">
 <p>
 During the process of porting the utility to Rust, I implemented the algorithm for directory scanning twice. The first time is a proof of concept, the second time is to simplify the logic.
 </p>
@@ -238,9 +238,9 @@ In essense <code>populate_children()</code> traverses the file structure for a s
 To address the issue, I refactored the code such while the scanner threads scans a directory, it also populates the logical inode with its children. For now, this requires adding shared states between threads.
 </p>
 </div>
-<div id="outline-container-orga6bfd3c" class="outline-3">
-<h3 id="orga6bfd3c">Data</h3>
-<div class="outline-text-3" id="text-orga6bfd3c">
+<div id="outline-container-org107a12c" class="outline-3">
+<h3 id="org107a12c">Data</h3>
+<div class="outline-text-3" id="text-org107a12c">
 <p>
 I believe the performance boost is worth it.
 </p>
@@ -250,14 +250,14 @@ For a fixed directory, the old algorithm took 10s to complete the scan and the c
 </p>
 
 
-<div id="orgd8b64d4" class="figure">
+<div id="orgedf1822" class="figure">
 <p><img src="../assets/images/Unoptimized_Main_Thread.png" alt="Unoptimized_Main_Thread.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Before optimization.</p>
 </div>
 
 
-<div id="org7482417" class="figure">
+<div id="org47b3261" class="figure">
 <p><img src="../assets/images/Optimized_Main_Thread.png" alt="Optimized_Main_Thread.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Post optimization.</p>
